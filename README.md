@@ -33,4 +33,4 @@ Ericsson
 
 ## License
 
-C3Lib is available under the Apache license. See the LICENSE file for more info.
+C3Lib is available under the BSD-2 license. See the LICENSE file for more info.

@@ -8,16 +8,16 @@
 
 Pod::Spec.new do |s|
   s.name             = 'C3Lib'
-  s.version          = '1.0.0'
+  s.version          = '1.0.0-alpha1'
   s.summary          = 'Contextual Communication Toolbox Library'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+iOS SDK for building Ericsson Contextual Communication Cloud apps.
                        DESC
 
   s.homepage         = 'https://github.com/Ericsson/c3-ios-sdk'
-  s.license          = { :type => 'Apache', :file => 'LICENSE' }
-  s.author           = { 'Ericsson' => 'marcin.lukow@afconsult.com' }
+  s.license          = { :type => 'BSD-2', :file => 'LICENSE' }
+  s.author           = { 'Ericsson AB' => 'labs@ericsson.com' }
   s.source           = { :git => 'https://github.com/Ericsson/c3-ios-sdk.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'

@@ -475,7 +475,7 @@ SWIFT_CLASS("_TtC5C3Lib10C3AuthInfo")
   returns:
   Deserialized object or nil if if was deserialization failed.
 */
-+ (C3AuthInfo * _Nullable)fromJSON:(NSDictionary<NSString *, id> * _Nonnull)json;
++ (C3AuthInfo * _Nullable)fromRaw:(NSDictionary<NSString *, id> * _Nonnull)json;
 /**
   Serializes auth info object to its JSON representation.
   version:
@@ -484,7 +484,7 @@ SWIFT_CLASS("_TtC5C3Lib10C3AuthInfo")
   returns:
   JSON representation of the auth info object.
 */
-- (NSDictionary<NSString *, id> * _Nonnull)toJSON;
+- (NSDictionary<NSString *, id> * _Nonnull)toRaw;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
@@ -2454,6 +2454,334 @@ SWIFT_CLASS("_TtC5C3Lib15C3PeerMediaPipe")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label remoteLabel:(NSString * _Nullable)remoteLabel SWIFT_UNAVAILABLE;
 @end
 
+
+SWIFT_CLASS("_TtC5C3Lib22C3PowerLevelsContainer")
+@interface C3PowerLevelsContainer : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+/**
+  A class which provides a fluent API for modifying a power levels object. It cannot be instantiated directly and can only be created through the static factory methods as well as \code
+  C3Room#editPowerLevels()
+  \endcode.
+  Many methods are verbs, but they simply set the power level required to execute the matching action, with the exception of \code
+  commit()
+  \endcode.
+  No actual action is taken until the commit method is called. The commit method is only available if the instance was obtained from a \code
+  C3Room#editPowerLevels()
+  \endcode call. It is also possible to create an instance with one of the static factory methods and then pass the instance to \code
+  C3Room#setPowerLevels()
+  \endcode.
+  version:
+  1.0.0
+  <h1>Example</h1>
+  \code
+  room.editPowerLevels()
+      .kick(has: 60)
+      .addState(has: 0)
+      .user(promotedUser, has: 60)
+      .event("my.customer.event", has: 20)
+      .commit({
+          print("Power levels updated!)
+  })
+
+  room.setPowerLevels(
+      C3PowerLevelsEdit.fromDefault(client.user!),
+      success: { room in
+          print("Power levels reset")
+  })
+
+  \endcode*/
+SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
+@interface C3PowerLevelsEdit : C3PowerLevelsContainer
+/**
+  Commits the current state of the power levels edit by updating the power levels of the room to the current values. This method is only present if the instance was obtained via \code
+  C3Room#editPowerLevels()
+  \endcode.
+  <h1>Note</h1>
+  Power levels can no longer be edited after successful commit. In order to perform further changes, \code
+  C3Room#editPowerLevels()
+  \endcode has to be called again.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly, copy) void (^ _Nullable commit)(void (^ _Nullable)(void), void (^ _Nullable)(NSError * _Nonnull));
+/**
+  Creates a new \code
+  C3PowerLevelsEdit
+  \endcode object with the default power levels.
+  The creator of the room can optionally be specified, in which case the creators power level will be set to the default power level of the creator.
+  version:
+  1.0.0
+  \param creator An optional creator of the room.
+
+
+  returns:
+  New instance of \code
+  C3PowerLevelEdit
+  \endcode.
+*/
++ (C3PowerLevelsEdit * _Nonnull)fromDefaultFor:(C3User * _Nullable)creator;
+/**
+  Creates a new \code
+  C3PowerLevelsEdit
+  \endcode object with all power levels set to 0.
+  version:
+  1.0.0
+
+  returns:
+  New instance of \code
+  C3PowerLevelEdit
+  \endcode.
+*/
++ (C3PowerLevelsEdit * _Nonnull)fromZero;
+/**
+  Sets the power level required to add a new state to the room.
+  version:
+  1.0.0
+  \param level The new power level requirement.
+
+
+  returns:
+  Current instance of \code
+  C3PowerLevelEdit
+  \endcode.
+*/
+- (C3PowerLevelsEdit * _Nonnull)addStateWithHas:(NSInteger)level;
+/**
+  Sets the power level required to send an event of a specific type or set a state of the same type.
+  version:
+  1.0.0
+  \param level The new power level requirement.
+
+
+  returns:
+  Current instance of \code
+  C3PowerLevelEdit
+  \endcode.
+*/
+- (C3PowerLevelsEdit * _Nonnull)eventWith:(NSString * _Nonnull)eventType has:(NSInteger)level;
+/**
+  Sets the default power level for all event types in the room. If a specific power level hasn’t been set for an event type this value will be used.
+  version:
+  1.0.0
+  \param level The new power level requirement.
+
+
+  returns:
+  Current instance of \code
+  C3PowerLevelEdit
+  \endcode.
+*/
+- (C3PowerLevelsEdit * _Nonnull)eventDefaultWithIs:(NSInteger)level;
+/**
+  Sets the power level required to invite a user to the room.
+  version:
+  1.0.0
+  \param level The new power level requirement.
+
+
+  returns:
+  Current instance of \code
+  C3PowerLevelEdit
+  \endcode.
+*/
+- (C3PowerLevelsEdit * _Nonnull)inviteWithHas:(NSInteger)level;
+/**
+  Sets the power level required to kick a user from the room.
+  version:
+  1.0.0
+  \param level The new power level requirement.
+
+
+  returns:
+  Current instance of \code
+  C3PowerLevelEdit
+  \endcode.
+*/
+- (C3PowerLevelsEdit * _Nonnull)kickWithHas:(NSInteger)level;
+/**
+  Sets the power level required to redact and event in the room.
+  version:
+  1.0.0
+  \param level The new power level requirement.
+
+
+  returns:
+  Current instance of \code
+  C3PowerLevelEdit
+  \endcode.
+*/
+- (C3PowerLevelsEdit * _Nonnull)redactWithHas:(NSInteger)level;
+/**
+  Sets the power level required to change the name of a room.
+  version:
+  1.0.0
+  \param level The new power level requirement.
+
+
+  returns:
+  Current instance of \code
+  C3PowerLevelEdit
+  \endcode.
+*/
+- (C3PowerLevelsEdit * _Nonnull)setNameWithHas:(NSInteger)level;
+/**
+  Sets the power level required to change the power levels of a room.
+  version:
+  1.0.0
+  \param level The new power level requirement.
+
+
+  returns:
+  Current instance of \code
+  C3PowerLevelEdit
+  \endcode.
+*/
+- (C3PowerLevelsEdit * _Nonnull)setPowerLevelsWithHas:(NSInteger)level;
+/**
+  Sets the power level required to change the topic of a room.
+  version:
+  1.0.0
+  \param level The new power level requirement.
+
+
+  returns:
+  Current instance of \code
+  C3PowerLevelEdit
+  \endcode.
+*/
+- (C3PowerLevelsEdit * _Nonnull)setTopicWithHas:(NSInteger)level;
+/**
+  Sets the power level required to change the type of a room.
+  version:
+  1.0.0
+  \param level The new power level requirement.
+
+
+  returns:
+  Current instance of \code
+  C3PowerLevelEdit
+  \endcode.
+*/
+- (C3PowerLevelsEdit * _Nonnull)setTypeWithHas:(NSInteger)level;
+/**
+  Sets the power level of a user.
+  version:
+  1.0.0
+  \param user The user instance.
+
+  \param level The new power level requirement.
+
+
+  returns:
+  Current instance of \code
+  C3PowerLevelEdit
+  \endcode.
+*/
+- (C3PowerLevelsEdit * _Nonnull)user:(C3User * _Nonnull)user has:(NSInteger)level;
+/**
+  Sets the default power level for users in the room. If a specific power level hasn’t been set for a user this value will be used.
+  version:
+  1.0.0
+  \param level The new power level requirement.
+
+
+  returns:
+  Current instance of \code
+  C3PowerLevelEdit
+  \endcode.
+*/
+- (C3PowerLevelsEdit * _Nonnull)userDefaultWithIs:(NSInteger)level;
+@end
+
+@class NSNumber;
+
+/**
+  A class which provides convenience accessors for the internal representation of a power levels structure.
+  This will usually be accessed through \code
+  C3Room#powerLevels
+  \endcode.
+  version:
+  1.0.0
+*/
+SWIFT_CLASS("_TtC5C3Lib19C3PowerLevelsReader")
+@interface C3PowerLevelsReader : C3PowerLevelsContainer
+/**
+  The power level required to add a new state to a room.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly) NSInteger addState;
+/**
+  The default power level for events in the room.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly) NSInteger eventDefault;
+/**
+  An object where the key is an event type and the value is that event type’s required power level.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSNumber *> * _Nonnull events;
+/**
+  The power level required to invite a user to the room.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly) NSInteger invite;
+/**
+  The power level required to kick a user form the room.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly) NSInteger kick;
+/**
+  The power level required to redact an event from the room.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly) NSInteger redact;
+/**
+  The power level required to set the name of the room.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly) NSInteger setName;
+/**
+  The power level required to set the power levels in a room.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly) NSInteger setPowerLevels;
+/**
+  The power level required to set the topic of the room.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly) NSInteger setTopic;
+/**
+  The power level required to set the type of the room.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly) NSInteger setType;
+/**
+  The default power level for users in the room.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly) NSInteger userDefault;
+/**
+  An object where the key is a userId and the value is that user’s power level.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, NSNumber *> * _Nonnull users;
+@end
+
 enum C3RoomMembership : NSInteger;
 
 /**
@@ -2637,6 +2965,7 @@ SWIFT_CLASS("_TtC5C3Lib6C3Room")
   1.0.0
 */
 @property (nonatomic, readonly, copy) NSArray<C3User *> * _Nonnull otherMembers;
+@property (nonatomic, readonly, strong) C3PowerLevelsReader * _Nullable powerLevels;
 /**
   The current topic of the room.
   version:
@@ -2650,6 +2979,18 @@ SWIFT_CLASS("_TtC5C3Lib6C3Room")
 */
 @property (nonatomic, readonly, copy) NSArray<C3User *> * _Nonnull typing;
 /**
+  Invites a user to this room.
+  version:
+  1.0.0
+  \param user The user to invite.
+
+  \param success The callback to be executed upon successful invite. Receives room instance. Can be nil.
+
+  \param failure The callback to be executed upon failed invite. Receives failure cause. Can be nil.
+
+*/
+- (void)invite:(C3User * _Nonnull)user success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+/**
   Join this room.
   version:
   1.0.0
@@ -2659,6 +3000,18 @@ SWIFT_CLASS("_TtC5C3Lib6C3Room")
 
 */
 - (void)joinWithSuccess:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+/**
+  Kick a user from this room.
+  version:
+  1.0.0
+  \param user The user to kick.
+
+  \param success The callback to be executed upon successful kick. Receives room instance. Can be nil.
+
+  \param failure The callback to be executed upon failed kick. Receives failure cause. Can be nil.
+
+*/
+- (void)kick:(C3User * _Nonnull)user success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 /**
   Leave this room.
   version:
@@ -2714,29 +3067,37 @@ SWIFT_CLASS("_TtC5C3Lib6C3Room")
 */
 - (void)setAvatar:(NSString * _Nonnull)avatar success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 /**
-  Invites a user to this room.
+  Sets how guests are allowed to join the room. If set to ‘open’, guests are allowed to join the rule, although they are still subject to the join rule of the room. If set to \code
+  .closed
+  \endcode, guests are not allowed to join the room at all.
+  The default guest access rule is \code
+  .closed
+  \endcode.
   version:
   1.0.0
-  \param user The user to invite.
+  \param guestAccessRule The new guest access rule for this room.
 
-  \param success The callback to be executed upon successful invite. Receives room instance. Can be nil.
+  \param success The callback to be executed upon successful set. Receives room instance. Can be nil.
 
-  \param failure The callback to be executed upon failed invite. Receives failure cause. Can be nil.
+  \param failure The callback to be executed upon failed set. Receives failure cause. Can be nil.
 
 */
-- (void)invite:(C3User * _Nonnull)user success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+- (void)setGuestAccessRule:(enum C3GuestAccessRule)guestAccessRule success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 /**
-  Kick a user from this room.
+  Sets the history visibility of the room.
   version:
   1.0.0
-  \param user The user to kick.
+  <ul>
+    <li>
+      historyVisibility: The new history visibility of this room.
+    </li>
+  </ul>
+  \param success The callback to be executed upon successful set. Receives room instance. Can be nil.
 
-  \param success The callback to be executed upon successful kick. Receives room instance. Can be nil.
-
-  \param failure The callback to be executed upon failed kick. Receives failure cause. Can be nil.
+  \param failure The callback to be executed upon failed set. Receives failure cause. Can be nil.
 
 */
-- (void)kick:(C3User * _Nonnull)user success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+- (void)setHistoryVisibility:(enum C3HistoryVisibility)historyVisibility success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 /**
   Initiate a call in the room.
   version:
@@ -2784,7 +3145,31 @@ SWIFT_CLASS("_TtC5C3Lib6C3Room")
 
 */
 - (void)setJoinRule:(enum C3JoinRule)rule success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
-- (void)setGuestAccessRule:(enum C3GuestAccessRule)rule success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+/**
+  Start editing the power levels of this room using a \code
+  C3PowerLevelsEdit
+  \endcode.
+  version:
+  1.0.0
+
+  returns:
+  \code
+  C3PowerLevelsEdit
+  \endcode instance or nil if the user is a member of the room.
+*/
+- (C3PowerLevelsEdit * _Nullable)editPowerLevels;
+/**
+  Sets the entire power level state of the room to that of a power level container object.
+  version:
+  1.0.0
+  \param powerLevels A power level container.
+
+  \param success The callback to be executed upon successful set. Receives room instance. Can be nil.
+
+  \param failure The callback to be executed upon failed set. Receives failure cause. Can be nil.
+
+*/
+- (void)setPowerLevels:(C3PowerLevelsContainer * _Nonnull)powerLevels success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 - (void)close;
 @end
 

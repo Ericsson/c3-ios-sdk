@@ -118,6 +118,12 @@
                 <a href="Classes/C3PeerMediaPipe.html">C3PeerMediaPipe</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/C3PowerLevelsEdit.html">C3PowerLevelsEdit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/C3PowerLevelsReader.html">C3PowerLevelsReader</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/C3Room.html">C3Room</a>
               </li>
               <li class="nav-group-task">
@@ -255,6 +261,46 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3AttachData</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C5C3Lib19C3PowerLevelsReader"></a>
+                    <a name="//apple_ref/swift/Class/C3PowerLevelsReader" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5C3Lib19C3PowerLevelsReader">C3PowerLevelsReader</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A class which provides convenience accessors for the internal representation of a power levels structure.</p>
+
+<p>This will usually be accessed through <code>C3Room#powerLevels</code>.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                        <a href="Classes/C3PowerLevelsReader.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3PowerLevelsReader</span><span class="p">:</span> <span class="kt">C3PowerLevelsContainer</span></code></pre>
 
                         </div>
                       </div>
@@ -1355,6 +1401,65 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3Peer</span><span class="p">:</span> <span class="kt"><a href="Classes/C3MediaNode.html">C3MediaNode</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C5C3Lib17C3PowerLevelsEdit"></a>
+                    <a name="//apple_ref/swift/Class/C3PowerLevelsEdit" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5C3Lib17C3PowerLevelsEdit">C3PowerLevelsEdit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A class which provides a fluent API for modifying a power levels object. It cannot be instantiated directly and can only be created through the static factory methods as well as <code>C3Room#editPowerLevels()</code>.</p>
+
+<p>Many methods are verbs, but they simply set the power level required to execute the matching action, with the exception of <code>commit()</code>.</p>
+
+<p>No actual action is taken until the commit method is called. The commit method is only available if the instance was obtained from a <code>C3Room#editPowerLevels()</code> call. It is also possible to create an instance with one of the static factory methods and then pass the instance to <code>C3Room#setPowerLevels()</code>.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+<p><a href='#example' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='example'>Example</h1>
+<pre class="highlight plaintext"><code>room.editPowerLevels()
+    .kick(has: 60)
+    .addState(has: 0)
+    .user(promotedUser, has: 60)
+    .event(<q>my.customer.event</q>, has: 20)
+    .commit({
+        print(&quot;Power levels updated!)
+})</p>
+
+<p>room.setPowerLevels(
+    C3PowerLevelsEdit.fromDefault(client.user!),
+    success: { room in
+        print(<q>Power levels reset</q>)
+})
+</code></pre></p>
+
+                        <a href="Classes/C3PowerLevelsEdit.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3PowerLevelsEdit</span><span class="p">:</span> <span class="kt">C3PowerLevelsContainer</span></code></pre>
 
                         </div>
                       </div>
