@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>C3FileRef Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/C3FileRef" class="dashAnchor"></a>
+    <a title="C3FileRef Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">C3Lib Docs</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fwww%2Eericsson%2Ecom%2Fdocsets%2FC3Lib%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">C3Lib Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        C3FileRef Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/C3AccountData.html">C3AccountData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3AttachData.html">C3AttachData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3AttachPoint.html">C3AttachPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3Auth.html">C3Auth</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3AuthInfo.html">C3AuthInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3Call.html">C3Call</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3CallClosedInfo.html">C3CallClosedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3Client.html">C3Client</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3Component.html">C3Component</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3DataShare.html">C3DataShare</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3DataUpdate.html">C3DataUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3DeviceSource.html">C3DeviceSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3Event.html">C3Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3EventEmitter.html">C3EventEmitter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3FileRef.html">C3FileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3FileShare.html">C3FileShare</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3FileTransfer.html">C3FileTransfer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3IceServer.html">C3IceServer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3ImageResource.html">C3ImageResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3MediaFilter.html">C3MediaFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3MediaNode.html">C3MediaNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3MediaNodeInput.html">C3MediaNodeInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3MediaNodeOutput.html">C3MediaNodeOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3MediaSink.html">C3MediaSink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3MediaTee.html">C3MediaTee</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3MuteFilter.html">C3MuteFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3Passthrough.html">C3Passthrough</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3Peer.html">C3Peer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3PeerMediaPipe.html">C3PeerMediaPipe</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3Room.html">C3Room</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3StreamSink.html">C3StreamSink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3User.html">C3User</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/C3CallClosedReason.html">C3CallClosedReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/C3CallClosedSource.html">C3CallClosedSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/C3CameraPosition.html">C3CameraPosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/C3ClientConnectionState.html">C3ClientConnectionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/C3FileRefEndReason.html">C3FileRefEndReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/C3GuestAccessRule.html">C3GuestAccessRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/C3HistoryVisibility.html">C3HistoryVisibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/C3JoinRule.html">C3JoinRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/C3RoomMembership.html">C3RoomMembership</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/C3RoomVisibility.html">C3RoomVisibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/C3UserPresence.html">C3UserPresence</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>C3FileRef</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3FileRef</span><span class="p">:</span> <span class="kt"><a href="../Classes/C3EventEmitter.html">C3EventEmitter</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents a reference to a file, which resides either locally, or at some remote peer.</p>
+
+<p>If the file is available locally it can be accessed directly, otherwise it has to be downloaded first.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+<p><a href='#events' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='events'>Events</h1></p>
+
+<ul>
+<li><code>end</code>:       Emitted when the file download ends, both on success and failure. Receives <code><a href="../Enums/C3FileRefEndReason.html">C3FileRefEndReason</a></code> instance.</li>
+<li><code>error</code>:     Emitted when the file download ends before it is completed. Receives <code>Error</code> instance.</li>
+<li><code>load</code>:      Emitted when the file download is completed successfully. Receives <code>C3FileRef</code> instance.</li>
+<li><code>progress</code>:  Emitted each time the progress of the file download changes. Receives <code>Float</code> instance.</li>
+<li><code>transfer</code>:  Emitted each time a remote peer starts downloading the file. Receives <code><a href="../Classes/C3FileTransfer.html">C3FileTransfer</a></code> instance.</li>
+<li><code>transfers</code>: Emitted when the list of file transfers is changes. Receives <code>[C3FileTransfer]</code> instance.</li>
+</ul>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC5C3Lib9C3FileRef7isLocalSb"></a>
+                    <a name="//apple_ref/swift/Property/isLocal" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5C3Lib9C3FileRef7isLocalSb">isLocal</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>True if the file reference points to a local file, false otherwise.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">isLocal</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC5C3Lib9C3FileRef4nameSS"></a>
+                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5C3Lib9C3FileRef4nameSS">name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The name of the file.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC5C3Lib9C3FileRef8progressSf"></a>
+                    <a name="//apple_ref/swift/Property/progress" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5C3Lib9C3FileRef8progressSf">progress</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The progress of the file download in the range [0, 1].</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">fileprivate</span><span class="p">(</span><span class="k">set</span><span class="p">)</span> <span class="k">var</span> <span class="nv">progress</span><span class="p">:</span> <span class="kt">Float</span> <span class="o">=</span> <span class="mf">0.0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC5C3Lib9C3FileRef4sizeVs6UInt64"></a>
+                    <a name="//apple_ref/swift/Property/size" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5C3Lib9C3FileRef4sizeVs6UInt64">size</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The size of the file in bytes.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">UInt64</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC5C3Lib9C3FileRef4typeSS"></a>
+                    <a name="//apple_ref/swift/Property/type" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5C3Lib9C3FileRef4typeSS">type</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The mime type of the file.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC5C3Lib9C3FileRef9transfersGSaCS_14C3FileTransfer_"></a>
+                    <a name="//apple_ref/swift/Property/transfers" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5C3Lib9C3FileRef9transfersGSaCS_14C3FileTransfer_">transfers</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A list of ongoing transfers of the file to other peers.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">fileprivate</span><span class="p">(</span><span class="k">set</span><span class="p">)</span> <span class="k">var</span> <span class="nv">transfers</span> <span class="o">=</span> <span class="p">[</span><span class="kt"><a href="../Classes/C3FileTransfer.html">C3FileTransfer</a></span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC5C3Lib9C3FileRef4dataGSqV10Foundation4Data_"></a>
+                    <a name="//apple_ref/swift/Property/data" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5C3Lib9C3FileRef4dataGSqV10Foundation4Data_">data</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contents of the file or nil if the file is local.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">fileprivate</span><span class="p">(</span><span class="k">set</span><span class="p">)</span> <span class="k">var</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC5C3Lib9C3FileRef8fromPathFTSS4typeSS_GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/fromPath(_:type:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC5C3Lib9C3FileRef8fromPathFTSS4typeSS_GSqS0__">fromPath(_:type:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new file reference from a path.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">fromPath</span><span class="p">(</span>
+        <span class="n">_</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">C3FileRef</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>path</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The path of a file for which to create a reference.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The type of the file.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new file ref.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC5C3Lib9C3FileRef5abortFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/abort()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5C3Lib9C3FileRef5abortFT_T_">abort()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Aborts any ongoing file download. Has no effect if the file download is complete or hasn&rsquo;t started.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">abort</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC5C3Lib9C3FileRef5fetchFT7successGSqFS0_T__7failureGSqFPs5Error_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/fetch(success:failure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5C3Lib9C3FileRef5fetchFT7successGSqFS0_T__7failureGSqFPs5Error_T___T_">fetch(success:failure:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Downloads the file from a remote peer. If the file has already been downloaded or the reference points to a local file, the returned promise will be immediately resolved.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">fetch</span><span class="p">(</span>
+        <span class="nv">success</span><span class="p">:</span> <span class="kt">C3SuccessCallback</span><span class="o">&lt;</span><span class="kt">C3FileRef</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="nv">failure</span><span class="p">:</span> <span class="kt">C3FailureCallback</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon successful fetch. Receives fetched file reference instance. Can be nil.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon failed fetch. Receives failure cause. Can be nil.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Ericsson</a>. All rights reserved. (Last updated: 2016-11-21)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
