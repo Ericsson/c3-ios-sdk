@@ -18,11 +18,11 @@
 		</data>
 		<key>Modules/C3Lib.swiftmodule/i386.swiftdoc</key>
 		<data>
-		lFhRLIipRjXmYvbSQAITbwXHlO0=
+		ZRwQSLOp1aADlAMqWdrTXrJzxa4=
 		</data>
 		<key>Modules/C3Lib.swiftmodule/i386.swiftmodule</key>
 		<data>
-		bVZYajcoZ9TmOWS2tu/uMZaWyu8=
+		jdt/k7aZByawqb+89lKS7dnx2bE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -57,22 +57,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lFhRLIipRjXmYvbSQAITbwXHlO0=
+			ZRwQSLOp1aADlAMqWdrTXrJzxa4=
 			</data>
 			<key>hash2</key>
 			<data>
-			Fm8Ky8HW+eTuL1n5O+bPt+cFkkNCc1uDaNMk8EpsK94=
+			X7baw+Muh6++H80Ri2D6GmTlegtjrUiUBkQoUhR3d2g=
 			</data>
 		</dict>
 		<key>Modules/C3Lib.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			bVZYajcoZ9TmOWS2tu/uMZaWyu8=
+			jdt/k7aZByawqb+89lKS7dnx2bE=
 			</data>
 			<key>hash2</key>
 			<data>
-			SZP64t2DZ2TkVFrK6L9bIZ74iumtTd2enw5nvcMUxPQ=
+			7h4fSja9BhGDj2reTJ+a+ScA86EYpjvT7hsQ8ARswls=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

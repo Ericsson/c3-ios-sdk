@@ -1,7 +1,7 @@
 # Contextual Communication Toolbox Library
-[![Version](https://img.shields.io/cocoapods/v/c3-ios-sdk.svg?style=flat)](http://cocoapods.org/pods/c3-ios-sdk)
-[![License](https://img.shields.io/cocoapods/l/c3-ios-sdk.svg?style=flat)](http://cocoapods.org/pods/c3-ios-sdk)
-[![Platform](https://img.shields.io/cocoapods/p/c3-ios-sdk.svg?style=flat)](http://cocoapods.org/pods/c3-ios-sdk)
+[![Version](https://img.shields.io/cocoapods/v/C3Lib.svg?style=flat)](http://cocoapods.org/pods/C3Lib)
+[![License](https://img.shields.io/cocoapods/l/C3Lib.svg?style=flat)](http://cocoapods.org/pods/C3Lib)
+[![Platform](https://img.shields.io/cocoapods/p/C3Lib.svg?style=flat)](http://cocoapods.org/pods/C3Lib)
 
 ## Example
 

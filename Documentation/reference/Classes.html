@@ -274,46 +274,6 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C5C3Lib19C3PowerLevelsReader"></a>
-                    <a name="//apple_ref/swift/Class/C3PowerLevelsReader" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C5C3Lib19C3PowerLevelsReader">C3PowerLevelsReader</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>A class which provides convenience accessors for the internal representation of a power levels structure.</p>
-
-<p>This will usually be accessed through <code>C3Room#powerLevels</code>.</p>
-
-<div class="aside aside-version">
-    <p class="aside-title">Version</p>
-    1.0.0
-
-</div>
-
-                        <a href="Classes/C3PowerLevelsReader.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3PowerLevelsReader</span><span class="p">:</span> <span class="kt">C3PowerLevelsContainer</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
                     <a name="/s:C5C3Lib13C3AttachPoint"></a>
                     <a name="//apple_ref/swift/Class/C3AttachPoint" class="dashAnchor"></a>
                     <a class="token" href="#/s:C5C3Lib13C3AttachPoint">C3AttachPoint</a>
@@ -1414,6 +1374,48 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:C5C3Lib15C3PeerMediaPipe"></a>
+                    <a name="//apple_ref/swift/Class/C3PeerMediaPipe" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5C3Lib15C3PeerMediaPipe">C3PeerMediaPipe</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A simple component that allows a single media stream to be sent and received within a call. This component can only be used by calls, and will throw an error if attached to a conference.</p>
+
+<p>Media does not have to be sent both ways, i.e. the component will work even if none or just one of the peers are sending media.</p>
+
+<p>This component is usually not used directly, as it is used in the implementation of call&rsquo;s <code>#setLocalSource</code> and <code>#getRemoteSource</code>.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                        <a href="Classes/C3PeerMediaPipe.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3PeerMediaPipe</span><span class="p">:</span> <span class="kt"><a href="Classes/C3Component.html">C3Component</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:C5C3Lib17C3PowerLevelsEdit"></a>
                     <a name="//apple_ref/swift/Class/C3PowerLevelsEdit" class="dashAnchor"></a>
                     <a class="token" href="#/s:C5C3Lib17C3PowerLevelsEdit">C3PowerLevelsEdit</a>
@@ -1473,9 +1475,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:C5C3Lib15C3PeerMediaPipe"></a>
-                    <a name="//apple_ref/swift/Class/C3PeerMediaPipe" class="dashAnchor"></a>
-                    <a class="token" href="#/s:C5C3Lib15C3PeerMediaPipe">C3PeerMediaPipe</a>
+                    <a name="/s:C5C3Lib19C3PowerLevelsReader"></a>
+                    <a name="//apple_ref/swift/Class/C3PowerLevelsReader" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5C3Lib19C3PowerLevelsReader">C3PowerLevelsReader</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1483,11 +1485,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A simple component that allows a single media stream to be sent and received within a call. This component can only be used by calls, and will throw an error if attached to a conference.</p>
+                        <p>A class which provides convenience accessors for the internal representation of a power levels structure.</p>
 
-<p>Media does not have to be sent both ways, i.e. the component will work even if none or just one of the peers are sending media.</p>
-
-<p>This component is usually not used directly, as it is used in the implementation of call&rsquo;s <code>#setLocalSource</code> and <code>#getRemoteSource</code>.</p>
+<p>This will usually be accessed through <code>C3Room#powerLevels</code>.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -1495,13 +1495,13 @@
 
 </div>
 
-                        <a href="Classes/C3PeerMediaPipe.html" class="slightly-smaller">See more</a>
+                        <a href="Classes/C3PowerLevelsReader.html" class="slightly-smaller">See more</a>
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3PeerMediaPipe</span><span class="p">:</span> <span class="kt"><a href="Classes/C3Component.html">C3Component</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3PowerLevelsReader</span><span class="p">:</span> <span class="kt">C3PowerLevelsContainer</span></code></pre>
 
                         </div>
                       </div>

@@ -21,7 +21,7 @@ class MembersViewController: UITableViewController {
         
         room?.otherMembers.forEach { $0.on("presence", target: self, callback: #selector(self.onPresence(user:))) }
         
-        avatarGenerator = IGImageGenerator(imageProducer: IGGitHubIdenticon(), hashFunction: { IGJenkinsHashFromData($0!) })
+        avatarGenerator = IGImageGenerator(imageProducer: IGGitHubIdenticon(), hashFunction: { IGJenkinsHashFromData($0) })
     }
     
     override func willMove(toParentViewController parent: UIViewController?) {

@@ -23,7 +23,7 @@ class ChatViewController: JSQMessagesViewController {
         outgoingBubbleImageView = factory?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
         incomingBubbleImageView = factory?.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
         
-        avatarGenerator = IGImageGenerator(imageProducer: IGGitHubIdenticon(), hashFunction: { IGJenkinsHashFromData($0!) })
+        avatarGenerator = IGImageGenerator(imageProducer: IGGitHubIdenticon(), hashFunction: { IGJenkinsHashFromData($0) })
 
         room?.on("event:m.room.message", target: self, callback: #selector(handleRoomMessage))
         room?.on("typing", target: self, callback: #selector(handleTypingEvent))
