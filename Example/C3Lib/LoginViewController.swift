@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         if let json = UserDefaults.standard.dictionary(forKey: "authInfo") {
-            if let authInfo = C3AuthInfo.fromJSON(json) {
+            if let authInfo = C3AuthInfo.fromRaw(json) {
                 client = C3Client()
                 client?.auth(authInfo, success: { client in
                     print("Did restore session")
@@ -109,7 +109,7 @@ class LoginViewController: UIViewController {
     
     fileprivate func login() {
         C3Auth.login(as: usernameField!.text!, password: passwordField!.text!, serverUrl: serverField!.text!, success: { authInfo in
-            UserDefaults.standard.setValue(authInfo.toJSON(), forKey: "authInfo")
+            UserDefaults.standard.setValue(authInfo.toRaw(), forKey: "authInfo")
             UserDefaults.standard.synchronize()
             
             self.client = C3Client()

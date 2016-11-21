@@ -12,6 +12,7 @@
 		3D2BF09E1DA3AAFD00728890 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2BF09D1DA3AAFD00728890 /* MembersViewController.swift */; };
 		3D2BF0A01DA3AE3600728890 /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2BF09F1DA3AE3600728890 /* CallViewController.swift */; };
 		3DC6B89D1DC35627008381AB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6B89C1DC35627008381AB /* ChatViewController.swift */; };
+		3DE57A521DE34C1100D1C631 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE57A511DE34C1100D1C631 /* TableViewCell.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
@@ -38,6 +39,7 @@
 		3D2BF09D1DA3AAFD00728890 /* MembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
 		3D2BF09F1DA3AE3600728890 /* CallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
 		3DC6B89C1DC35627008381AB /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		3DE57A511DE34C1100D1C631 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* C3Lib Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C3Lib Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,11 +82,12 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
-				3D268ABE1DA38EBC007805B7 /* LoginViewController.swift */,
-				3D2BF09B1DA3A53F00728890 /* RoomsViewController.swift */,
-				3D2BF09D1DA3AAFD00728890 /* MembersViewController.swift */,
 				3D2BF09F1DA3AE3600728890 /* CallViewController.swift */,
 				3DC6B89C1DC35627008381AB /* ChatViewController.swift */,
+				3D268ABE1DA38EBC007805B7 /* LoginViewController.swift */,
+				3D2BF09D1DA3AAFD00728890 /* MembersViewController.swift */,
+				3D2BF09B1DA3A53F00728890 /* RoomsViewController.swift */,
+				3DE57A511DE34C1100D1C631 /* TableViewCell.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -195,6 +198,7 @@
 				3D2BF09E1DA3AAFD00728890 /* MembersViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				3DC6B89D1DC35627008381AB /* ChatViewController.swift in Sources */,
+				3DE57A521DE34C1100D1C631 /* TableViewCell.swift in Sources */,
 				3D2BF09C1DA3A53F00728890 /* RoomsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

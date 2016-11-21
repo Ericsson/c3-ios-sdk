@@ -22,12 +22,6 @@ class MembersViewController: UITableViewController {
         room?.otherMembers.forEach { $0.on("presence", target: self, callback: #selector(self.onPresence(user:))) }
         
         avatarGenerator = IGImageGenerator(imageProducer: IGGitHubIdenticon(), hashFunction: { IGJenkinsHashFromData($0!) })
-        
-        room?.setJoinRule(.open, success: { _ in
-            print("Did set invite rule")
-        }, failure: { error in
-            print("Did fail to set join rule: \(error.localizedDescription)")
-        })
     }
     
     override func willMove(toParentViewController parent: UIViewController?) {
@@ -67,6 +61,7 @@ extension MembersViewController {
         } else {
             cell.imageView?.image = avatarGenerator?.image(from: member.name, size: CGSize(width: 80.0, height: 80.0))
         }
+        cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.clipsToBounds = true
         cell.imageView?.backgroundColor = UIColor(red: 0.84, green: 0.84, blue: 0.84, alpha: 1.0)
         cell.imageView?.layer.cornerRadius = 40.0

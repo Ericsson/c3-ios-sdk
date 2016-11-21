@@ -92,7 +92,7 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     private func loadEvents() {
-        room?.load(count: UInt.max, chunkSize: 100, filterFunction: { $0.type == "m.room.message" }, success: { events in
+        room?.load(count: 100, chunkSize: 10, filterFunction: { $0.type == "m.room.message" }, success: { events in
             print("Did receive \(events.count) events")
             events.forEach {
                 if $0.type != "m.room.message" {
