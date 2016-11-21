@@ -25,7 +25,7 @@ In order to be able to use the C3Lib framework, you will need to have access to 
 
 ## Usage
 
-C3Lib framework comes with an introductory document which guides you through the basic use cases. You will find it [here](Documentation/introduction.md).
+C3Lib framework comes with an introductory document which guides you through the basic use cases. You will find it [here](Documentation/).
 
 ## Author
 
