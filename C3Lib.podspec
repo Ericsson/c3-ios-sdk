@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'C3Lib'
-  s.version          = '1.0.0-alpha1'
+  s.version          = '0.0.1'
   s.summary          = 'Contextual Communication Toolbox Library'
 
   s.description      = <<-DESC

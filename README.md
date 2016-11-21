@@ -1,4 +1,4 @@
-# C3Lib                                                                                                        
+# Contextual Communication Toolbox Library
 [![Version](https://img.shields.io/cocoapods/v/c3-ios-sdk.svg?style=flat)](http://cocoapods.org/pods/c3-ios-sdk)
 [![License](https://img.shields.io/cocoapods/l/c3-ios-sdk.svg?style=flat)](http://cocoapods.org/pods/c3-ios-sdk)
 [![Platform](https://img.shields.io/cocoapods/p/c3-ios-sdk.svg?style=flat)](http://cocoapods.org/pods/c3-ios-sdk)
@@ -29,7 +29,7 @@ C3Lib framework comes with an introductory document which guides you through the
 
 ## Author
 
-Ericsson
+Ericsson AB
 
 ## License
 
