@@ -1,7 +1,9 @@
-# Contextual Communication Toolbox Library
+# Ericsson Contextual Communication Cloud iOS SDK
 [![Version](https://img.shields.io/cocoapods/v/C3Lib.svg?style=flat)](http://cocoapods.org/pods/C3Lib)
 [![License](https://img.shields.io/cocoapods/l/C3Lib.svg?style=flat)](http://cocoapods.org/pods/C3Lib)
 [![Platform](https://img.shields.io/cocoapods/p/C3Lib.svg?style=flat)](http://cocoapods.org/pods/C3Lib)
+
+If you have questions about Ericsson Contextual Communication Cloud, feel free to reach out at https://discuss.c3.ericsson.net/
 
 ## Example
 
@@ -26,6 +28,38 @@ In order to be able to use the C3Lib framework, you will need to have access to 
 ## Usage
 
 C3Lib framework comes with an introductory document which guides you through the basic use cases. You will find it [here](Documentation/).
+
+The `C3Client` is the starting point for every application, and manages state and connection to a server.
+
+```swift
+let client = C3Client()
+```
+
+A client is authenticated using a `C3AuthInfo` object, which can be acquired in different ways. The `C3Auth` class contains some static methods with common authentication methods. Let's start by logging on to a user that was previously registered using `C3Auth.register()`.
+
+```swift
+C3Auth.login(as: "foo",
+             password:  "password123",
+             serverUrl: "https://example.com",
+             success: { authInfo in
+    client.auth(authInfo, success: { client in
+        print("Authenticated with user id: \(client.user!.id)")
+    }, failure: { error in
+        print("Failed to authenticate user: \(error.localizedDescription)")
+    })
+}, failure: { error in
+    print("Failed to authenticate user: \(error.localizedDescription)")
+})
+```
+
+Once authenticated, we can change our display name and status.
+
+```swift
+client.setName("Test User", success: { client in
+    client.setStatus("Ready to roll", ...)
+})
+```
+Check out the full documentation [here](Documentation/).
 
 ## Author
 
