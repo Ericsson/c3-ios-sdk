@@ -128,6 +128,9 @@
                 <a href="../Classes/C3Room.html">C3Room</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/C3RoomState.html">C3RoomState</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/C3StreamSink.html">C3StreamSink</a>
               </li>
               <li class="nav-group-task">
@@ -191,7 +194,7 @@
 
 <p>Components that are attached will be able to interact with other remote components, as long as the components are compatible. An example is two users in a call that both attach a data share component to the same point. The two data shares will then synchronize data, as long as the calls are connected.</p>
 
-<p>The purpose of the <code>label</code> and <code>remoteLabel</code> configuration is to make sure that components are compatible before connecting. A component is compatible with another component if the label is equal to the remote label, or match in the case where the remote label is a regular expression. If components are not compatible they will not be connected, so the peer will not show up in the attach point&rsquo;s <code>#peers</code> collection.</p>
+<p>The purpose of the <code><a href="../Classes/C3Component.html#/s:vC5C3Lib11C3Component5labelSS">C3Component.label</a></code> and <code><a href="../Classes/C3Component.html#/s:vC5C3Lib11C3Component11remoteLabelGSqSS_">C3Component.remoteLabel</a></code> configuration is to make sure that components are compatible before connecting. A component is compatible with another component if the label is equal to the remote label, or match in the case where the remote label is a regular expression. If components are not compatible they will not be connected, so the peer will not show up in the <code><a href="../Classes/C3AttachPoint.html#/s:vC5C3Lib13C3AttachPoint5peersGVs10DictionarySSCS_6C3Peer_">C3AttachPoint.peers</a></code> collection.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -388,11 +391,11 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This method is called whenever a peer is added to the <code>peers</code> collection of the attach point.</p>
+                        <p>This method is called whenever a peer is added to the <code><a href="../Classes/C3AttachPoint.html#/s:vC5C3Lib13C3AttachPoint5peersGVs10DictionarySSCS_6C3Peer_">C3AttachPoint.peers</a></code> collection of the attach point.</p>
 
 <p>Only peers to who we have an active connection and who have mounted a matching component will be visible.</p>
 
-<p>This method will always be followed by a call to <code>#lostPeer</code> for the given peer. It will also only ever be called while the component is attached.</p>
+<p>This method will always be followed by a call to <code><a href="../Classes/C3Component.html#/s:FC5C3Lib11C3Component8lostPeerFCS_6C3PeerT_">C3Component.lostPeer(_:)</a></code> for the given peer. It will also only ever be called while the component is attached.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -445,11 +448,11 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This method is called whenever a peer is removed from the <code>peers</code> collection of the attach point.</p>
+                        <p>This method is called whenever a peer is removed from the <code><a href="../Classes/C3AttachPoint.html#/s:vC5C3Lib13C3AttachPoint5peersGVs10DictionarySSCS_6C3Peer_">C3AttachPoint.peers</a></code> collection of the attach point.</p>
 
 <p>This will happen when the connection to a peer is lost, the peer detaches their component, or when the local component is detached.</p>
 
-<p>This method will always preceeded by a call to <code>#receivedPeer</code> for the given peer. It will also only ever be called while the component is attached.</p>
+<p>This method will always preceeded by a call to <code><a href="../Classes/C3Component.html#/s:FC5C3Lib11C3Component12receivedPeerFCS_6C3PeerT_">C3Component.receivedPeer(_:)</a></code> for the given peer. It will also only ever be called while the component is attached.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -504,9 +507,9 @@
                       <div class="abstract">
                         <p>This method is called whenever a peer opens a data channel. The channel will be ready to use as soon as this method is called.</p>
 
-<p>When this method is called the channel will already have been added to the collection returned by peer&rsquo;s <code>#remoteChannels</code> property.</p>
+<p>When this method is called the channel will already have been added to the collection returned by <code>C3Peer.remoteChannels</code> property.</p>
 
-<p>This method will only be called for active peers, which means that it is always happens after the <code>#receivedPeer</code> call for a peer, and before <code>#lostPeer</code>. It will also only ever be called while the component is attached.</p>
+<p>This method will only be called for active peers, which means that it is always happens after the <code><a href="../Classes/C3Component.html#/s:FC5C3Lib11C3Component12receivedPeerFCS_6C3PeerT_">C3Component.receivedPeer(_:)</a></code> call for a peer, and before <code><a href="../Classes/C3Component.html#/s:FC5C3Lib11C3Component8lostPeerFCS_6C3PeerT_">C3Component.lostPeer(_:)</a></code>. It will also only ever be called while the component is attached.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -574,11 +577,11 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A overridable method that is called when the component is about to be attached to something. When this method is called, <code>#attachPoint</code> will not yet have been set, but the attachment point can be accessed through the parameter.</p>
+                        <p>A overridable method that is called when the component is about to be attached to something. When this method is called, <code><a href="../Classes/C3Component.html#/s:vC5C3Lib11C3Component11attachPointGSqCS_13C3AttachPoint_">C3Component.attachPoint</a></code> will not yet have been set, but the attachment point can be accessed through the parameter.</p>
 
 <p>If this method throws an error, the component will fail to attach. The error will be caught and handled by logging an error, but the program flow will continue.</p>
 
-<p>This method will always the followed by a call to <code>#willDetach</code>.</p>
+<p>This method will always the followed by a call to <code><a href="../Classes/C3Component.html#/s:FC5C3Lib11C3Component10willDetachFT_T_">C3Component.willDetach()</a></code>.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -633,7 +636,7 @@
                       <div class="abstract">
                         <p>Called before the component is detached. Once this method has returned the attachPoint will no longer be valid, and any attempt to call a method on the attach point will throw an error.</p>
 
-<p>This method will always the preceeded by a call to <code>#willAttach</code>.</p>
+<p>This method will always the preceeded by a call to <code><a href="../Classes/C3Component.html#/s:FC5C3Lib11C3Component10willAttachFCS_13C3AttachPointT_">C3Component.willAttach(_:)</a></code>.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -668,7 +671,7 @@
                       <div class="abstract">
                         <p>This method is called whenever an update to this component&rsquo;s data occurs.</p>
 
-<p>This method will only be called for active peers, which means that it is always happens after the <code>#receivedPeer</code> call for a peer, and before <code>#lostPeer</code>. It will also only ever be called while the component is attached.</p>
+<p>This method will only be called for active peers, which means that it is always happens after the <code><a href="../Classes/C3Component.html#/s:FC5C3Lib11C3Component12receivedPeerFCS_6C3PeerT_">C3Component.receivedPeer(_:)</a></code> call for a peer, and before <code><a href="../Classes/C3Component.html#/s:FC5C3Lib11C3Component8lostPeerFCS_6C3PeerT_">C3Component.lostPeer(_:)</a></code>. It will also only ever be called while the component is attached.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -713,7 +716,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Ericsson</a>. All rights reserved. (Last updated: 2016-11-21)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Ericsson AB</a>. All rights reserved. (Last updated: 2016-11-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

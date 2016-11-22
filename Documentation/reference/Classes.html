@@ -127,6 +127,9 @@
                 <a href="Classes/C3Room.html">C3Room</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/C3RoomState.html">C3RoomState</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/C3StreamSink.html">C3StreamSink</a>
               </li>
               <li class="nav-group-task">
@@ -199,7 +202,7 @@
                       <div class="abstract">
                         <p>Represents account data that is persistent and unique to each client. It is synchronized between all clients of the same user, and can be used for e.g. settings or unread notifications.</p>
 
-<p>Account data can be scoped either to the user or to a room. It is accessed through client&rsquo;s <code>accountData</code> and room&rsquo;s <code>accountData</code>.</p>
+<p>Account data can be scoped either to the user or to a room. It is accessed through <code><a href="Classes/C3Client.html#/s:vC5C3Lib8C3Client11accountDataGSqCS_13C3AccountData_">C3Client.accountData</a></code> and <code><a href="Classes/C3Room.html#/s:vC5C3Lib6C3Room11accountDataGSqCS_13C3AccountData_">C3Room.accountData</a></code>.</p>
 
 <p>Each account data is a key-value pair store that emits events when values are changed.</p>
 
@@ -540,7 +543,7 @@
 
 <p>Components that are attached will be able to interact with other remote components, as long as the components are compatible. An example is two users in a call that both attach a data share component to the same point. The two data shares will then synchronize data, as long as the calls are connected.</p>
 
-<p>The purpose of the <code>label</code> and <code>remoteLabel</code> configuration is to make sure that components are compatible before connecting. A component is compatible with another component if the label is equal to the remote label, or match in the case where the remote label is a regular expression. If components are not compatible they will not be connected, so the peer will not show up in the attach point&rsquo;s <code>#peers</code> collection.</p>
+<p>The purpose of the <code><a href="Classes/C3Component.html#/s:vC5C3Lib11C3Component5labelSS">C3Component.label</a></code> and <code><a href="Classes/C3Component.html#/s:vC5C3Lib11C3Component11remoteLabelGSqSS_">C3Component.remoteLabel</a></code> configuration is to make sure that components are compatible before connecting. A component is compatible with another component if the label is equal to the remote label, or match in the case where the remote label is a regular expression. If components are not compatible they will not be connected, so the peer will not show up in the <code><a href="Classes/C3AttachPoint.html#/s:vC5C3Lib13C3AttachPoint5peersGVs10DictionarySSCS_6C3Peer_">C3AttachPoint.peers</a></code> collection.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -1005,7 +1008,7 @@
                       <div class="abstract">
                         <p>A base class for media nodes with a single input and a single output.</p>
 
-<p>The subclass should override the <code>onStream</code> method, and assign to <code>stream</code> to update the output stream.</p>
+<p>The subclass should override the <code><a href="Classes/C3MediaFilter.html#/s:FC5C3Lib13C3MediaFilter8onStreamFTGSqCSo14RTCMediaStream_GSqS1___T_">C3MediaFilter.onStream(_:_:)</a></code> method, and assign to <code><a href="Classes/C3MediaFilter.html#/s:vC5C3Lib13C3MediaFilter6streamGSqCSo14RTCMediaStream_">C3MediaFilter.stream</a></code> to update the output stream.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -1089,7 +1092,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A class which represents an input of a ’edia node. Outputs are connected to inputs in order to forward media streams.</p>
+                        <p>A class which represents an input of <code><a href="Classes/C3MediaNode.html">C3MediaNode</a></code>. Outputs are connected to inputs in order to forward media streams.</p>
 
 <p>This class should only be used within the implementation of media nodes. While it is possible to attach inputs to an existing media node, it should be avoided. Use an additional media node to implement the desired behaviour instead, such as a passthrough.</p>
 
@@ -1129,7 +1132,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A class which represents an output of a media node. Outputs are connected to inputs in order to forward media streams.</p>
+                        <p>A class which represents an output of <code><a href="Classes/C3MediaNode.html">C3MediaNode</a></code>. Outputs are connected to inputs in order to forward media streams.</p>
 
 <p>This class should only be used within the implementation of media nodes. While it is possible to attach outputs to an existing media node, it should be avoided. Use an additional media node to implement the desired behaviour instead, such as a passthrough.</p>
 
@@ -1293,7 +1296,7 @@
                       <div class="abstract">
                         <p>A simple identity filter that simply passes on the input stream.</p>
 
-<p>This node can e.g. be used to provide a separate output node in order to avoid losing internal connections in a node. The example below shows how a container node uses a passthrough element in order to avoid losing the connection between the filter and analyser if <code>disconnect()</code> is called on the output.</p>
+<p>This node can e.g. be used to provide a separate output node in order to avoid losing internal connections in a node. The example below shows how a container node uses a passthrough element in order to avoid losing the connection between the filter and analyser if <code><a href="Classes/C3MediaNode.html#/s:FC5C3Lib11C3MediaNode10disconnectFT4fromGSqPs9AnyObject___T_">C3MediaNode.disconnect(from:)</a></code> is called on the output.</p>
 
 <pre class="highlight plaintext"><code>                      ┌──────────┐
                     ┌─┤ Analyser │
@@ -1346,7 +1349,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This class provides a point of interaction with remote peers of an attached component. Peers are accessed either through attach point&rsquo;s <code>#peers</code>, or via the overridable methods of an attach point.</p>
+                        <p>This class provides a point of interaction with remote peers of an attached component. Peers are accessed either through <code><a href="Classes/C3AttachPoint.html#/s:vC5C3Lib13C3AttachPoint5peersGVs10DictionarySSCS_6C3Peer_">C3AttachPoint.peers</a></code>, or via the overridable methods of an attach point.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -1388,7 +1391,7 @@
 
 <p>Media does not have to be sent both ways, i.e. the component will work even if none or just one of the peers are sending media.</p>
 
-<p>This component is usually not used directly, as it is used in the implementation of call&rsquo;s <code>#setLocalSource</code> and <code>#getRemoteSource</code>.</p>
+<p>This component is usually not used directly, as it is used in the implementation of <code><a href="Classes/C3Call.html#/s:FC5C3Lib6C3Call14setLocalSourceFTCS_11C3MediaNode2asSS_T_">C3Call.setLocalSource(_:as:)</a></code> and <code><a href="Classes/C3Call.html#/s:FC5C3Lib6C3Call12remoteSourceFSSCS_10C3MediaTee">C3Call.remoteSource(_:)</a></code>.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -1426,11 +1429,11 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A class which provides a fluent API for modifying a power levels object. It cannot be instantiated directly and can only be created through the static factory methods as well as <code>C3Room#editPowerLevels()</code>.</p>
+                        <p>A class which provides a fluent API for modifying a power levels object. It cannot be instantiated directly and can only be created through the static factory methods as well as <code><a href="Classes/C3Room.html#/s:FC5C3Lib6C3Room15editPowerLevelsFT_GSqCS_17C3PowerLevelsEdit_">C3Room.editPowerLevels()</a></code>.</p>
 
-<p>Many methods are verbs, but they simply set the power level required to execute the matching action, with the exception of <code>commit()</code>.</p>
+<p>Many methods are verbs, but they simply set the power level required to execute the matching action, with the exception of <code><a href="Classes/C3PowerLevelsEdit.html#/s:vC5C3Lib17C3PowerLevelsEdit6commitGSqFTGSqFT_T__GSqFPs5Error_T___T__">C3PowerLevelsEdit.commit</a></code>.</p>
 
-<p>No actual action is taken until the commit method is called. The commit method is only available if the instance was obtained from a <code>C3Room#editPowerLevels()</code> call. It is also possible to create an instance with one of the static factory methods and then pass the instance to <code>C3Room#setPowerLevels()</code>.</p>
+<p>No actual action is taken until the <code><a href="Classes/C3PowerLevelsEdit.html#/s:vC5C3Lib17C3PowerLevelsEdit6commitGSqFTGSqFT_T__GSqFPs5Error_T___T__">C3PowerLevelsEdit.commit</a></code> method is called. The commit method is only available if the instance was obtained from a <code><a href="Classes/C3Room.html#/s:FC5C3Lib6C3Room15editPowerLevelsFT_GSqCS_17C3PowerLevelsEdit_">C3Room.editPowerLevels()</a></code> call. It is also possible to create an instance with one of the static factory methods and then pass the instance to <code><a href="Classes/C3Room.html#/s:FC5C3Lib6C3Room14setPowerLevelsFTCS_22C3PowerLevelsContainer7successGSqFS0_T__7failureGSqFPs5Error_T___T_">C3Room.setPowerLevels(_:success:failure:)</a></code>.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -1487,7 +1490,7 @@
                       <div class="abstract">
                         <p>A class which provides convenience accessors for the internal representation of a power levels structure.</p>
 
-<p>This will usually be accessed through <code>C3Room#powerLevels</code>.</p>
+<p>This will usually be accessed through <code><a href="Classes/C3Room.html#/s:vC5C3Lib6C3Room11powerLevelsGSqCS_19C3PowerLevelsReader_">C3Room.powerLevels</a></code>.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -1536,19 +1539,29 @@
 <p><a href='#events' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='events'>Events</h1></p>
 
 <ul>
-<li><code>event:&lt;type&gt;</code>:    Same as <code>event</code>, but listens to a specific event type. Receives <code><a href="Classes/C3Event.html">C3Event</a></code> instance.</li>
-<li><code>avatar</code>:          Emitted when the avatar of the room is changed. Receives <code><a href="Classes/C3ImageResource.html">C3ImageResource</a></code> instance or nil.</li>
-<li><code>call</code>:            Emitted when there is an incoming call to this room. Incoming calls are stopped and need to be started with call&rsquo;s <code>start()</code> before a connection is set up. Receives <code><a href="Classes/C3Call.html">C3Call</a></code> instance.</li>
-<li><code>event</code>:           Emitted when a new event is triggered in the room. Will not trigger when loading old events. Receives <code><a href="Classes/C3Event.html">C3Event</a></code> instance.</li>
-<li><code>events</code>:          Emitted when the list of events in the room change. This event does not have any parameters, the updated list of events can instead be accessed via the <code>events</code> property.</li>
-<li><code>guestAccessRule</code>: Emitted when the guest access rule of the room changes. Receives <code><a href="Enums/C3GuestAccessRule.html">C3GuestAccessRule</a></code> instance.</li>
-<li><code>joinRule</code>:        Emitted when the join rule of the room changes. Receives <code><a href="Enums/C3JoinRule.html">C3JoinRule</a></code> instance.</li>
-<li><code>members</code>:         Emitted when the members user collection is changed. This event does not have any parameters, the updated list of users can instead be accessed via the <code>members</code> property.</li>
-<li><code>membership</code>:      Emitted when the authenticated users membership of the room is changed. Receives <code><a href="Enums/C3RoomMembership.html">C3RoomMembership</a></code> instance.</li>
-<li><code>name</code>:            Emitted when the name of the room is changed. Receives the new name.</li>
-<li><code>otherMembers</code>:    Emitted when the <code>otherMembers</code> user collection is changed. This event does not have any parameters, the updated list of users can instead be accessed via the <code>otherMembers</code> property.</li>
-<li><code>topic</code>:           Emitted when the topic of the room is changed. Receives the new topic.</li>
-<li><code>typing</code>:          Emitted when the list of users who are currently typing is changed. This event does not have any parameters, the updated list of users can instead be accessed via the <code>typing</code> property.</li>
+<li><code>event:&lt;type&gt;</code>:      Same as <code>event</code>, but listens to a specific event type. Receives <code><a href="Classes/C3Event.html">C3Event</a></code> instance.</li>
+<li><code>alias</code>:             Emitted when the alias of the room changes.</li>
+<li><code>avatar</code>:            Emitted when the avatar of the room is changed. Receives <code><a href="Classes/C3ImageResource.html">C3ImageResource</a></code> instance or nil.</li>
+<li><code>call</code>:              Emitted when there is an incoming call to this room. Incoming calls are stopped and need to be started with <code><a href="Classes/C3Call.html#/s:FC5C3Lib6C3Call5startFT_T_">C3Call.start()</a></code> before a connection is set up. Receives <code><a href="Classes/C3Call.html">C3Call</a></code> instance.</li>
+<li><code>event</code>:             Emitted when a new event is triggered in the room. Will not trigger when loading old events. Receives <code><a href="Classes/C3Event.html">C3Event</a></code> instance.</li>
+<li><code>events</code>:            Emitted when the list of events in the room change. This event does not have any parameters, the updated list of events can instead be accessed via the <code><a href="Classes/C3Room.html#/s:vC5C3Lib6C3Room6eventsGSaCS_7C3Event_">C3Room.events</a></code> property.</li>
+<li><code>guestAccessRule</code>:   Emitted when the guest access rule of the room changes. Receives <code><a href="Enums/C3GuestAccessRule.html">C3GuestAccessRule</a></code> instance.</li>
+<li><code>historyVisibility</code>: Emitted when the history visibility of the room changes. Receives <code><a href="Enums/C3HistoryVisibility.html">C3HistoryVisibility</a></code> instance.</li>
+<li><code>invite</code>:            Emitted when a user is invited to the room. Receives the user that was invited.</li>
+<li><code>invited</code>:           Emitted when the invited user collection is changed. This event does not have any parameters, the updated list of users can instead be accessed via the <code><a href="Classes/C3Room.html#/s:vC5C3Lib6C3Room7invitedGSaCS_6C3User_">C3Room.invited</a></code>.</li>
+<li><code>join</code>:              Emitted when a user joins the room. Receives the user that joined.</li>
+<li><code>joinRule</code>:          Emitted when the join rule of the room changes. Receives <code><a href="Enums/C3JoinRule.html">C3JoinRule</a></code> instance.</li>
+<li><code>leave</code>:             Emitted when a user leaves the room. Receives the user.</li>
+<li><code>members</code>:           Emitted when the members user collection is changed. This event does not have any parameters, the updated list of users can instead be accessed via the <code><a href="Classes/C3Room.html#/s:vC5C3Lib6C3Room7membersGSaCS_6C3User_">C3Room.members</a></code> property.</li>
+<li><code>membership</code>:        Emitted when the authenticated users membership of the room is changed. Receives <code><a href="Enums/C3RoomMembership.html">C3RoomMembership</a></code> instance.</li>
+<li><code>name</code>:              Emitted when the name of the room is changed. Receives the new name.</li>
+<li><code><a href="Classes/C3Room.html#/s:vC5C3Lib6C3Room12otherMembersGSaCS_6C3User_">C3Room.otherMembers</a></code>:      Emitted when the <code><a href="Classes/C3Room.html#/s:vC5C3Lib6C3Room12otherMembersGSaCS_6C3User_">C3Room.otherMembers</a></code> user collection is changed. This event does not have any parameters, the updated list of users can instead be accessed via the <code><a href="Classes/C3Room.html#/s:vC5C3Lib6C3Room12otherMembersGSaCS_6C3User_">C3Room.otherMembers</a></code> property.</li>
+<li><code>powerLevels</code>:       Emitted when the power levels of the room change. Receives <code><a href="Classes/C3PowerLevelsReader.html">C3PowerLevelsReader</a></code> instance.</li>
+<li><code>state</code>:             Emitted when a state of the room is changed. Receives <code><a href="Classes/C3RoomState.html">C3RoomState</a></code> instance.</li>
+<li><code>topic</code>:             Emitted when the topic of the room is changed. Receives the new topic.</li>
+<li><code>type</code>:              Emitted when the type of the room is changed.</li>
+<li><code>typing</code>:            Emitted when the list of users who are currently typing is changed. This event does not have any parameters, the updated list of users can instead be accessed via the <code><a href="Classes/C3Room.html#/s:vC5C3Lib6C3Room6typingGSaCS_6C3User_">C3Room.typing</a></code> property.</li>
+<li><code>state:&lt;stateType&gt;</code>: Same as <code>C3Room.state</code>, but listens to a specific state type.</li>
 </ul>
 
                         <a href="Classes/C3Room.html" class="slightly-smaller">See more</a>
@@ -1558,6 +1571,48 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3Room</span><span class="p">:</span> <span class="kt"><a href="Classes/C3EventEmitter.html">C3EventEmitter</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C5C3Lib11C3RoomState"></a>
+                    <a name="//apple_ref/swift/Class/C3RoomState" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5C3Lib11C3RoomState">C3RoomState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents a state in a room identified by a state type, and synchronized between all clients.</p>
+
+<p>Each room state is a key-value pair store that emits events when values are changed.</p>
+
+<p>The room state also has a default value which can be accessed by omitting the key parameter to any of the methods. The default value is handy for simple states such as setting a hex color for the room.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                        <a href="Classes/C3RoomState.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3RoomState</span><span class="p">:</span> <span class="kt"><a href="Classes/C3EventEmitter.html">C3EventEmitter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1645,7 +1700,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Ericsson</a>. All rights reserved. (Last updated: 2016-11-21)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Ericsson AB</a>. All rights reserved. (Last updated: 2016-11-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

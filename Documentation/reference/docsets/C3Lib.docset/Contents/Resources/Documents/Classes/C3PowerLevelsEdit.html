@@ -128,6 +128,9 @@
                 <a href="../Classes/C3Room.html">C3Room</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/C3RoomState.html">C3RoomState</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/C3StreamSink.html">C3StreamSink</a>
               </li>
               <li class="nav-group-task">
@@ -185,11 +188,11 @@
 
                 </div>
               </div>
-            <p>A class which provides a fluent API for modifying a power levels object. It cannot be instantiated directly and can only be created through the static factory methods as well as <code>C3Room#editPowerLevels()</code>.</p>
+            <p>A class which provides a fluent API for modifying a power levels object. It cannot be instantiated directly and can only be created through the static factory methods as well as <code><a href="../Classes/C3Room.html#/s:FC5C3Lib6C3Room15editPowerLevelsFT_GSqCS_17C3PowerLevelsEdit_">C3Room.editPowerLevels()</a></code>.</p>
 
-<p>Many methods are verbs, but they simply set the power level required to execute the matching action, with the exception of <code>commit()</code>.</p>
+<p>Many methods are verbs, but they simply set the power level required to execute the matching action, with the exception of <code><a href="../Classes/C3PowerLevelsEdit.html#/s:vC5C3Lib17C3PowerLevelsEdit6commitGSqFTGSqFT_T__GSqFPs5Error_T___T__">C3PowerLevelsEdit.commit</a></code>.</p>
 
-<p>No actual action is taken until the commit method is called. The commit method is only available if the instance was obtained from a <code>C3Room#editPowerLevels()</code> call. It is also possible to create an instance with one of the static factory methods and then pass the instance to <code>C3Room#setPowerLevels()</code>.</p>
+<p>No actual action is taken until the <code><a href="../Classes/C3PowerLevelsEdit.html#/s:vC5C3Lib17C3PowerLevelsEdit6commitGSqFTGSqFT_T__GSqFPs5Error_T___T__">C3PowerLevelsEdit.commit</a></code> method is called. The commit method is only available if the instance was obtained from a <code><a href="../Classes/C3Room.html#/s:FC5C3Lib6C3Room15editPowerLevelsFT_GSqCS_17C3PowerLevelsEdit_">C3Room.editPowerLevels()</a></code> call. It is also possible to create an instance with one of the static factory methods and then pass the instance to <code><a href="../Classes/C3Room.html#/s:FC5C3Lib6C3Room14setPowerLevelsFTCS_22C3PowerLevelsContainer7successGSqFS0_T__7failureGSqFPs5Error_T___T_">C3Room.setPowerLevels(_:success:failure:)</a></code>.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -231,11 +234,11 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Commits the current state of the power levels edit by updating the power levels of the room to the current values. This method is only present if the instance was obtained via <code>C3Room#editPowerLevels()</code>.</p>
+                        <p>Commits the current state of the power levels edit by updating the power levels of the room to the current values. This method is only present if the instance was obtained via <code><a href="../Classes/C3Room.html#/s:FC5C3Lib6C3Room15editPowerLevelsFT_GSqCS_17C3PowerLevelsEdit_">C3Room.editPowerLevels()</a></code>.</p>
 
 <p><a href='#note' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='note'>Note</h1></p>
 
-<p>Power levels can no longer be edited after successful commit. In order to perform further changes, <code>C3Room#editPowerLevels()</code> has to be called again.</p>
+<p>Power levels can no longer be edited after successful commit. In order to perform further changes, <code><a href="../Classes/C3Room.html#/s:FC5C3Lib6C3Room15editPowerLevelsFT_GSqCS_17C3PowerLevelsEdit_">C3Room.editPowerLevels()</a></code> has to be called again.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -309,7 +312,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>New instance of <code>C3PowerLevelEdit</code>.</p>
+                        <p>New instance of <code>C3PowerLevelsEdit</code>.</p>
 
                       </div>
                     </section>
@@ -347,7 +350,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>New instance of <code>C3PowerLevelEdit</code>.</p>
+                        <p>New instance of <code>C3PowerLevelsEdit</code>.</p>
 
                       </div>
                     </section>
@@ -405,7 +408,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Current instance of <code>C3PowerLevelEdit</code>.</p>
+                        <p>Current instance of <code>C3PowerLevelsEdit</code>.</p>
 
                       </div>
                     </section>
@@ -463,7 +466,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Current instance of <code>C3PowerLevelEdit</code>.</p>
+                        <p>Current instance of <code>C3PowerLevelsEdit</code>.</p>
 
                       </div>
                     </section>
@@ -521,7 +524,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Current instance of <code>C3PowerLevelEdit</code>.</p>
+                        <p>Current instance of <code>C3PowerLevelsEdit</code>.</p>
 
                       </div>
                     </section>
@@ -579,7 +582,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Current instance of <code>C3PowerLevelEdit</code>.</p>
+                        <p>Current instance of <code>C3PowerLevelsEdit</code>.</p>
 
                       </div>
                     </section>
@@ -637,7 +640,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Current instance of <code>C3PowerLevelEdit</code>.</p>
+                        <p>Current instance of <code>C3PowerLevelsEdit</code>.</p>
 
                       </div>
                     </section>
@@ -695,7 +698,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Current instance of <code>C3PowerLevelEdit</code>.</p>
+                        <p>Current instance of <code>C3PowerLevelsEdit</code>.</p>
 
                       </div>
                     </section>
@@ -753,7 +756,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Current instance of <code>C3PowerLevelEdit</code>.</p>
+                        <p>Current instance of <code>C3PowerLevelsEdit</code>.</p>
 
                       </div>
                     </section>
@@ -811,7 +814,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Current instance of <code>C3PowerLevelEdit</code>.</p>
+                        <p>Current instance of <code>C3PowerLevelsEdit</code>.</p>
 
                       </div>
                     </section>
@@ -869,7 +872,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Current instance of <code>C3PowerLevelEdit</code>.</p>
+                        <p>Current instance of <code>C3PowerLevelsEdit</code>.</p>
 
                       </div>
                     </section>
@@ -927,7 +930,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Current instance of <code>C3PowerLevelEdit</code>.</p>
+                        <p>Current instance of <code>C3PowerLevelsEdit</code>.</p>
 
                       </div>
                     </section>
@@ -998,7 +1001,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Current instance of <code>C3PowerLevelEdit</code>.</p>
+                        <p>Current instance of <code>C3PowerLevelsEdit</code>.</p>
 
                       </div>
                     </section>
@@ -1056,7 +1059,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>Current instance of <code>C3PowerLevelEdit</code>.</p>
+                        <p>Current instance of <code>C3PowerLevelsEdit</code>.</p>
 
                       </div>
                     </section>
@@ -1067,7 +1070,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Ericsson</a>. All rights reserved. (Last updated: 2016-11-21)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Ericsson AB</a>. All rights reserved. (Last updated: 2016-11-22)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

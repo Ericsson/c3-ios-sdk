@@ -171,10 +171,10 @@ SWIFT_CLASS("_TtC5C3Lib14C3EventEmitter")
 
 /**
   Represents account data that is persistent and unique to each client. It is synchronized between all clients of the same user, and can be used for e.g. settings or unread notifications.
-  Account data can be scoped either to the user or to a room. It is accessed through client’s \code
-  accountData
-  \endcode and room’s \code
-  accountData
+  Account data can be scoped either to the user or to a room. It is accessed through \code
+  C3Client.accountData
+  \endcode and \code
+  C3Room.accountData
   \endcode.
   Each account data is a key-value pair store that emits events when values are changed.
   version:
@@ -283,8 +283,8 @@ SWIFT_CLASS("_TtC5C3Lib12C3AttachData")
 @property (nonatomic, readonly, copy) NSArray * _Nonnull values;
 /**
   Clears all the data in the map.
-  Clearing the map locally will not trigger component’s \code
-  #receivedDataUpdate
+  Clearing the map locally will not trigger \code
+  C3Component.receivedDataUpdate(_:)
   \endcode call, that only happens for remote updates.
   version:
   1.0.0
@@ -294,14 +294,14 @@ SWIFT_CLASS("_TtC5C3Lib12C3AttachData")
 - (void)clearWithOwnerId:(NSString * _Nullable)ownerId;
 /**
   Deletes an existing value of the corresponding key.
-  Deleting a local value will not trigger component’s \code
-  #receivedDataUpdate
+  Deleting a local value will not trigger \code
+  C3Component.receivedDataUpdate(_:)
   \endcode call, that only happens for remote updates.
   version:
   1.0.0
   <ul>
     <li>
-      ownerId: The owner id to use when deleting the value.
+      ownerId:       The owner id to use when deleting the value.
     </li>
   </ul>
   \param key The key to delete the value for.
@@ -332,10 +332,12 @@ SWIFT_CLASS("_TtC5C3Lib12C3AttachData")
 - (BOOL)has:(NSString * _Nonnull)key;
 /**
   Sets set value for the given key, along with an ownership id.
-  Setting the ownership allows data to be transparently overridden by users that are joining or rejoining the data synchronization network. Usually the ownerId will be set to the id of the user, but it can sometimes be useful to use other values, such as the role of the user, e.g. ‘moderator’.
+  Setting the ownership allows data to be transparently overridden by users that are joining or rejoining the data synchronization network. Usually the ownerId will be set to the id of the user, but it can sometimes be useful to use other values, such as the role of the user, e.g. \code
+  "moderator"
+  \endcode.
   Since values can be updated while a call is not connected, the values that are set when disconnected may be updated once you are connected with the rest of the users. When relaying some kind of state to other peers this can cause problems, as the updates that you sent out before a reconnect will cause an update to your local values. By tagging data with an owner id, it is possible to rejoin a data synchronization group and transparently update your exsting values with the new state, without causing a local update to trigger.
-  Setting a local value will not trigger component’s \code
-  #receivedDataUpdate
+  Setting a local value will not trigger \code
+  C3Component.receivedDataUpdate(_:)
   \endcode call, that only happens for remote updates.
   version:
   1.0.0
@@ -458,6 +460,10 @@ SWIFT_CLASS("_TtC5C3Lib6C3Auth")
 @end
 
 
+@interface C3Auth (SWIFT_EXTENSION(C3Lib))
+@end
+
+
 /**
   An object containing the necessary information to connect and authenticate to a server.
   version:
@@ -521,7 +527,9 @@ SWIFT_CLASS("_TtC5C3Lib6C3Call")
 @interface C3Call : C3EventEmitter
 /**
   The id of the call.
-  This is not guaranteed to be constant, as it can be changed due to negotiation conflicts. If the id is changed, an ’id event will be emitted.
+  This is not guaranteed to be constant, as it can be changed due to negotiation conflicts. If the id is changed, an \code
+  id
+  \endcode event will be emitted.
   version:
   1.0.0
 */
@@ -564,7 +572,9 @@ SWIFT_CLASS("_TtC5C3Lib6C3Call")
 - (void)setLocalSource:(C3MediaNode * _Nonnull)source as:(NSString * _Nonnull)name;
 /**
   Attaches a component to the call. If the peer attaches a compatible component to the same attachment point, the two components will be paired together.
-  A common use case is for two peers to each attach a data share to ‘data’. Once the call has connected, both peers will be able to use the attached data share to share data.
+  A common use case is for two peers to each attach a data share to \code
+  "data
+  \endcode”. Once the call has connected, both peers will be able to use the attached data share to share data.
   The attachment point name can be any string, although excessively long names should be avoided.
   This method can be called at any point during a call, but will have no effect if the call is closed.
   version:
@@ -594,7 +604,9 @@ SWIFT_CLASS("_TtC5C3Lib6C3Call")
 - (void)start;
 /**
   Stop the call without signalling to the peer. The peer will percieve this as if the connection was lost. If the connection to the peer is lost, the call will be stopped automatically.
-  When the call is stopped the connection to the peer will be lost, but all components will stay attached. This makes it possible to resume the call with the current state using #start.
+  When the call is stopped the connection to the peer will be lost, but all components will stay attached. This makes it possible to resume the call with the current state using \code
+  C3Call.start()
+  \endcode.
   version:
   1.0.0
 */
@@ -913,7 +925,9 @@ SWIFT_CLASS("_TtC5C3Lib8C3Client")
 - (C3Room * _Nullable)roomWithId:(NSString * _Nonnull)id;
 /**
   Retreive a room by id, and fail if it doesn’t exist.
-  If one can be certain that the room id points to a valid room, it is usually better to use Client#getRoom instead. This method should be used if the room id is received e.g. via user input, and it’s required to check if the room exists before trying to join it.
+  If one can be certain that the room id points to a valid room, it is usually better to use \code
+  C3Client.room(withId:)
+  \endcode instead. This method should be used if the room id is received e.g. via user input, and it’s required to check if the room exists before trying to join it.
   version:
   1.0.0
   \param id The id of the room.
@@ -939,7 +953,7 @@ SWIFT_CLASS("_TtC5C3Lib8C3Client")
 /**
   Set the avatar of the authenticated user.
   Typical usage is to first upload an image file using \code
-  #uploadMedia
+  C3Client.uploadMedia(_:ofType:success:failure:)
   \endcode, and then setting it as the avatar.
   There is no guarantee that client.user.avatar will be up to date if and when the returned promise is resolved. UI updates to reflect the new avatar should instead be triggered by the \code
   avatar
@@ -1051,11 +1065,11 @@ typedef SWIFT_ENUM(NSInteger, C3ClientConnectionState) {
   Subclasses have a number of lifecycle methods that can be overriden to implement actions during various parts of a call.
   Components that are attached will be able to interact with other remote components, as long as the components are compatible. An example is two users in a call that both attach a data share component to the same point. The two data shares will then synchronize data, as long as the calls are connected.
   The purpose of the \code
-  label
+  C3Component.label
   \endcode and \code
-  remoteLabel
-  \endcode configuration is to make sure that components are compatible before connecting. A component is compatible with another component if the label is equal to the remote label, or match in the case where the remote label is a regular expression. If components are not compatible they will not be connected, so the peer will not show up in the attach point’s \code
-  #peers
+  C3Component.remoteLabel
+  \endcode configuration is to make sure that components are compatible before connecting. A component is compatible with another component if the label is equal to the remote label, or match in the case where the remote label is a regular expression. If components are not compatible they will not be connected, so the peer will not show up in the \code
+  C3AttachPoint.peers
   \endcode collection.
   version:
   1.0.0
@@ -1095,11 +1109,11 @@ SWIFT_CLASS("_TtC5C3Lib11C3Component")
 - (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label remoteLabel:(NSString * _Nullable)remoteLabel OBJC_DESIGNATED_INITIALIZER;
 /**
   This method is called whenever a peer is added to the \code
-  peers
+  C3AttachPoint.peers
   \endcode collection of the attach point.
   Only peers to who we have an active connection and who have mounted a matching component will be visible.
   This method will always be followed by a call to \code
-  #lostPeer
+  C3Component.lostPeer(_:)
   \endcode for the given peer. It will also only ever be called while the component is attached.
   version:
   1.0.0
@@ -1109,11 +1123,11 @@ SWIFT_CLASS("_TtC5C3Lib11C3Component")
 - (void)receivedPeer:(C3Peer * _Nonnull)peer;
 /**
   This method is called whenever a peer is removed from the \code
-  peers
+  C3AttachPoint.peers
   \endcode collection of the attach point.
   This will happen when the connection to a peer is lost, the peer detaches their component, or when the local component is detached.
   This method will always preceeded by a call to \code
-  #receivedPeer
+  C3Component.receivedPeer(_:)
   \endcode for the given peer. It will also only ever be called while the component is attached.
   version:
   1.0.0
@@ -1123,13 +1137,13 @@ SWIFT_CLASS("_TtC5C3Lib11C3Component")
 - (void)lostPeer:(C3Peer * _Nonnull)peer;
 /**
   This method is called whenever a peer opens a data channel. The channel will be ready to use as soon as this method is called.
-  When this method is called the channel will already have been added to the collection returned by peer’s \code
-  #remoteChannels
+  When this method is called the channel will already have been added to the collection returned by \code
+  C3Peer.remoteChannels
   \endcode property.
   This method will only be called for active peers, which means that it is always happens after the \code
-  #receivedPeer
+  C3Component.receivedPeer(_:)
   \endcode call for a peer, and before \code
-  #lostPeer
+  C3Component.lostPeer(_:)
   \endcode. It will also only ever be called while the component is attached.
   version:
   1.0.0
@@ -1141,11 +1155,11 @@ SWIFT_CLASS("_TtC5C3Lib11C3Component")
 - (void)receivedChannel:(RTCDataChannel * _Nonnull)channel peer:(C3Peer * _Nonnull)peer;
 /**
   A overridable method that is called when the component is about to be attached to something. When this method is called, \code
-  #attachPoint
+  C3Component.attachPoint
   \endcode will not yet have been set, but the attachment point can be accessed through the parameter.
   If this method throws an error, the component will fail to attach. The error will be caught and handled by logging an error, but the program flow will continue.
   This method will always the followed by a call to \code
-  #willDetach
+  C3Component.willDetach()
   \endcode.
   version:
   1.0.0
@@ -1156,7 +1170,7 @@ SWIFT_CLASS("_TtC5C3Lib11C3Component")
 /**
   Called before the component is detached. Once this method has returned the attachPoint will no longer be valid, and any attempt to call a method on the attach point will throw an error.
   This method will always the preceeded by a call to \code
-  #willAttach
+  C3Component.willAttach(_:)
   \endcode.
   version:
   1.0.0
@@ -1165,9 +1179,9 @@ SWIFT_CLASS("_TtC5C3Lib11C3Component")
 /**
   This method is called whenever an update to this component’s data occurs.
   This method will only be called for active peers, which means that it is always happens after the \code
-  #receivedPeer
+  C3Component.receivedPeer(_:)
   \endcode call for a peer, and before \code
-  #lostPeer
+  C3Component.lostPeer(_:)
   \endcode. It will also only ever be called while the component is attached.
   version:
   1.0.0
@@ -1482,6 +1496,7 @@ SWIFT_CLASS("_TtC5C3Lib7C3Event")
   The timestamp indicating the date the event has been generated.
 */
 @property (nonatomic, readonly) NSTimeInterval timeInterval;
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
@@ -1990,9 +2005,9 @@ typedef SWIFT_ENUM(NSInteger, C3JoinRule) {
 /**
   A base class for media nodes with a single input and a single output.
   The subclass should override the \code
-  onStream
+  C3MediaFilter.onStream(_:_:)
   \endcode method, and assign to \code
-  stream
+  C3MediaFilter.stream
   \endcode to update the output stream.
   version:
   1.0.0
@@ -2032,7 +2047,7 @@ SWIFT_CLASS("_TtC5C3Lib13C3MediaFilter")
   oldStream
   \endcode will never be equal.
   The \code
-  onStream
+  C3MediaFilter.onStream(_:_:)
   \endcode method will not be called when the backing tracks of a stream is changed. If the subclass needs to be notified of track updates this has to be done manually using the media stream listeners.
   version:
   1.0.0
@@ -2052,7 +2067,9 @@ SWIFT_CLASS("_TtC5C3Lib13C3MediaFilter")
 
 
 /**
-  A class which represents an input of a ’edia node. Outputs are connected to inputs in order to forward media streams.
+  A class which represents an input of \code
+  C3MediaNode
+  \endcode. Outputs are connected to inputs in order to forward media streams.
   This class should only be used within the implementation of media nodes. While it is possible to attach inputs to an existing media node, it should be avoided. Use an additional media node to implement the desired behaviour instead, such as a passthrough.
   version:
   1.0.0
@@ -2125,7 +2142,9 @@ SWIFT_CLASS("_TtC5C3Lib16C3MediaNodeInput")
 
 
 /**
-  A class which represents an output of a media node. Outputs are connected to inputs in order to forward media streams.
+  A class which represents an output of \code
+  C3MediaNode
+  \endcode. Outputs are connected to inputs in order to forward media streams.
   This class should only be used within the implementation of media nodes. While it is possible to attach outputs to an existing media node, it should be avoided. Use an additional media node to implement the desired behaviour instead, such as a passthrough.
   version:
   1.0.0
@@ -2134,7 +2153,9 @@ SWIFT_CLASS("_TtC5C3Lib17C3MediaNodeOutput")
 @interface C3MediaNodeOutput : NSObject
 /**
   The name of this output. This is only meaningful for outputs that belong to media nodes with multiple outputs.
-  Any output that belong to one of the base media node implementations, such as MediaSource, will have the name \code
+  Any output that belong to one of the base media node implementations, such as \code
+  C3MediaSource
+  \endcode, will have the name \code
   default
   \endcode.
   version:
@@ -2253,7 +2274,7 @@ SWIFT_CLASS("_TtC5C3Lib11C3MediaSink")
   oldStream
   \endcode will never be equal.
   The \code
-  onStream
+  C3MediaSink.onStream(_:_:)
   \endcode method will not be called when the backing tracks of a stream is changed. If the subclass needs to be notified of track updates this has to be done manually using the media stream listeners.
   version:
   1.0.0
@@ -2325,7 +2346,7 @@ SWIFT_CLASS("_TtC5C3Lib12C3MuteFilter")
 /**
   A simple identity filter that simply passes on the input stream.
   This node can e.g. be used to provide a separate output node in order to avoid losing internal connections in a node. The example below shows how a container node uses a passthrough element in order to avoid losing the connection between the filter and analyser if \code
-  disconnect()
+  C3MediaNode.disconnect(from:)
   \endcode is called on the output.
   \code
                         ┌──────────┐
@@ -2366,8 +2387,8 @@ SWIFT_CLASS("_TtC5C3Lib13C3Passthrough")
 @class RTCDataChannelConfiguration;
 
 /**
-  This class provides a point of interaction with remote peers of an attached component. Peers are accessed either through attach point’s \code
-  #peers
+  This class provides a point of interaction with remote peers of an attached component. Peers are accessed either through \code
+  C3AttachPoint.peers
   \endcode, or via the overridable methods of an attach point.
   version:
   1.0.0
@@ -2420,10 +2441,10 @@ SWIFT_CLASS("_TtC5C3Lib6C3Peer")
 /**
   A simple component that allows a single media stream to be sent and received within a call. This component can only be used by calls, and will throw an error if attached to a conference.
   Media does not have to be sent both ways, i.e. the component will work even if none or just one of the peers are sending media.
-  This component is usually not used directly, as it is used in the implementation of call’s \code
-  #setLocalSource
+  This component is usually not used directly, as it is used in the implementation of \code
+  C3Call.setLocalSource(_:as:)
   \endcode and \code
-  #getRemoteSource
+  C3Call.remoteSource(_:)
   \endcode.
   version:
   1.0.0
@@ -2463,15 +2484,17 @@ SWIFT_CLASS("_TtC5C3Lib22C3PowerLevelsContainer")
 
 /**
   A class which provides a fluent API for modifying a power levels object. It cannot be instantiated directly and can only be created through the static factory methods as well as \code
-  C3Room#editPowerLevels()
+  C3Room.editPowerLevels()
   \endcode.
   Many methods are verbs, but they simply set the power level required to execute the matching action, with the exception of \code
-  commit()
+  C3PowerLevelsEdit.commit
   \endcode.
-  No actual action is taken until the commit method is called. The commit method is only available if the instance was obtained from a \code
-  C3Room#editPowerLevels()
+  No actual action is taken until the \code
+  C3PowerLevelsEdit.commit
+  \endcode method is called. The commit method is only available if the instance was obtained from a \code
+  C3Room.editPowerLevels()
   \endcode call. It is also possible to create an instance with one of the static factory methods and then pass the instance to \code
-  C3Room#setPowerLevels()
+  C3Room.setPowerLevels(_:success:failure:)
   \endcode.
   version:
   1.0.0
@@ -2497,11 +2520,11 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 @interface C3PowerLevelsEdit : C3PowerLevelsContainer
 /**
   Commits the current state of the power levels edit by updating the power levels of the room to the current values. This method is only present if the instance was obtained via \code
-  C3Room#editPowerLevels()
+  C3Room.editPowerLevels()
   \endcode.
   <h1>Note</h1>
   Power levels can no longer be edited after successful commit. In order to perform further changes, \code
-  C3Room#editPowerLevels()
+  C3Room.editPowerLevels()
   \endcode has to be called again.
   version:
   1.0.0
@@ -2519,7 +2542,7 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 
   returns:
   New instance of \code
-  C3PowerLevelEdit
+  C3PowerLevelsEdit
   \endcode.
 */
 + (C3PowerLevelsEdit * _Nonnull)fromDefaultFor:(C3User * _Nullable)creator;
@@ -2532,7 +2555,7 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 
   returns:
   New instance of \code
-  C3PowerLevelEdit
+  C3PowerLevelsEdit
   \endcode.
 */
 + (C3PowerLevelsEdit * _Nonnull)fromZero;
@@ -2545,7 +2568,7 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 
   returns:
   Current instance of \code
-  C3PowerLevelEdit
+  C3PowerLevelsEdit
   \endcode.
 */
 - (C3PowerLevelsEdit * _Nonnull)addStateWithHas:(NSInteger)level;
@@ -2558,7 +2581,7 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 
   returns:
   Current instance of \code
-  C3PowerLevelEdit
+  C3PowerLevelsEdit
   \endcode.
 */
 - (C3PowerLevelsEdit * _Nonnull)eventWith:(NSString * _Nonnull)eventType has:(NSInteger)level;
@@ -2571,7 +2594,7 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 
   returns:
   Current instance of \code
-  C3PowerLevelEdit
+  C3PowerLevelsEdit
   \endcode.
 */
 - (C3PowerLevelsEdit * _Nonnull)eventDefaultWithIs:(NSInteger)level;
@@ -2584,7 +2607,7 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 
   returns:
   Current instance of \code
-  C3PowerLevelEdit
+  C3PowerLevelsEdit
   \endcode.
 */
 - (C3PowerLevelsEdit * _Nonnull)inviteWithHas:(NSInteger)level;
@@ -2597,7 +2620,7 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 
   returns:
   Current instance of \code
-  C3PowerLevelEdit
+  C3PowerLevelsEdit
   \endcode.
 */
 - (C3PowerLevelsEdit * _Nonnull)kickWithHas:(NSInteger)level;
@@ -2610,7 +2633,7 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 
   returns:
   Current instance of \code
-  C3PowerLevelEdit
+  C3PowerLevelsEdit
   \endcode.
 */
 - (C3PowerLevelsEdit * _Nonnull)redactWithHas:(NSInteger)level;
@@ -2623,7 +2646,7 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 
   returns:
   Current instance of \code
-  C3PowerLevelEdit
+  C3PowerLevelsEdit
   \endcode.
 */
 - (C3PowerLevelsEdit * _Nonnull)setNameWithHas:(NSInteger)level;
@@ -2636,7 +2659,7 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 
   returns:
   Current instance of \code
-  C3PowerLevelEdit
+  C3PowerLevelsEdit
   \endcode.
 */
 - (C3PowerLevelsEdit * _Nonnull)setPowerLevelsWithHas:(NSInteger)level;
@@ -2649,7 +2672,7 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 
   returns:
   Current instance of \code
-  C3PowerLevelEdit
+  C3PowerLevelsEdit
   \endcode.
 */
 - (C3PowerLevelsEdit * _Nonnull)setTopicWithHas:(NSInteger)level;
@@ -2662,7 +2685,7 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 
   returns:
   Current instance of \code
-  C3PowerLevelEdit
+  C3PowerLevelsEdit
   \endcode.
 */
 - (C3PowerLevelsEdit * _Nonnull)setTypeWithHas:(NSInteger)level;
@@ -2677,7 +2700,7 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 
   returns:
   Current instance of \code
-  C3PowerLevelEdit
+  C3PowerLevelsEdit
   \endcode.
 */
 - (C3PowerLevelsEdit * _Nonnull)user:(C3User * _Nonnull)user has:(NSInteger)level;
@@ -2690,7 +2713,7 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 
   returns:
   Current instance of \code
-  C3PowerLevelEdit
+  C3PowerLevelsEdit
   \endcode.
 */
 - (C3PowerLevelsEdit * _Nonnull)userDefaultWithIs:(NSInteger)level;
@@ -2701,7 +2724,7 @@ SWIFT_CLASS("_TtC5C3Lib17C3PowerLevelsEdit")
 /**
   A class which provides convenience accessors for the internal representation of a power levels structure.
   This will usually be accessed through \code
-  C3Room#powerLevels
+  C3Room.powerLevels
   \endcode.
   version:
   1.0.0
@@ -2783,6 +2806,7 @@ SWIFT_CLASS("_TtC5C3Lib19C3PowerLevelsReader")
 @end
 
 enum C3RoomMembership : NSInteger;
+@class C3RoomState;
 
 /**
   A representation of a room that users join in order to communicate.
@@ -2793,7 +2817,7 @@ enum C3RoomMembership : NSInteger;
     <li>
       \code
       event:<type>
-      \endcode:    Same as \code
+      \endcode:      Same as \code
       event
       \endcode, but listens to a specific event type. Receives \code
       C3Event
@@ -2801,16 +2825,21 @@ enum C3RoomMembership : NSInteger;
     </li>
     <li>
       \code
+      alias
+      \endcode:             Emitted when the alias of the room changes.
+    </li>
+    <li>
+      \code
       avatar
-      \endcode:          Emitted when the avatar of the room is changed. Receives \code
+      \endcode:            Emitted when the avatar of the room is changed. Receives \code
       C3ImageResource
       \endcode instance or nil.
     </li>
     <li>
       \code
       call
-      \endcode:            Emitted when there is an incoming call to this room. Incoming calls are stopped and need to be started with call’s \code
-      start()
+      \endcode:              Emitted when there is an incoming call to this room. Incoming calls are stopped and need to be started with \code
+      C3Call.start()
       \endcode before a connection is set up. Receives \code
       C3Call
       \endcode instance.
@@ -2818,70 +2847,125 @@ enum C3RoomMembership : NSInteger;
     <li>
       \code
       event
-      \endcode:           Emitted when a new event is triggered in the room. Will not trigger when loading old events. Receives \code
+      \endcode:             Emitted when a new event is triggered in the room. Will not trigger when loading old events. Receives \code
       C3Event
       \endcode instance.
     </li>
     <li>
       \code
       events
-      \endcode:          Emitted when the list of events in the room change. This event does not have any parameters, the updated list of events can instead be accessed via the \code
-      events
+      \endcode:            Emitted when the list of events in the room change. This event does not have any parameters, the updated list of events can instead be accessed via the \code
+      C3Room.events
       \endcode property.
     </li>
     <li>
       \code
       guestAccessRule
-      \endcode: Emitted when the guest access rule of the room changes. Receives \code
+      \endcode:   Emitted when the guest access rule of the room changes. Receives \code
       C3GuestAccessRule
       \endcode instance.
     </li>
     <li>
       \code
+      historyVisibility
+      \endcode: Emitted when the history visibility of the room changes. Receives \code
+      C3HistoryVisibility
+      \endcode instance.
+    </li>
+    <li>
+      \code
+      invite
+      \endcode:            Emitted when a user is invited to the room. Receives the user that was invited.
+    </li>
+    <li>
+      \code
+      invited
+      \endcode:           Emitted when the invited user collection is changed. This event does not have any parameters, the updated list of users can instead be accessed via the \code
+      C3Room.invited
+      \endcode.
+    </li>
+    <li>
+      \code
+      join
+      \endcode:              Emitted when a user joins the room. Receives the user that joined.
+    </li>
+    <li>
+      \code
       joinRule
-      \endcode:        Emitted when the join rule of the room changes. Receives \code
+      \endcode:          Emitted when the join rule of the room changes. Receives \code
       C3JoinRule
       \endcode instance.
     </li>
     <li>
       \code
+      leave
+      \endcode:             Emitted when a user leaves the room. Receives the user.
+    </li>
+    <li>
+      \code
       members
-      \endcode:         Emitted when the members user collection is changed. This event does not have any parameters, the updated list of users can instead be accessed via the \code
-      members
+      \endcode:           Emitted when the members user collection is changed. This event does not have any parameters, the updated list of users can instead be accessed via the \code
+      C3Room.members
       \endcode property.
     </li>
     <li>
       \code
       membership
-      \endcode:      Emitted when the authenticated users membership of the room is changed. Receives \code
+      \endcode:        Emitted when the authenticated users membership of the room is changed. Receives \code
       C3RoomMembership
       \endcode instance.
     </li>
     <li>
       \code
       name
-      \endcode:            Emitted when the name of the room is changed. Receives the new name.
+      \endcode:              Emitted when the name of the room is changed. Receives the new name.
     </li>
     <li>
       \code
-      otherMembers
-      \endcode:    Emitted when the \code
-      otherMembers
+      C3Room.otherMembers
+      \endcode:      Emitted when the \code
+      C3Room.otherMembers
       \endcode user collection is changed. This event does not have any parameters, the updated list of users can instead be accessed via the \code
-      otherMembers
+      C3Room.otherMembers
       \endcode property.
+    </li>
+    <li>
+      \code
+      powerLevels
+      \endcode:       Emitted when the power levels of the room change. Receives \code
+      C3PowerLevelsReader
+      \endcode instance.
+    </li>
+    <li>
+      \code
+      state
+      \endcode:             Emitted when a state of the room is changed. Receives \code
+      C3RoomState
+      \endcode instance.
     </li>
     <li>
       \code
       topic
-      \endcode:           Emitted when the topic of the room is changed. Receives the new topic.
+      \endcode:             Emitted when the topic of the room is changed. Receives the new topic.
+    </li>
+    <li>
+      \code
+      type
+      \endcode:              Emitted when the type of the room is changed.
     </li>
     <li>
       \code
       typing
-      \endcode:          Emitted when the list of users who are currently typing is changed. This event does not have any parameters, the updated list of users can instead be accessed via the \code
-      typing
+      \endcode:            Emitted when the list of users who are currently typing is changed. This event does not have any parameters, the updated list of users can instead be accessed via the \code
+      C3Room.typing
       \endcode property.
+    </li>
+    <li>
+      \code
+      state:<stateType>
+      \endcode: Same as \code
+      C3Room.state
+      \endcode, but listens to a specific state type.
     </li>
   </ul>
 */
@@ -2930,6 +3014,12 @@ SWIFT_CLASS("_TtC5C3Lib6C3Room")
 */
 @property (nonatomic, readonly, copy) NSString * _Nonnull id;
 /**
+  Users that have been invited to the room.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly, copy) NSArray<C3User *> * _Nonnull invited;
+/**
   The user that invited the client to the room.
   version:
   1.0.0
@@ -2965,7 +3055,18 @@ SWIFT_CLASS("_TtC5C3Lib6C3Room")
   1.0.0
 */
 @property (nonatomic, readonly, copy) NSArray<C3User *> * _Nonnull otherMembers;
+/**
+  The power levels in the room.
+  version:
+  1.0.0
+*/
 @property (nonatomic, readonly, strong) C3PowerLevelsReader * _Nullable powerLevels;
+/**
+  A list of state types that are present in this room.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly, copy) NSArray<C3RoomState *> * _Nonnull states;
 /**
   The current topic of the room.
   version:
@@ -2978,6 +3079,19 @@ SWIFT_CLASS("_TtC5C3Lib6C3Room")
   1.0.0
 */
 @property (nonatomic, readonly, copy) NSArray<C3User *> * _Nonnull typing;
+/**
+  Start editing the power levels of this room using a \code
+  C3PowerLevelsEdit
+  \endcode.
+  version:
+  1.0.0
+
+  returns:
+  \code
+  C3PowerLevelsEdit
+  \endcode instance or nil if the user is a member of the room.
+*/
+- (C3PowerLevelsEdit * _Nullable)editPowerLevels;
 /**
   Invites a user to this room.
   version:
@@ -3067,11 +3181,13 @@ SWIFT_CLASS("_TtC5C3Lib6C3Room")
 */
 - (void)setAvatar:(NSString * _Nonnull)avatar success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 /**
-  Sets how guests are allowed to join the room. If set to ‘open’, guests are allowed to join the rule, although they are still subject to the join rule of the room. If set to \code
-  .closed
+  Sets how guests are allowed to join the room. If set to \code
+  C3GuestAccessRule.open
+  \endcode, guests are allowed to join the rule, although they are still subject to the join rule of the room. If set to \code
+  C3GuestAccessRule.closed
   \endcode, guests are not allowed to join the room at all.
   The default guest access rule is \code
-  .closed
+  C3GuestAccessRule.closed
   \endcode.
   version:
   1.0.0
@@ -3099,16 +3215,55 @@ SWIFT_CLASS("_TtC5C3Lib6C3Room")
 */
 - (void)setHistoryVisibility:(enum C3HistoryVisibility)historyVisibility success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 /**
-  Initiate a call in the room.
+  Sets how other users are able to join this room. An \code
+  C3JoinRule.open
+  \endcode room can be joined with anyone that has the room id or an alias of the room, while a room with the \code
+  C3JoinRule.invite
+  \endcode rule only allows users to join after first being invited to the room by an existing member.
+  \param rule The new join rule for this room.
+
+  \param success The callback to be executed upon successful set. Receives room instance. Can be nil.
+
+  \param failure The callback to be executed upon failed set. Receives failure cause. Can be nil.
+
+*/
+- (void)setJoinRule:(enum C3JoinRule)rule success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+/**
+  Sets the name of the room.
   version:
   1.0.0
-  \param user The user to call. The user has to be a member of this room.
+  \param name The new name for this room.
 
+  \param success The callback to be executed upon successful set. Receives room instance. Can be nil.
 
-  returns:
-  The call, or nil in case it is impossible to initiate a call.
+  \param failure The callback to be executed upon failed set. Receives failure cause. Can be nil.
+
 */
-- (C3Call * _Nullable)startCallWith:(C3User * _Nonnull)user;
+- (void)setName:(NSString * _Nonnull)name success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+/**
+  Sets the entire power level state of the room to that of a power level container object.
+  version:
+  1.0.0
+  \param powerLevels A power level container.
+
+  \param success The callback to be executed upon successful set. Receives room instance. Can be nil.
+
+  \param failure The callback to be executed upon failed set. Receives failure cause. Can be nil.
+
+*/
+- (void)setPowerLevels:(C3PowerLevelsContainer * _Nonnull)powerLevels success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+/**
+  Sets the topic of the room.
+  version:
+  1.0.0
+  \param topic The new topic for this room.
+
+  \param success The callback to be executed upon successful set. Receives room instance. Can be nil.
+
+  \param failure The callback to be executed upon failed set. Receives failure cause. Can be nil.
+
+*/
+- (void)setTopic:(NSString * _Nonnull)topic success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 /**
   Sets whether the user is currently typing or not, with an optional timeout and margin. The timeout can be used to temporarily set typing to true, while the margin allows throttling of requests.
   The margin permits setTyping to be called at a high rate without actually sending any requests to the server. A request is sent only if the end of the previous request’s timeout has been reached or if the time until then is smaller than the margin.
@@ -3132,44 +3287,27 @@ SWIFT_CLASS("_TtC5C3Lib6C3Room")
 */
 - (void)setTyping:(BOOL)typing timeout:(NSTimeInterval)timeout margin:(NSTimeInterval)margin success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 /**
-  Sets how other users are able to join this room. An \code
-  open
-  \endcode room can be joined with anyone that has the room id or an alias of the room, while a room with the \code
-  invite
-  \endcode rule only allows users to join after first being invited to the room by an existing member.
-  \param rule The new join rule for this room.
-
-  \param success The callback to be executed upon successful set. Receives room instance. Can be nil.
-
-  \param failure The callback to be executed upon failed set. Receives failure cause. Can be nil.
-
-*/
-- (void)setJoinRule:(enum C3JoinRule)rule success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
-/**
-  Start editing the power levels of this room using a \code
-  C3PowerLevelsEdit
-  \endcode.
+  Initiate a call in the room.
   version:
   1.0.0
+  \param user The user to call. The user has to be a member of this room.
+
 
   returns:
-  \code
-  C3PowerLevelsEdit
-  \endcode instance or nil if the user is a member of the room.
+  The call, or nil in case it is impossible to initiate a call.
 */
-- (C3PowerLevelsEdit * _Nullable)editPowerLevels;
+- (C3Call * _Nullable)startCallWith:(C3User * _Nonnull)user;
 /**
-  Sets the entire power level state of the room to that of a power level container object.
+  Retrieves the state access object for a state of a specific type in the room.
   version:
   1.0.0
-  \param powerLevels A power level container.
+  \param type The state type.
 
-  \param success The callback to be executed upon successful set. Receives room instance. Can be nil.
 
-  \param failure The callback to be executed upon failed set. Receives failure cause. Can be nil.
-
+  returns:
+  A room state object for interacting with the state.
 */
-- (void)setPowerLevels:(C3PowerLevelsContainer * _Nonnull)powerLevels success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+- (C3RoomState * _Nonnull)stateWith:(NSString * _Nonnull)type;
 - (void)close;
 @end
 
@@ -3218,6 +3356,82 @@ typedef SWIFT_ENUM(NSInteger, C3RoomMembership) {
 */
   C3RoomMembershipUnknown = 4,
 };
+
+
+/**
+  Represents a state in a room identified by a state type, and synchronized between all clients.
+  Each room state is a key-value pair store that emits events when values are changed.
+  The room state also has a default value which can be accessed by omitting the key parameter to any of the methods. The default value is handy for simple states such as setting a hex color for the room.
+  version:
+  1.0.0
+*/
+SWIFT_CLASS("_TtC5C3Lib11C3RoomState")
+@interface C3RoomState : C3EventEmitter
+/**
+  A list of all keys who are associated to a value.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly, copy) NSArray<NSString *> * _Nonnull keys;
+/**
+  The room that the room state is derived from.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly, strong) C3Room * _Nonnull room;
+/**
+  The type of the room state.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly, copy) NSString * _Nonnull type;
+/**
+  Gets the value for the corresponding key.
+  If the key is omitted the default value of the room state will returned instead.
+  version:
+  1.0.0
+  \param key The key whose associated value should be returned, or omitted if the default value is desired instead.
+
+
+  returns:
+  The value associated with the key.
+*/
+- (id _Nullable)get:(NSString * _Nonnull)key;
+/**
+  Returns true if the key has been set.
+  version:
+  1.0.0
+  \param key The key to test if it has been set.
+
+
+  returns:
+  True if the key has been set, false otherwise.
+*/
+- (BOOL)has:(NSString * _Nonnull)key;
+/**
+  Sets the value that a key should be associated with. This will override any existing association with the key.
+  If the key is omitted the value of the room state will set instead.
+  <h1>Note</h1>
+  It is best to avoid relying on the returned promise to modify application state, e.g. UI updates, as that will lead to race conditions and undefined behaviour. It is better to use the success callba for feedback that the state was changed was successfully, and tie application state changes an \code
+  update
+  \endcode event handler. This is due to the fact that state changes are received via the event stream, but the returned promise is resolved when the request is returned, and those two events can happen in any order.
+  version:
+  1.0.0
+  \param value The value that should be associated with the key.
+
+  \param key The key that should be associated with the value.
+
+  \param success The callback to be executed upon successful kick. Receives room instance. Can be nil.
+
+  \param failure The callback to be executed upon failed kick. Receives failure cause. Can be nil.
+
+*/
+- (void)set:(id _Nonnull)value for:(NSString * _Nonnull)key success:(void (^ _Nullable)(C3RoomState * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+@end
+
+
+@interface C3RoomState (SWIFT_EXTENSION(C3Lib))
+@end
 
 /**
   The room visibility type.

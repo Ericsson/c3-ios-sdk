@@ -13,17 +13,16 @@ class ChatViewController: JSQMessagesViewController {
     var factory = JSQMessagesBubbleImageFactory()
     
     var outgoingBubbleImageView: JSQMessageBubbleImageDataSource?
-    var incomingBubbleImageView: JSQMessageBubbleImageDataSource? 
-    var avatarGenerator: IGImageGenerator?
+    var incomingBubbleImageView: JSQMessageBubbleImageDataSource?
     var avatars = [String:JSQMessagesAvatarImage]()
+    
+    let identicon = Identicon()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         outgoingBubbleImageView = factory?.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
         incomingBubbleImageView = factory?.incomingMessagesBubbleImage(with: UIColor.jsq_messageBubbleLightGray())
-        
-        avatarGenerator = IGImageGenerator(imageProducer: IGGitHubIdenticon(), hashFunction: { IGJenkinsHashFromData($0) })
 
         room?.on("event:m.room.message", target: self, callback: #selector(handleRoomMessage))
         room?.on("typing", target: self, callback: #selector(handleTypingEvent))
@@ -65,11 +64,11 @@ class ChatViewController: JSQMessagesViewController {
             let imageData = JSQMessagesAvatarImage(
                 avatarImage: UIImage(data: try! Data(contentsOf: URL(string: avatar.uri)!)),
                 highlightedImage: nil,
-                placeholderImage: avatarGenerator?.image(from: user.name, size: CGSize(width: 25.0, height: 25.0)))
+                placeholderImage: identicon.icon(from: user.name, size: CGSize(width: 25.0, height: 25.0)))
             avatars[message.senderId] = imageData
             return imageData
         } else {
-            return JSQMessagesAvatarImage(placeholder: avatarGenerator?.image(from: user.name, size: CGSize(width: 25.0, height: 25.0)))
+            return JSQMessagesAvatarImage(placeholder: identicon.icon(from: user.name, size: CGSize(width: 25.0, height: 25.0)))
         }
     }
 
@@ -120,10 +119,10 @@ class ChatViewController: JSQMessagesViewController {
             senderDisplayName: event.sender.name,
             date: Date(timeIntervalSince1970: event.timeInterval),
             text: text)!
-        let index = messages.insertionIndexOf(elem: message) { $0.date.compare($1.date) }
-        messages.insert(message, at: index)
+        let index = self.messages.insertionIndexOf(elem: message) { $0.date.compare($1.date) }
+        self.messages.insert(message, at: index)
         
-        finishReceivingMessage()
+        self.finishReceivingMessage()
     }
 }
 

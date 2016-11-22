@@ -12,7 +12,8 @@ class MembersViewController: UITableViewController {
     var onlineColor = UIColor(red: 0.24, green: 0.68, blue: 0.11, alpha: 1.0).cgColor
     var offlineColor = UIColor(white: 0.67, alpha: 1.0).cgColor
     var unavailableColor = UIColor(red: 0.98, green: 0.78, blue: 0.18, alpha: 1.0).cgColor
-    var avatarGenerator: IGImageGenerator?
+    
+    let identicon = Identicon()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +21,6 @@ class MembersViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         
         room?.otherMembers.forEach { $0.on("presence", target: self, callback: #selector(self.onPresence(user:))) }
-        
-        avatarGenerator = IGImageGenerator(imageProducer: IGGitHubIdenticon(), hashFunction: { IGJenkinsHashFromData($0) })
     }
     
     override func willMove(toParentViewController parent: UIViewController?) {
@@ -57,11 +56,10 @@ extension MembersViewController {
         cell.textLabel?.text = member.name
 
         if let avatar = member.avatar {
-            cell.imageView?.sd_setImage(with: URL(string: avatar.uri)!, placeholderImage: avatarGenerator?.image(from: member.name, size: CGSize(width: 100.0, height: 100.0)))
+            cell.imageView?.sd_setImage(with: URL(string: avatar.uri)!, placeholderImage: identicon.icon(from: member.name, size: CGSize(width: 80.0, height: 80.0)))
         } else {
-            cell.imageView?.image = avatarGenerator?.image(from: member.name, size: CGSize(width: 80.0, height: 80.0))
+            cell.imageView?.image = identicon.icon(from: member.name, size: CGSize(width: 80.0, height: 80.0))
         }
-        cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.clipsToBounds = true
         cell.imageView?.backgroundColor = UIColor(red: 0.84, green: 0.84, blue: 0.84, alpha: 1.0)
         cell.imageView?.layer.cornerRadius = 40.0

@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/C3Lib-Swift.h</key>
 		<data>
-		V0zOBaGajSpibXCzFvToCqXZt8s=
+		1lBi4upE4aJYVpYM1RTJWFiRua8=
 		</data>
 		<key>Headers/C3Lib-umbrella.h</key>
 		<data>
@@ -18,11 +18,11 @@
 		</data>
 		<key>Modules/C3Lib.swiftmodule/i386.swiftdoc</key>
 		<data>
-		ZRwQSLOp1aADlAMqWdrTXrJzxa4=
+		/okUgJToF9r4BcQZKpsKx32sZGs=
 		</data>
 		<key>Modules/C3Lib.swiftmodule/i386.swiftmodule</key>
 		<data>
-		jdt/k7aZByawqb+89lKS7dnx2bE=
+		9inA+7mIAYMWyjUkLX5BU95FWl8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -35,11 +35,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			V0zOBaGajSpibXCzFvToCqXZt8s=
+			1lBi4upE4aJYVpYM1RTJWFiRua8=
 			</data>
 			<key>hash2</key>
 			<data>
-			TtPA+8yeerYouZ0tw2xa+IfOrzMG5juvxhCYd4bUnyg=
+			L+DGgZs84XFzs0+kyvVDnD7WM/BBxbv9Zvvj0oCNNJk=
 			</data>
 		</dict>
 		<key>Headers/C3Lib-umbrella.h</key>
@@ -57,22 +57,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZRwQSLOp1aADlAMqWdrTXrJzxa4=
+			/okUgJToF9r4BcQZKpsKx32sZGs=
 			</data>
 			<key>hash2</key>
 			<data>
-			X7baw+Muh6++H80Ri2D6GmTlegtjrUiUBkQoUhR3d2g=
+			ixBq983eEGtY6+9H6B3fhzG69NQLYKPtbRSh5Hp9Xc8=
 			</data>
 		</dict>
 		<key>Modules/C3Lib.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jdt/k7aZByawqb+89lKS7dnx2bE=
+			9inA+7mIAYMWyjUkLX5BU95FWl8=
 			</data>
 			<key>hash2</key>
 			<data>
-			7h4fSja9BhGDj2reTJ+a+ScA86EYpjvT7hsQ8ARswls=
+			ss3AuH8ubuHbgAv8wsOXAtWSQpeAl4oYNFEj9ONVgDw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
