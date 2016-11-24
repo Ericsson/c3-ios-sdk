@@ -130,7 +130,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 */
 SWIFT_CLASS("_TtC5C3Lib14C3EventEmitter")
 @interface C3EventEmitter : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 /**
   Adds a new listener for an event. All listeners will be called in the order in which they were added. Adding an already added listener is not an error and will result in the listener being called multiple times.
   version:
@@ -243,6 +243,7 @@ SWIFT_CLASS("_TtC5C3Lib13C3AccountData")
 */
 - (void)set:(id _Nonnull)value for:(NSString * _Nonnull)key success:(void (^ _Nullable)(C3AccountData * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 - (void)close;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 
@@ -629,6 +630,7 @@ SWIFT_CLASS("_TtC5C3Lib6C3Call")
 
 */
 - (void)hangupWithSuccess:(void (^ _Nullable)(C3Call * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1189,6 +1191,7 @@ SWIFT_CLASS("_TtC5C3Lib11C3Component")
 
 */
 - (void)receivedDataUpdate:(C3DataUpdate * _Nonnull)update;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1353,6 +1356,7 @@ SWIFT_CLASS("_TtC5C3Lib11C3MediaNode")
 */
 - (void)disconnectFrom:(id _Nullable)target;
 - (void)close;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1436,6 +1440,7 @@ SWIFT_CLASS("_TtC5C3Lib14C3DeviceSource")
 */
 - (nonnull instancetype)initWithAudio:(BOOL)audio video:(BOOL)video OBJC_DESIGNATED_INITIALIZER;
 - (void)close;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1628,6 +1633,7 @@ SWIFT_CLASS("_TtC5C3Lib9C3FileRef")
 */
 - (void)fetchWithSuccess:(void (^ _Nullable)(C3FileRef * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 - (void)close;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 
@@ -1840,6 +1846,7 @@ SWIFT_CLASS("_TtC5C3Lib14C3FileTransfer")
 */
 - (void)abort;
 - (void)close;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 
@@ -2427,6 +2434,7 @@ SWIFT_CLASS("_TtC5C3Lib6C3Peer")
   Plain RTCDataChannel or nil if it was not possible to create a channel.
 */
 - (RTCDataChannel * _Nullable)createChannel:(NSString * _Nonnull)label configuration:(RTCDataChannelConfiguration * _Nonnull)configuration;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 
@@ -3309,6 +3317,7 @@ SWIFT_CLASS("_TtC5C3Lib6C3Room")
 */
 - (C3RoomState * _Nonnull)stateWith:(NSString * _Nonnull)type;
 - (void)close;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 
@@ -3427,6 +3436,7 @@ SWIFT_CLASS("_TtC5C3Lib11C3RoomState")
 
 */
 - (void)set:(id _Nonnull)value for:(NSString * _Nonnull)key success:(void (^ _Nullable)(C3RoomState * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 
@@ -3501,6 +3511,7 @@ SWIFT_CLASS("_TtC5C3Lib6C3User")
 - (void)close;
 @property (nonatomic, readonly) NSUInteger hash;
 - (BOOL)isEqual:(id _Nullable)object;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
 

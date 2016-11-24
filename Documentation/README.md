@@ -49,7 +49,8 @@ client.on("state", target: self, callback: #selector(onStateChange))
 
 ...
 
-@objc func onStateChange(_ state: C3ClientConnectionState) {
+@objc func onStateChange(_ stateNumber: NSNumber) {
+   let state = C3ClientConnectionState(rawValue: stateNumber.intValue)!
    let name: String                                                                                            
    switch state {
    case .inactive:     name = "inactive"
