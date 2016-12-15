@@ -89,6 +89,9 @@
                 <a href="../Classes/C3ImageResource.html">C3ImageResource</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes.html#/s:C5C3Lib13C3ImageUpload">C3ImageUpload</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/C3MediaFilter.html">C3MediaFilter</a>
               </li>
               <li class="nav-group-task">
@@ -128,6 +131,9 @@
                 <a href="../Classes/C3Room.html">C3Room</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/C3RoomQuery.html">C3RoomQuery</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/C3RoomState.html">C3RoomState</a>
               </li>
               <li class="nav-group-task">
@@ -154,6 +160,9 @@
                 <a href="../Enums/C3ClientConnectionState.html">C3ClientConnectionState</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/C3ConnectionState.html">C3ConnectionState</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/C3FileRefEndReason.html">C3FileRefEndReason</a>
               </li>
               <li class="nav-group-task">
@@ -161,6 +170,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/C3HistoryVisibility.html">C3HistoryVisibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/C3ImageResizeMethod.html">C3ImageResizeMethod</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/C3JoinRule.html">C3JoinRule</a>
@@ -214,6 +226,7 @@
 <li><code>leave</code>:             Emitted when a user leaves the room. Receives the user.</li>
 <li><code>members</code>:           Emitted when the members user collection is changed. This event does not have any parameters, the updated list of users can instead be accessed via the <code><a href="../Classes/C3Room.html#/s:vC5C3Lib6C3Room7membersGSaCS_6C3User_">C3Room.members</a></code> property.</li>
 <li><code>membership</code>:        Emitted when the authenticated users membership of the room is changed. Receives <code><a href="../Enums/C3RoomMembership.html">C3RoomMembership</a></code> instance.</li>
+<li><code>memberships</code>:       Emitted when the membership of any user in the room is changed. Receives a map of users and their memberships.</li>
 <li><code>name</code>:              Emitted when the name of the room is changed. Receives the new name.</li>
 <li><code><a href="../Classes/C3Room.html#/s:vC5C3Lib6C3Room12otherMembersGSaCS_6C3User_">C3Room.otherMembers</a></code>:      Emitted when the <code><a href="../Classes/C3Room.html#/s:vC5C3Lib6C3Room12otherMembersGSaCS_6C3User_">C3Room.otherMembers</a></code> user collection is changed. This event does not have any parameters, the updated list of users can instead be accessed via the <code><a href="../Classes/C3Room.html#/s:vC5C3Lib6C3Room12otherMembersGSaCS_6C3User_">C3Room.otherMembers</a></code> property.</li>
 <li><code>powerLevels</code>:       Emitted when the power levels of the room change. Receives <code><a href="../Classes/C3PowerLevelsReader.html">C3PowerLevelsReader</a></code> instance.</li>
@@ -726,6 +739,39 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:vC5C3Lib6C3Room11membershipsGVs10DictionaryCS_6C3UserOS_16C3RoomMembership_"></a>
+                    <a name="//apple_ref/swift/Property/memberships" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5C3Lib6C3Room11membershipsGVs10DictionaryCS_6C3UserOS_16C3RoomMembership_">memberships</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of memberships that all the users in the room have.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">memberships</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/C3User.html">C3User</a></span><span class="p">:</span><span class="kt"><a href="../Enums/C3RoomMembership.html">C3RoomMembership</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:vC5C3Lib6C3Room4nameGSqSS_"></a>
                     <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
                     <a class="token" href="#/s:vC5C3Lib6C3Room4nameGSqSS_">name</a>
@@ -954,17 +1000,6 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Public%20methods"></a>
-                <a name="//apple_ref/swift/Section/Public methods" class="dashAnchor"></a>
-                <a href="#/Public%20methods">
-                  <h3 class="section-name">Public methods</h3>
-                </a>
-              </div>
-              <ul>
                 <li class="item">
                   <div>
                     <code>
@@ -1477,6 +1512,88 @@
                               <td>
                                 <div>
                                   <p>The type of the event.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon successful dispatch. Receives room instance. Can be nil.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon failed dispatch. Receives failure cause. Can be nil.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC5C3Lib6C3Room4sendFTCS_9C3Message7successGSqFS0_T__7failureGSqFPs5Error_T___T_"></a>
+                    <a name="//apple_ref/swift/Method/send(_:success:failure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5C3Lib6C3Room4sendFTCS_9C3Message7successGSqFS0_T__7failureGSqFPs5Error_T___T_">send(_:success:failure:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send a message.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">send</span><span class="p">(</span>
+        <span class="n">_</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">C3Message</span><span class="p">,</span>
+        <span class="nv">success</span><span class="p">:</span> <span class="kt">C3SuccessCallback</span><span class="o">&lt;</span><span class="kt">C3Room</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="nv">failure</span><span class="p">:</span> <span class="kt">C3FailureCallback</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>message</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The message to send.</p>
 
                                 </div>
                               </td>
@@ -2247,9 +2364,51 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FC5C3Lib6C3Room5stateFT4withSS_CS_11C3RoomState"></a>
-                    <a name="//apple_ref/swift/Method/state(with:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FC5C3Lib6C3Room5stateFT4withSS_CS_11C3RoomState">state(with:)</a>
+                    <a name="/s:FC5C3Lib6C3Room16startPassiveCallFT_GSqCS_6C3Call_"></a>
+                    <a name="//apple_ref/swift/Method/startPassiveCall()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5C3Lib6C3Room16startPassiveCallFT_GSqCS_6C3Call_">startPassiveCall()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Starts a new passive call in the room. A passive call works much like a normal call, except that it does not initiate any new call, it only accepts incoming calls.</p>
+
+<p>This is typically used in the scenario where the creator of a room wants to start setting up a call before knowing who the peer will be.</p>
+
+<p>Passive calls will always accept incoming calls from new peers, and hang up the call to old ones. Whenever the call connects to a new peer, a <code>peer</code> event will be emitted from the call.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">startPassiveCall</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/C3Call.html">C3Call</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The call.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC5C3Lib6C3Room5stateFSSCS_11C3RoomState"></a>
+                    <a name="//apple_ref/swift/Method/state(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5C3Lib6C3Room5stateFSSCS_11C3RoomState">state(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -2270,7 +2429,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">state</span><span class="p">(</span><span class="n">with</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/C3RoomState.html">C3RoomState</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">state</span><span class="p">(</span><span class="n">_</span> <span class="nv">type</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/C3RoomState.html">C3RoomState</a></span></code></pre>
 
                         </div>
                       </div>
@@ -2307,7 +2466,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Ericsson AB</a>. All rights reserved. (Last updated: 2016-11-24)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Ericsson AB</a>. All rights reserved. (Last updated: 2016-12-15)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

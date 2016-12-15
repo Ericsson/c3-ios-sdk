@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>C3CallClosedInfo Class Reference</title>
+    <title>C3RoomQuery Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/C3CallClosedInfo" class="dashAnchor"></a>
-    <a title="C3CallClosedInfo Class Reference"></a>
+    <a name="//apple_ref/swift/Class/C3RoomQuery" class="dashAnchor"></a>
+    <a title="C3RoomQuery Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">C3Lib Docs</a></p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">C3Lib Reference</a>
         <img id="carat" src="../img/carat.png" />
-        C3CallClosedInfo Class Reference
+        C3RoomQuery Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -193,20 +193,57 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>C3CallClosedInfo</h1>
+            <h1>C3RoomQuery</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3CallClosedInfo</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3RoomQuery</span><span class="p">:</span> <span class="kt"><a href="../Classes/C3EventEmitter.html">C3EventEmitter</a></span></code></pre>
 
                 </div>
               </div>
-            <p>Information about who closed the call and how.</p>
+            <p>Represents a live query that selects a subset of all rooms and transforms them using a map function.</p>
+
+<p>Whenever a room receives an event, the map function is run for every query. If the map function returns a falsy value, it is ignored. If the value is truthy, the value is added to the resulting rows.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
     1.0.0
 
 </div>
+
+<p><a href='#example' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='example'>Example</h1></p>
+
+<p>This is an example of a map function that lists all public rooms that the user is a member of:</p>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w"> </span><span class="err">room</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="err">AnyObject?</span><span class="w"> </span><span class="err">in</span><span class="w">
+    </span><span class="err">if</span><span class="w"> </span><span class="err">room.membership</span><span class="w"> </span><span class="err">==</span><span class="w"> </span><span class="err">.member</span><span class="w"> </span><span class="err">&amp;&amp;</span><span class="w"> </span><span class="err">room.visibility</span><span class="w"> </span><span class="err">==</span><span class="w"> </span><span class="err">.public</span><span class="w"> </span><span class="err">{</span><span class="w">
+        </span><span class="err">return</span><span class="w"> </span><span class="err">room</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="err">return</span><span class="w"> </span><span class="err">nil</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p>Whenever the value returned by the map function changes, an <code>update</code> event is emitted, as well as <code>added</code> and/or <code>removed</code> events. The value is considered changed if it switches between truthy and falsy, or if the id property of the value changes.</p>
+
+<p>This is an example of a map function that lists all rooms to which the user has been invited, as well as the inviting user:</p>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w"> </span><span class="err">room</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="err">AnyObject?</span><span class="w"> </span><span class="err">in</span><span class="w">
+    </span><span class="err">if</span><span class="w"> </span><span class="err">room.membership</span><span class="w"> </span><span class="err">==</span><span class="w"> </span><span class="err">.invited</span><span class="w"> </span><span class="err">{</span><span class="w">
+        </span><span class="err">return</span><span class="w"> </span><span class="err">[</span><span class="w">
+            </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="err">room.invitedBy!</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"room"</span><span class="p">:</span><span class="w"> </span><span class="err">room</span><span class="w">
+        </span><span class="err">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="err">return</span><span class="w"> </span><span class="err">nil</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p><a href='#events' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='events'>Events</h1></p>
+
+<ul>
+<li><code>added</code>:   Emitted when a row is added to the result of the query. Receives added row.</li>
+<li><code>removed</code>: Emitted when a row is removed from the result of the query. Receives removed row.</li>
+<li><code>updated</code>: Emitted when the result of the query has changed. Receives</li>
+</ul>
 
           </section>
           <section class="section task-group-section">
@@ -215,9 +252,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC5C3Lib16C3CallClosedInfo4callCS_6C3Call"></a>
-                    <a name="//apple_ref/swift/Property/call" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5C3Lib16C3CallClosedInfo4callCS_6C3Call">call</a>
+                    <a name="/s:vC5C3Lib11C3RoomQuery4rowsGSaPs9AnyObject__"></a>
+                    <a name="//apple_ref/swift/Property/rows" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC5C3Lib11C3RoomQuery4rowsGSaPs9AnyObject__">rows</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -225,7 +262,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The call that was closed</p>
+                        <p>The resulting rows of the <code>C3RoomQuery</code>.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -238,7 +275,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">call</span><span class="p">:</span> <span class="kt"><a href="../Classes/C3Call.html">C3Call</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">rows</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyObject</span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -248,9 +285,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC5C3Lib16C3CallClosedInfo6reasonOS_18C3CallClosedReason"></a>
-                    <a name="//apple_ref/swift/Property/reason" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5C3Lib16C3CallClosedInfo6reasonOS_18C3CallClosedReason">reason</a>
+                    <a name="/s:FC5C3Lib11C3RoomQuery4stopFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/stop()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5C3Lib11C3RoomQuery4stopFT_T_">stop()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -258,7 +295,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An identifier for the reason that the call closed.</p>
+                        <p>Stops the query and frees all resources.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -271,7 +308,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">reason</span><span class="p">:</span> <span class="kt"><a href="../Enums/C3CallClosedReason.html">C3CallClosedReason</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">stop</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
@@ -281,9 +318,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC5C3Lib16C3CallClosedInfo6sourceOS_18C3CallClosedSource"></a>
-                    <a name="//apple_ref/swift/Property/source" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5C3Lib16C3CallClosedInfo6sourceOS_18C3CallClosedSource">source</a>
+                    <a name="/s:FC5C3Lib11C3RoomQuery11forceUpdateFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/forceUpdate()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5C3Lib11C3RoomQuery11forceUpdateFT_T_">forceUpdate()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -291,7 +328,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Who caused the call to close.</p>
+                        <p>Forces the map function to be rerun for all rooms.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -304,7 +341,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">source</span><span class="p">:</span> <span class="kt"><a href="../Enums/C3CallClosedSource.html">C3CallClosedSource</a></span></code></pre>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">forceUpdate</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>

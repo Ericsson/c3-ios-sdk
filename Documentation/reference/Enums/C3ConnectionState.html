@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>C3CallClosedInfo Class Reference</title>
+    <title>C3ConnectionState Enum Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Class/C3CallClosedInfo" class="dashAnchor"></a>
-    <a title="C3CallClosedInfo Class Reference"></a>
+    <a name="//apple_ref/swift/Enum/C3ConnectionState" class="dashAnchor"></a>
+    <a title="C3ConnectionState Enum Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">C3Lib Docs</a></p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">C3Lib Reference</a>
         <img id="carat" src="../img/carat.png" />
-        C3CallClosedInfo Class Reference
+        C3ConnectionState Enum Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -193,14 +193,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>C3CallClosedInfo</h1>
+            <h1>C3ConnectionState</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3CallClosedInfo</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">public</span> <span class="kd">enum</span> <span class="kt">C3ConnectionState</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                 </div>
               </div>
-            <p>Information about who closed the call and how.</p>
+            <p>The connection state of the call.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -215,9 +215,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC5C3Lib16C3CallClosedInfo4callCS_6C3Call"></a>
-                    <a name="//apple_ref/swift/Property/call" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5C3Lib16C3CallClosedInfo4callCS_6C3Call">call</a>
+                    <a name="/s:FO5C3Lib17C3ConnectionState9signalingFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/signaling" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO5C3Lib17C3ConnectionState9signalingFMS0_S0_">signaling</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -225,7 +225,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The call that was closed</p>
+                        <p>The connection is in the signaling state, e.i. waiting for offer or answer.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -238,19 +238,23 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">call</span><span class="p">:</span> <span class="kt"><a href="../Classes/C3Call.html">C3Call</a></span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">signaling</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC5C3Lib16C3CallClosedInfo6reasonOS_18C3CallClosedReason"></a>
-                    <a name="//apple_ref/swift/Property/reason" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5C3Lib16C3CallClosedInfo6reasonOS_18C3CallClosedReason">reason</a>
+                    <a name="/s:FO5C3Lib17C3ConnectionState10connectingFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/connecting" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO5C3Lib17C3ConnectionState10connectingFMS0_S0_">connecting</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -258,7 +262,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An identifier for the reason that the call closed.</p>
+                        <p>The signaling has been completed and the connection is being set up.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -271,19 +275,23 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">reason</span><span class="p">:</span> <span class="kt"><a href="../Enums/C3CallClosedReason.html">C3CallClosedReason</a></span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">connecting</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:vC5C3Lib16C3CallClosedInfo6sourceOS_18C3CallClosedSource"></a>
-                    <a name="//apple_ref/swift/Property/source" class="dashAnchor"></a>
-                    <a class="token" href="#/s:vC5C3Lib16C3CallClosedInfo6sourceOS_18C3CallClosedSource">source</a>
+                    <a name="/s:FO5C3Lib17C3ConnectionState9connectedFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/connected" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO5C3Lib17C3ConnectionState9connectedFMS0_S0_">connected</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -291,7 +299,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Who caused the call to close.</p>
+                        <p>Connected to the peer.</p>
 
 <div class="aside aside-version">
     <p class="aside-title">Version</p>
@@ -304,7 +312,118 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">source</span><span class="p">:</span> <span class="kt"><a href="../Enums/C3CallClosedSource.html">C3CallClosedSource</a></span></code></pre>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">connected</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO5C3Lib17C3ConnectionState12reconnectingFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/reconnecting" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO5C3Lib17C3ConnectionState12reconnectingFMS0_S0_">reconnecting</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The connection has been temporarily lost but might recover.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">reconnecting</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FO5C3Lib17C3ConnectionState6closedFMS0_S0_"></a>
+                    <a name="//apple_ref/swift/Element/closed" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FO5C3Lib17C3ConnectionState6closedFMS0_S0_">closed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The container of the connection has been closed, i.e. the conference, call, etc.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">case</span> <span class="n">closed</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vO5C3Lib17C3ConnectionState4nameSS"></a>
+                    <a name="//apple_ref/swift/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vO5C3Lib17C3ConnectionState4nameSS">name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>String represencation of the connection state.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span></code></pre>
 
                         </div>
                       </div>

@@ -88,6 +88,9 @@
                 <a href="Classes/C3ImageResource.html">C3ImageResource</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes.html#/s:C5C3Lib13C3ImageUpload">C3ImageUpload</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/C3MediaFilter.html">C3MediaFilter</a>
               </li>
               <li class="nav-group-task">
@@ -127,6 +130,9 @@
                 <a href="Classes/C3Room.html">C3Room</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/C3RoomQuery.html">C3RoomQuery</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/C3RoomState.html">C3RoomState</a>
               </li>
               <li class="nav-group-task">
@@ -153,6 +159,9 @@
                 <a href="Enums/C3ClientConnectionState.html">C3ClientConnectionState</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/C3ConnectionState.html">C3ConnectionState</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/C3FileRefEndReason.html">C3FileRefEndReason</a>
               </li>
               <li class="nav-group-task">
@@ -160,6 +169,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/C3HistoryVisibility.html">C3HistoryVisibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/C3ImageResizeMethod.html">C3ImageResizeMethod</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/C3JoinRule.html">C3JoinRule</a>
@@ -996,6 +1008,50 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:C5C3Lib13C3ImageUpload"></a>
+                    <a name="//apple_ref/swift/Class/C3ImageUpload" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5C3Lib13C3ImageUpload">C3ImageUpload</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents a media upload.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+<p><a href='#events' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='events'>Events</h1></p>
+
+<ul>
+<li><code>done</code>:      Emitted when the upload has completed sucessfully.</li>
+<li><code>progress</code>: Emitted when the progress of the upload is updated.</li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3ImageUpload</span><span class="p">:</span> <span class="kt"><a href="Classes/C3EventEmitter.html">C3EventEmitter</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:C5C3Lib13C3MediaFilter"></a>
                     <a name="//apple_ref/swift/Class/C3MediaFilter" class="dashAnchor"></a>
                     <a class="token" href="#/s:C5C3Lib13C3MediaFilter">C3MediaFilter</a>
@@ -1554,6 +1610,7 @@
 <li><code>leave</code>:             Emitted when a user leaves the room. Receives the user.</li>
 <li><code>members</code>:           Emitted when the members user collection is changed. This event does not have any parameters, the updated list of users can instead be accessed via the <code><a href="Classes/C3Room.html#/s:vC5C3Lib6C3Room7membersGSaCS_6C3User_">C3Room.members</a></code> property.</li>
 <li><code>membership</code>:        Emitted when the authenticated users membership of the room is changed. Receives <code><a href="Enums/C3RoomMembership.html">C3RoomMembership</a></code> instance.</li>
+<li><code>memberships</code>:       Emitted when the membership of any user in the room is changed. Receives a map of users and their memberships.</li>
 <li><code>name</code>:              Emitted when the name of the room is changed. Receives the new name.</li>
 <li><code><a href="Classes/C3Room.html#/s:vC5C3Lib6C3Room12otherMembersGSaCS_6C3User_">C3Room.otherMembers</a></code>:      Emitted when the <code><a href="Classes/C3Room.html#/s:vC5C3Lib6C3Room12otherMembersGSaCS_6C3User_">C3Room.otherMembers</a></code> user collection is changed. This event does not have any parameters, the updated list of users can instead be accessed via the <code><a href="Classes/C3Room.html#/s:vC5C3Lib6C3Room12otherMembersGSaCS_6C3User_">C3Room.otherMembers</a></code> property.</li>
 <li><code>powerLevels</code>:       Emitted when the power levels of the room change. Receives <code><a href="Classes/C3PowerLevelsReader.html">C3PowerLevelsReader</a></code> instance.</li>
@@ -1571,6 +1628,81 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3Room</span><span class="p">:</span> <span class="kt"><a href="Classes/C3EventEmitter.html">C3EventEmitter</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C5C3Lib11C3RoomQuery"></a>
+                    <a name="//apple_ref/swift/Class/C3RoomQuery" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C5C3Lib11C3RoomQuery">C3RoomQuery</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents a live query that selects a subset of all rooms and transforms them using a map function.</p>
+
+<p>Whenever a room receives an event, the map function is run for every query. If the map function returns a falsy value, it is ignored. If the value is truthy, the value is added to the resulting rows.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+<p><a href='#example' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='example'>Example</h1></p>
+
+<p>This is an example of a map function that lists all public rooms that the user is a member of:</p>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w"> </span><span class="err">room</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="err">AnyObject?</span><span class="w"> </span><span class="err">in</span><span class="w">
+    </span><span class="err">if</span><span class="w"> </span><span class="err">room.membership</span><span class="w"> </span><span class="err">==</span><span class="w"> </span><span class="err">.member</span><span class="w"> </span><span class="err">&amp;&amp;</span><span class="w"> </span><span class="err">room.visibility</span><span class="w"> </span><span class="err">==</span><span class="w"> </span><span class="err">.public</span><span class="w"> </span><span class="err">{</span><span class="w">
+        </span><span class="err">return</span><span class="w"> </span><span class="err">room</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="err">return</span><span class="w"> </span><span class="err">nil</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p>Whenever the value returned by the map function changes, an <code>update</code> event is emitted, as well as <code>added</code> and/or <code>removed</code> events. The value is considered changed if it switches between truthy and falsy, or if the id property of the value changes.</p>
+
+<p>This is an example of a map function that lists all rooms to which the user has been invited, as well as the inviting user:</p>
+
+<pre class="highlight json"><code><span class="p">{</span><span class="w"> </span><span class="err">room</span><span class="w"> </span><span class="err">-&gt;</span><span class="w"> </span><span class="err">AnyObject?</span><span class="w"> </span><span class="err">in</span><span class="w">
+    </span><span class="err">if</span><span class="w"> </span><span class="err">room.membership</span><span class="w"> </span><span class="err">==</span><span class="w"> </span><span class="err">.invited</span><span class="w"> </span><span class="err">{</span><span class="w">
+        </span><span class="err">return</span><span class="w"> </span><span class="err">[</span><span class="w">
+            </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="err">room.invitedBy!</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"room"</span><span class="p">:</span><span class="w"> </span><span class="err">room</span><span class="w">
+        </span><span class="err">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+    </span><span class="err">return</span><span class="w"> </span><span class="err">nil</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p><a href='#events' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='events'>Events</h1></p>
+
+<ul>
+<li><code>added</code>:   Emitted when a row is added to the result of the query. Receives added row.</li>
+<li><code>removed</code>: Emitted when a row is removed from the result of the query. Receives removed row.</li>
+<li><code>updated</code>: Emitted when the result of the query has changed. Receives</li>
+</ul>
+
+                        <a href="Classes/C3RoomQuery.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">C3RoomQuery</span><span class="p">:</span> <span class="kt"><a href="Classes/C3EventEmitter.html">C3EventEmitter</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1700,7 +1832,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Ericsson AB</a>. All rights reserved. (Last updated: 2016-11-24)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">Ericsson AB</a>. All rights reserved. (Last updated: 2016-12-15)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

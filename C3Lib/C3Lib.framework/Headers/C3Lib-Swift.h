@@ -118,6 +118,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import ObjectiveC;
 @import Foundation;
 @import WebRTC;
+@import MatrixSDK;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -132,6 +133,18 @@ SWIFT_CLASS("_TtC5C3Lib14C3EventEmitter")
 @interface C3EventEmitter : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 /**
+  Removes a listener associated with an event. At most one listener is removed, if the same listener has been added multiple times, only the first listener is removed.
+  version:
+  1.0.0
+  \param eventType The event type from which to remove the listener(s).
+
+  \param target The target that should be removed. If omitted, all listeners for the event type are removed.
+
+  \param callback The callback that should be removed. If omitted, all listeners for the target are removed.
+
+*/
+- (void)off:(NSString * _Nonnull)eventType target:(id _Nullable)target callback:(SEL _Nullable)callback;
+/**
   Adds a new listener for an event. All listeners will be called in the order in which they were added. Adding an already added listener is not an error and will result in the listener being called multiple times.
   version:
   1.0.0
@@ -144,17 +157,17 @@ SWIFT_CLASS("_TtC5C3Lib14C3EventEmitter")
 */
 - (void)on:(NSString * _Nonnull)eventType target:(id _Nonnull)target callback:(SEL _Nonnull)callback;
 /**
-  Removes a listener associated with an event. At most one listener is removed, if the same listener has been added multiple times, only the first listener is removed.
+  Works like on, but the listener is at most called once, and then removed.
   version:
   1.0.0
-  \param eventType The event type from which to remove the listener(s).
+  \param eventType The event to listen for.
 
-  \param target The target that should be removed. If omitted, all listeners for the event type are removed.
+  \param target An owner of the selector that will be called whenever the event is emitted.
 
-  \param callback The callback that should be removed. If omitted, all listeners for the target are removed.
+  \param callback A selector that will be called whenever the event is emitted.
 
 */
-- (void)off:(NSString * _Nonnull)eventType target:(id _Nullable)target callback:(SEL _Nullable)callback;
+- (void)once:(NSString * _Nonnull)eventType target:(id _Nonnull)target callback:(SEL _Nonnull)callback;
 /**
   Emits an event of given type for every listener associated with the event.
   version:
@@ -407,6 +420,39 @@ SWIFT_CLASS("_TtC5C3Lib6C3Auth")
 @interface C3Auth : NSObject
 + (void)initialize SWIFT_METHOD_FAMILY(none);
 /**
+  Register a new account with a generated username. This should primarily be used for testing.
+  A password can optionally be added to the account.
+  version:
+  1.0.0
+  \param password The password to use for the account.
+
+  \param serverUrl The absolute url of the home server.
+
+  \param success The callback to be executed upon successful login. Receives authentication info. Can be nil.
+
+  \param failure The callback to be executed upon failed login. Receives failure cause. Can be nil.
+
+*/
++ (void)anonymousWithPassword:(NSString * _Nonnull)password serverUrl:(NSString * _Nonnull)serverUrl success:(void (^ _Nullable)(C3AuthInfo * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+/**
+  Authenticate as a guest user with a generated user id. Guest accounts are limited to a subset of the functionality of full acounts.
+  At the moment guests are only allowed to join rooms where \code
+  C3Room.guestAccess
+  \endcode has been set to \code
+  C3GuestAccessRule.open
+  \endcode. They are not allowed to modify the state of a room, but can send messages and setup calls.
+  Guests are also not able to set their avatar or status, but they can set their display name.
+  version:
+  1.0.0
+  \param serverUrl The absolute url of the home server.
+
+  \param success The callback to be executed upon successful login. Receives authentication info. Can be nil.
+
+  \param failure The callback to be executed upon failed login. Receives failure cause. Can be nil.
+
+*/
++ (void)guestWithServerUrl:(NSString * _Nonnull)serverUrl success:(void (^ _Nullable)(C3AuthInfo * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+/**
   Login a user using username and password.
   version:
   1.0.0
@@ -461,10 +507,6 @@ SWIFT_CLASS("_TtC5C3Lib6C3Auth")
 @end
 
 
-@interface C3Auth (SWIFT_EXTENSION(C3Lib))
-@end
-
-
 /**
   An object containing the necessary information to connect and authenticate to a server.
   version:
@@ -495,11 +537,12 @@ SWIFT_CLASS("_TtC5C3Lib10C3AuthInfo")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
+@class C3Component;
+enum C3ConnectionState : NSInteger;
 @class C3User;
 @class C3Room;
 @class C3MediaTee;
 @class C3MediaNode;
-@class C3Component;
 
 /**
   A WebRTC call to a single peer.
@@ -527,6 +570,34 @@ SWIFT_CLASS("_TtC5C3Lib10C3AuthInfo")
 SWIFT_CLASS("_TtC5C3Lib6C3Call")
 @interface C3Call : C3EventEmitter
 /**
+  A object containing all the attachments of the call.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly, copy) NSArray<C3Component *> * _Nonnull attachments;
+/**
+  Whether the call is closed or not. A closed call cannot be started again.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly) BOOL isClosed;
+/**
+  The state of the signalling channel, \code
+  true
+  \endcode if the channel is open, \code
+  false
+  \endcode otherwise.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly) BOOL isConnected;
+/**
+  The connection state of the call.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly) enum C3ConnectionState connectionState;
+/**
   The id of the call.
   This is not guaranteed to be constant, as it can be changed due to negotiation conflicts. If the id is changed, an \code
   id
@@ -534,19 +605,25 @@ SWIFT_CLASS("_TtC5C3Lib6C3Call")
   version:
   1.0.0
 */
-@property (nonatomic, readonly, copy) NSUUID * _Nonnull id;
+@property (nonatomic, readonly, copy) NSString * _Nonnull id;
 /**
   The peer that the call is connecting to.
   version:
   1.0.0
 */
-@property (nonatomic, readonly, strong) C3User * _Nonnull peer;
+@property (nonatomic, readonly, strong) C3User * _Nullable peer;
 /**
   The room that the call is taking place in.
   version:
   1.0.0
 */
 @property (nonatomic, readonly, strong) C3Room * _Nonnull room;
+/**
+  Whether the call is stopped or not. The initial state of incoming calls is stopped, and calls will also transition to the stopped state if the connection has failed.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly) BOOL isStopped;
 /**
   Returns an output that represents a remote source with a specific name.
   This method is guaranteed to always return an output, unless the call is closed. If there is no remote source with the given name, it will be created.
@@ -741,7 +818,11 @@ typedef SWIFT_ENUM(NSInteger, C3CameraPosition) {
 enum C3ClientConnectionState : NSInteger;
 @class C3IceServer;
 enum C3RoomVisibility : NSInteger;
+@class C3RoomQuery;
+enum C3ImageResizeMethod : NSInteger;
 enum C3UserPresence : NSInteger;
+@class C3ImageResource;
+@class C3ImageUpload;
 
 /**
   Represents a client.
@@ -857,7 +938,9 @@ SWIFT_CLASS("_TtC5C3Lib8C3Client")
 */
 - (nonnull instancetype)initWithIceServers:(NSArray<C3IceServer *> * _Nonnull)iceServers OBJC_DESIGNATED_INITIALIZER;
 /**
-  Authenticates the client using authentication information that has been obtained in some way, usually using Auth.
+  Authenticates the client using authentication information that has been obtained in some way, usually using \code
+  C3Auth
+  \endcode.
   version:
   1.0.0
   \param success The callback to be executed upon successful authentication. Receives authenticated client instance. Can be nil.
@@ -914,6 +997,19 @@ SWIFT_CLASS("_TtC5C3Lib8C3Client")
 */
 - (void)createRoomWithName:(NSString * _Nullable)name alias:(NSString * _Nullable)alias topic:(NSString * _Nullable)topic visibility:(enum C3RoomVisibility)visibility invite:(NSArray<C3User *> * _Nonnull)users success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 /**
+  Create a room query.
+  version:
+  1.0.0
+  \param mapFunction The map function of the room query, see \code
+  C3RoomQuery
+  \endcode.
+
+
+  returns:
+  A newly created room query
+*/
+- (C3RoomQuery * _Nonnull)createRoomQueryWithMapFunction:(id _Nullable (^ _Nonnull)(C3Room * _Nonnull))mapFunction;
+/**
   Get a room by id.
   This method always returns a room, but the room might be private or nonexistent, in which case any attempt to join the room will fail.
   version:
@@ -952,6 +1048,34 @@ SWIFT_CLASS("_TtC5C3Lib8C3Client")
 
 */
 - (void)fetchRoomWithAlias:(NSString * _Nonnull)alias success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+/**
+  Parses a mxc resource URI.
+  version:
+  1.0
+  \param uri The mxc resource URI to parse.
+
+
+  returns:
+  Parsed URL string.
+*/
+- (NSString * _Nonnull)parseResourceUri:(NSString * _Nonnull)uri;
+/**
+  Generates a thumbnail uri for the image resource.
+  version:
+  1.0.0
+  \param resourceUri The resource uri to generate a thumbnail for.
+
+  \param width The request width of the thumbnail.
+
+  \param height The request height of the thumbnail.
+
+  \param resizeMethod The method used for resizing the image.
+
+
+  returns:
+  Thumbnail url or nil if the client this image resource is associated with has been closed.
+*/
+- (NSString * _Nullable)thumbnailOf:(NSString * _Nonnull)resourceUri width:(float)width height:(float)height resizeMethod:(enum C3ImageResizeMethod)resizeMethod;
 /**
   Set the avatar of the authenticated user.
   Typical usage is to first upload an image file using \code
@@ -1010,12 +1134,15 @@ SWIFT_CLASS("_TtC5C3Lib8C3Client")
 
   \param mimeType Mime type of the data to upload.
 
-  \param success The callback to be executed upon successful upload. Receives URL string of the uploaded media. Can be nil.
+  \param success The callback to be executed upon successful upload. Receives image resource representation of the uploaded media. Can be nil.
 
   \param failure The callback to be executed upon failed upload. Receives failure cause. Can be nil.
 
+
+  returns:
+  Image media upload representation.
 */
-- (void)uploadMedia:(NSData * _Nonnull)data ofType:(NSString * _Nonnull)mimeType success:(void (^ _Nullable)(NSString * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+- (C3ImageUpload * _Nullable)uploadMedia:(NSData * _Nonnull)data ofType:(NSString * _Nonnull)mimeType success:(void (^ _Nullable)(C3ImageResource * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 /**
   Forgets the auth session and resets the client state.
   version:
@@ -1193,6 +1320,44 @@ SWIFT_CLASS("_TtC5C3Lib11C3Component")
 - (void)receivedDataUpdate:(C3DataUpdate * _Nonnull)update;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
+
+/**
+  The connection state of the call.
+  version:
+  1.0.0
+*/
+typedef SWIFT_ENUM(NSInteger, C3ConnectionState) {
+/**
+  The connection is in the signaling state, e.i. waiting for offer or answer.
+  version:
+  1.0.0
+*/
+  C3ConnectionStateSignaling = 0,
+/**
+  The signaling has been completed and the connection is being set up.
+  version:
+  1.0.0
+*/
+  C3ConnectionStateConnecting = 1,
+/**
+  Connected to the peer.
+  version:
+  1.0.0
+*/
+  C3ConnectionStateConnected = 2,
+/**
+  The connection has been temporarily lost but might recover.
+  version:
+  1.0.0
+*/
+  C3ConnectionStateReconnecting = 3,
+/**
+  The container of the connection has been closed, i.e. the conference, call, etc.
+  version:
+  1.0.0
+*/
+  C3ConnectionStateClosed = 4,
+};
 
 
 /**
@@ -1502,9 +1667,41 @@ SWIFT_CLASS("_TtC5C3Lib7C3Event")
 */
 @property (nonatomic, readonly) NSTimeInterval timeInterval;
 @property (nonatomic, readonly, copy) NSString * _Nonnull description;
+@property (nonatomic, readonly) NSUInteger hash;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
+
+
+@interface C3EventEmitter (SWIFT_EXTENSION(C3Lib))
+@end
+
+enum C3MessageType : NSInteger;
+
+SWIFT_CLASS("_TtC5C3Lib9C3Message")
+@interface C3Message : NSObject
+@property (nonatomic, readonly) enum C3MessageType type;
+@property (nonatomic, readonly, copy) NSString * _Nonnull body;
++ (C3Message * _Nullable)fromEvent:(C3Event * _Nonnull)event;
+- (nonnull instancetype)init:(NSString * _Nonnull)body type:(enum C3MessageType)type OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC5C3Lib14C3MediaMessage")
+@interface C3MediaMessage : C3Message
+@property (nonatomic, readonly, copy) NSString * _Nonnull url;
+- (nonnull instancetype)init:(NSString * _Nonnull)url body:(NSString * _Nullable)body type:(enum C3MessageType)type OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init:(NSString * _Nonnull)body type:(enum C3MessageType)type SWIFT_UNAVAILABLE;
+@end
+
+
+SWIFT_CLASS("_TtC5C3Lib13C3FileMessage")
+@interface C3FileMessage : C3MediaMessage
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull info;
+- (nonnull instancetype)init:(NSString * _Nonnull)url body:(NSString * _Nullable)body info:(NSDictionary<NSString *, id> * _Nonnull)info OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init:(NSString * _Nonnull)url body:(NSString * _Nullable)body type:(enum C3MessageType)type SWIFT_UNAVAILABLE;
+@end
 
 @class C3FileTransfer;
 
@@ -1959,6 +2156,26 @@ SWIFT_CLASS("_TtC5C3Lib11C3IceServer")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
+/**
+  The image resize method enumeration.
+  version:
+  1.0.0
+*/
+typedef SWIFT_ENUM(NSInteger, C3ImageResizeMethod) {
+/**
+  Image will be scaled.
+  version:
+  1.0.0
+*/
+  C3ImageResizeMethodScale = 0,
+/**
+  Image will be cropped.
+  version:
+  1.0.0
+*/
+  C3ImageResizeMethodCrop = 1,
+};
+
 
 /**
   Represents a server-side image resource.
@@ -1976,12 +2193,51 @@ SWIFT_CLASS("_TtC5C3Lib15C3ImageResource")
 @property (nonatomic, readonly, copy) NSString * _Nonnull uri;
 /**
   The original resource uri of the resource, of the form \code
-  mxc://...
+  "mxc://..."
   \endcode.
   version:
   1.0.0
 */
 @property (nonatomic, readonly, copy) NSString * _Nonnull resourceUri;
+/**
+  Generates a thumbnail uri for the image resource.
+  version:
+  1.0.0
+  \param width The request width of the thumbnail.
+
+  \param height The request height of the thumbnail.
+
+  \param resizeMethod The method used for resizing the image.
+
+
+  returns:
+  Thumbnail url or nil if the client this image resource is associated with has been closed.
+*/
+- (NSString * _Nullable)thumbnailWithWidth:(float)width height:(float)height resizeMethod:(enum C3ImageResizeMethod)resizeMethod;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+/**
+  Represents a media upload.
+  version:
+  1.0.0
+  <h1>Events</h1>
+  <ul>
+    <li>
+      \code
+      done
+      \endcode:      Emitted when the upload has completed sucessfully.
+    </li>
+    <li>
+      \code
+      progress
+      \endcode: Emitted when the progress of the upload is updated.
+    </li>
+  </ul>
+*/
+SWIFT_CLASS("_TtC5C3Lib13C3ImageUpload")
+@interface C3ImageUpload : C3EventEmitter
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
@@ -2066,6 +2322,7 @@ SWIFT_CLASS("_TtC5C3Lib13C3MediaFilter")
 - (void)onStream:(RTCMediaStream * _Nullable)stream :(RTCMediaStream * _Nullable)oldStream;
 - (void)close;
 @end
+
 
 
 
@@ -2327,6 +2584,22 @@ SWIFT_CLASS("_TtC5C3Lib10C3MediaTee")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (void)close;
 @end
+
+
+
+@interface C3Message (SWIFT_EXTENSION(C3Lib))
+@end
+
+typedef SWIFT_ENUM(NSInteger, C3MessageType) {
+  C3MessageTypeText = 0,
+  C3MessageTypeEmote = 1,
+  C3MessageTypeNotice = 2,
+  C3MessageTypeImage = 3,
+  C3MessageTypeAudio = 4,
+  C3MessageTypeVideo = 5,
+  C3MessageTypeLocation = 6,
+  C3MessageTypeFile = 7,
+};
 
 
 /**
@@ -2925,6 +3198,11 @@ enum C3RoomMembership : NSInteger;
     </li>
     <li>
       \code
+      memberships
+      \endcode:       Emitted when the membership of any user in the room is changed. Receives a map of users and their memberships.
+    </li>
+    <li>
+      \code
       name
       \endcode:              Emitted when the name of the room is changed. Receives the new name.
     </li>
@@ -3177,6 +3455,18 @@ SWIFT_CLASS("_TtC5C3Lib6C3Room")
 */
 - (void)send:(NSDictionary<NSString *, id> * _Nonnull)content type:(NSString * _Nonnull)type success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
 /**
+  Send a message.
+  version:
+  1.0.0
+  \param message The message to send.
+
+  \param success The callback to be executed upon successful dispatch. Receives room instance. Can be nil.
+
+  \param failure The callback to be executed upon failed dispatch. Receives failure cause. Can be nil.
+
+*/
+- (void)send:(C3Message * _Nonnull)message success:(void (^ _Nullable)(C3Room * _Nonnull))success failure:(void (^ _Nullable)(NSError * _Nonnull))failure;
+/**
   Sets the avatar of the room.
   version:
   1.0.0
@@ -3306,6 +3596,19 @@ SWIFT_CLASS("_TtC5C3Lib6C3Room")
 */
 - (C3Call * _Nullable)startCallWith:(C3User * _Nonnull)user;
 /**
+  Starts a new passive call in the room. A passive call works much like a normal call, except that it does not initiate any new call, it only accepts incoming calls.
+  This is typically used in the scenario where the creator of a room wants to start setting up a call before knowing who the peer will be.
+  Passive calls will always accept incoming calls from new peers, and hang up the call to old ones. Whenever the call connects to a new peer, a \code
+  peer
+  \endcode event will be emitted from the call.
+  version:
+  1.0.0
+
+  returns:
+  The call.
+*/
+- (C3Call * _Nullable)startPassiveCall;
+/**
   Retrieves the state access object for a state of a specific type in the room.
   version:
   1.0.0
@@ -3315,7 +3618,7 @@ SWIFT_CLASS("_TtC5C3Lib6C3Room")
   returns:
   A room state object for interacting with the state.
 */
-- (C3RoomState * _Nonnull)stateWith:(NSString * _Nonnull)type;
+- (C3RoomState * _Nonnull)state:(NSString * _Nonnull)type;
 - (void)close;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
@@ -3365,6 +3668,94 @@ typedef SWIFT_ENUM(NSInteger, C3RoomMembership) {
 */
   C3RoomMembershipUnknown = 4,
 };
+
+
+/**
+  Represents a live query that selects a subset of all rooms and transforms them using a map function.
+  Whenever a room receives an event, the map function is run for every query. If the map function returns a falsy value, it is ignored. If the value is truthy, the value is added to the resulting rows.
+  version:
+  1.0.0
+  <h1>Example</h1>
+  This is an example of a map function that lists all public rooms that the user is a member of:
+  \code
+  { room -> AnyObject? in
+      if room.membership == .member && room.visibility == .public {
+          return room
+      }
+      return nil
+  }
+
+  \endcodeWhenever the value returned by the map function changes, an \code
+  update
+  \endcode event is emitted, as well as \code
+  added
+  \endcode and/or \code
+  removed
+  \endcode events. The value is considered changed if it switches between truthy and falsy, or if the id property of the value changes.
+  This is an example of a map function that lists all rooms to which the user has been invited, as well as the inviting user:
+  \code
+  { room -> AnyObject? in
+      if room.membership == .invited {
+          return [
+              "user": room.invitedBy!,
+              "room": room
+          ]
+      }
+      return nil
+  }
+
+  \endcode<h1>Events</h1>
+  <ul>
+    <li>
+      \code
+      added
+      \endcode:   Emitted when a row is added to the result of the query. Receives added row.
+    </li>
+    <li>
+      \code
+      removed
+      \endcode: Emitted when a row is removed from the result of the query. Receives removed row.
+    </li>
+    <li>
+      \code
+      updated
+      \endcode: Emitted when the result of the query has changed. Receives
+    </li>
+  </ul>
+*/
+SWIFT_CLASS("_TtC5C3Lib11C3RoomQuery")
+@interface C3RoomQuery : C3EventEmitter
+/**
+  The resulting rows of the \code
+  C3RoomQuery
+  \endcode.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly, copy) NSArray * _Nonnull rows;
+/**
+  Stops the query and frees all resources.
+  version:
+  1.0.0
+*/
+- (void)stop;
+/**
+  Forces the map function to be rerun for all rooms.
+  version:
+  1.0.0
+*/
+- (void)forceUpdate;
+- (void)close;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+@interface C3RoomQuery (SWIFT_EXTENSION(C3Lib))
+@end
+
+
+@interface C3RoomQuery (SWIFT_EXTENSION(C3Lib))
+@end
 
 
 /**
@@ -3485,11 +3876,35 @@ SWIFT_CLASS("_TtC5C3Lib12C3StreamSink")
 SWIFT_CLASS("_TtC5C3Lib6C3User")
 @interface C3User : C3EventEmitter
 /**
+  The url to the user’s avatar
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly, strong) C3ImageResource * _Nullable avatar;
+/**
   The id of the user.
   version:
   1.0.0
 */
 @property (nonatomic, readonly, copy) NSString * _Nonnull id;
+/**
+  The last time the user was active.
+  version:
+  1.0.0
+*/
+@property (nonatomic, readonly, copy) NSDate * _Nullable lastActive;
+/**
+  The local part of the user’s id, which is the bit of the id that is before the server name, without the “\code
+  @
+  \endcode” prefix.
+  For example, \code
+  "@foo:example.com"
+  \endcode has the local id \code
+  "foo"
+  \endcode.
+  The local id is what is given when registering a new user.
+*/
+@property (nonatomic, readonly, copy) NSString * _Nonnull localId;
 /**
   The name of the user.
   version:
@@ -3503,15 +3918,19 @@ SWIFT_CLASS("_TtC5C3Lib6C3User")
 */
 @property (nonatomic, readonly) enum C3UserPresence presence;
 /**
-  The url to the user’s avatar
+  A message set by the user
   version:
   1.0.0
 */
-@property (nonatomic, readonly, strong) C3ImageResource * _Nullable avatar;
+@property (nonatomic, readonly, copy) NSString * _Nullable statusMessage;
 - (void)close;
 @property (nonatomic, readonly) NSUInteger hash;
 - (BOOL)isEqual:(id _Nullable)object;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+@interface C3User (SWIFT_EXTENSION(C3Lib))
 @end
 
 
@@ -3543,6 +3962,10 @@ typedef SWIFT_ENUM(NSInteger, C3UserPresence) {
 */
   C3UserPresenceOffline = 2,
 };
+
+
+@interface MXAuthenticationSession (SWIFT_EXTENSION(C3Lib))
+@end
 
 
 @interface RTCPeerConnectionFactory (SWIFT_EXTENSION(C3Lib))

@@ -50,16 +50,8 @@ client.on("state", target: self, callback: #selector(onStateChange))
 ...
 
 @objc func onStateChange(_ stateNumber: NSNumber) {
-   let state = C3ClientConnectionState(rawValue: stateNumber.intValue)!
-   let name: String                                                                                            
-   switch state {
-   case .inactive:     name = "inactive"
-   case .connecting:   name = "connecting"
-   case .connected:    name = "connected"
-   case .disconnected: name = "disconnected"
-   }
-
-    print("New client state: \(name)")
+    let state = C3ClientConnectionState(rawValue: stateNumber.intValue)!
+    print("New client state: \(state.name)")
 }
 ```
 
@@ -77,6 +69,8 @@ The communication is built around a room metaphor. Every user can participate in
 Rooms have a lot of different properties that can be set at creation and usually changed anytime afterwards as well. An example is `room.name`, which is a human-readable name of the room that doesn't have to be unique.
 
 The most important room property is `room.id`, which is a globally unique identifier for the room that is generated when the room is created. Rooms can be accessed by id via either `client.fetchRoom(withId:)` or `client.room(withId:)`. The difference between the two is that `client.fetchRoom(withId:)` will do a roundtrip to the server to check if the room exists, while `client.room(withId:)` returns instantly, but subsequent actions, e.g. joining, might fail if the room doesn't exist. In general `client.room(withId:)` should be used when the application logic is set up in such a way that you can be sure that the room exists, while `client.fetchRoom(withId:)` will be more straightforward to use when e.g. getting the room id from user input.
+
+Rooms may also have a human-readable alias, which must be set at room creation. Unlike room names, it is possible to look up a room by it's alias using `client.fetchRoom(withAlias:)`. The alias is chosen by the creator of the room, and has to be globally unique.
 
 Let's create a room with the name `"Test room"`.
 
@@ -132,6 +126,29 @@ fooClient.room(withId: roomIdFromEmail)?.join(success: { room in
     print("Failed to join room: \(error.localizedDescription)")
 })
 ```
+
+## Interacting with users in a room
+
+Every room has two main lists of users, `room.members`, and `room.invited`. The following would print the names of the users in the room:
+
+```swift
+print("Invited users: \(room.invited.map { $0.name }.joined(separator: ", "))")
+print("Room members: \(room.members.map { $0.name }.joined(separator: ", "))")
+```
+
+There is also an object with all users, `room.memberships`, where each key is a user, and the value is the membership of that user. Using this we can look up the membership of the user "foo":
+
+client.
+
+```swift
+if let user = client.user(withId: "@foo:example.com") {
+    print("Foo's membership: \(room.memberships[user]!.name)")
+}
+```
+
+Since it is very common to not want to include oneself in the list of members, there is also a `room.otherMembers`, accessor, which includes all members except for your own user.
+
+When the memberships in the room change, `invited`, `members`, `memberships`, and `otherMembers` events will be emitted, as well as `invite`, `join`, and `leave` events for the user whoms membership was changed.
 
 ## Messaging
 
@@ -200,11 +217,68 @@ room.events.filter { $0.type == "m.room.name" }.forEach {
 }
 ```
 
+## Manipulating room state
+
+Room states are accessed via `C3RoomState` objects, which are obtained with the `room.state` method. The state object is used both to change and inspect the current state, as well as listen for updates.
+
+To set the state in a room, we use `roomState.set`. This is how you would set a state of the type `"foo.test"` to `["test": 123]`, without any state key.
+
+```swift
+room.state("foo.test").set(["test": 123], { _ in
+    print("Successfully set state foo.test")
+}, ...)
+```
+
+To include a state key we give two arguments:
+
+```swift
+room.state("foo.test").set(["test": 123], for: "test")
+```
+
+There is one restriction in place for state keys, which is that if a state key has a user id format (begins with `"@"`), only the user with that id can change the state.
+
+Using the same room state object we can also get the current state and listen for state changes like this:
+
+```swift
+
+@objc func onUpdate(_ update: C3DataUpdate) {
+    print("Room state with state key \(update.key) update: \(update.value)")
+}
+
+...
+
+let fooTestState = room.state("foo.test").get()
+
+room.state("foo.test").on("update", target: self, callback: #selector(onUpdate))
+```
+
 ## WebRTC
 
 WebRTC is a technology that enables realtime peer-to-peer communication directly between browsers and other clients and services. It supports both audio & video calls as well as generic data transferring. If you want to know more WebRTC you can read [this](https://www.html5rocks.com/en/tutorials/webrtc/basics/) article, which covers the basics of WebRTC.
 
 All webrtc communication in C3Lib happens within a call, which are represented by the `C3Call` class. A call always takes place between two users within the context of a room. A user can have multiple calls active at the same time, and there can also be multiple simultaneous calls between different users in a single room.
+
+## Accessing the user's media devices
+
+The first step in setting up a call is to get access to the user's media devices, e.g. a built-in webcam. The are different ways to do this, but the most straightforward one is creating a `C3DeviceSource`. There are many different options that can be passed to a device source, but the default configuration is to ask for an audio and video stream.
+
+The sink property of the device source can be used to render the media stream to a UIView instance. The following function will ask the user for permission to use the camera and microphone, and then render it to a self-view video elements. In this case the video element should have the muted attribute set, otherwise we would play back the local audio and create a feedback loop.
+
+```swift
+let selfView: UIView
+
+...
+
+@objc func onError(_ error: Error) {
+    print("Failed to get local media: \(error.localizedDescription)")
+}
+
+...
+
+let localMedia = new C3DeviceSource()
+localMedia.connect(to: selfView)
+localMedia.once("error", target: self, callback: #selector(onError))
+```
 
 ## Setting up a call
 
