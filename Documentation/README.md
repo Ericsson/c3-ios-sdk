@@ -6,18 +6,18 @@ A basic knowledge of [Swift](http://www.apple.com/se/swift/) is needed to follow
 
 ## Introduction
 
-After including `C3Lib` in your project, the first step is to create a `C3Client`. The client is the starting point for every application, and manages state and connection to a server.
+After including `C3Lib` in your project, the first step is to create a `Client`. The client is the starting point for every application, and manages state and connection to a server.
 
 ```swift
-let client = C3Client()
+let client = Client()
 ```
 
 ## Authentication
 
-A client is authenticated using a `C3AuthInfo` object, which can be acquired in different ways. The `C3Auth` class contains some static methods with common authentication methods. Let's start by logging on to a user that was previously registered using `C3Auth.register()`.
+A client is authenticated using a `AuthInfo` object, which can be acquired in different ways. The `Auth` class contains some static methods with common authentication methods. Let's start by logging on to a user that was previously registered using `Auth.register()`.
 
 ```swift
-C3Auth.login(as: "foo",
+Auth.login(as: "foo",
              password:  "password123",
              serverUrl: "https://example.com",
              success: { authInfo in
@@ -41,7 +41,7 @@ client.setName("Test User", success: { client in
 
 ## Events
 
-Many classes in C3Lib make use to the `C3EventEmitter` interface. In general, classes that have members that change over time will emit an event with the same name whenever the value is changed.
+Many classes in C3Lib make use to the `EventEmitter` interface. In general, classes that have members that change over time will emit an event with the same name whenever the value is changed.
 
 For example, `client.state` indicates the current connection state of the client. Try setting the following listener before authenticating the client:
 ```swift
@@ -50,15 +50,15 @@ client.on("state", target: self, callback: #selector(onStateChange))
 ...
 
 @objc func onStateChange(_ stateNumber: NSNumber) {
-    let state = C3ClientConnectionState(rawValue: stateNumber.intValue)!
+    let state = ClientConnectionState(rawValue: stateNumber.intValue)!
     print("New client state: \(state.name)")
 }
 ```
 
 ## Users
-Users are represented by instances of the `C3User` class, which have an `id`, `name`, and `avatar`. There is also presence information available via `presence`, `lastActive`, and `statusMessage`. All of these properties have matching events that are emitted whenever a property is changed, except for id.
+Users are represented by instances of the `User` class, which have an `id`, `name`, and `avatar`. There is also presence information available via `presence`, `lastActive`, and `statusMessage`. All of these properties have matching events that are emitted whenever a property is changed, except for id.
 
-Users are identified by an id with the format `@<localId>:<serverName>`. The `localId` uniquely identifies the user on the server where the user is registered, while the `serverName` typically is the hostname of the server, e.g. `@foo:example.com`. When creating and authenticating users, the value of the `localId` will depend on what authentication method is used. As an example, users registered with `C3Auth.register()` will get a `localId` that is equal to the `username` that is used.
+Users are identified by an id with the format `@<localId>:<serverName>`. The `localId` uniquely identifies the user on the server where the user is registered, while the `serverName` typically is the hostname of the server, e.g. `@foo:example.com`. When creating and authenticating users, the value of the `localId` will depend on what authentication method is used. As an example, users registered with `Auth.register()` will get a `localId` that is equal to the `username` that is used.
 
 The client's own user is accessible via `client.user`, although modifications to the user are done via the client, e.g. with `client.setName()`. It is also safe to compare users directly with `===`, as there is only a single instance for each user per client. Note that this is limited to users from the same client.
 
@@ -103,7 +103,7 @@ fooClient.on("invite", target: self, callback: #selector(onInvite))
 
 ...
 
-@objc func onInvite(_ room: C3Room) {
+@objc func onInvite(_ room: Room) {
     print("Got invited to the room \(room.name ?? room.id), joining!")
     room.join(success: { room in
         print("Joined room \(room.name ?? room.id)")
@@ -152,14 +152,14 @@ When the memberships in the room change, `invited`, `members`, `memberships`, an
 
 ## Messaging
 
-Rooms support text messaging through `events` that can contain arbitrary data (not to be confused with `C3EventEmitter` events). Every event has a `type` and `content`, and every client can choose to interpret events in any way they like. The events also have other information like the sender, timestamp, and whether it's your own event.
+Rooms support text messaging through `events` that can contain arbitrary data (not to be confused with `EventEmitter` events). Every event has a `type` and `content`, and every client can choose to interpret events in any way they like. The events also have other information like the sender, timestamp, and whether it's your own event.
 
 The standard type for message events is `"m.room.message"`, while the content should be an object with the `"body"` and `"msgtype"` keys. For text messages the `"msgtype"` should be set to `"m.text"`, and the `"body"` should be the text content of the message.
 
 This is how you would list all text messages, and then listen for new ones.
 
 ```swift
-func logTextMessage(_ message: C3Event) {
+func logTextMessage(_ message: Room.Event) {
    if let type = message.content["msgtype"] as? String, type == "m.text" {
         if let body = message.content["body"] as? String {
             print("\(message.sender.name ?? message.sender.id) says \(body)")
@@ -219,7 +219,7 @@ room.events.filter { $0.type == "m.room.name" }.forEach {
 
 ## Manipulating room state
 
-Room states are accessed via `C3RoomState` objects, which are obtained with the `room.state` method. The state object is used both to change and inspect the current state, as well as listen for updates.
+Room states are accessed via `RoomState` objects, which are obtained with the `room.state` method. The state object is used both to change and inspect the current state, as well as listen for updates.
 
 To set the state in a room, we use `roomState.set`. This is how you would set a state of the type `"foo.test"` to `["test": 123]`, without any state key.
 
@@ -241,7 +241,7 @@ Using the same room state object we can also get the current state and listen fo
 
 ```swift
 
-@objc func onUpdate(_ update: C3DataUpdate) {
+@objc func onUpdate(_ update: DataUpdate) {
     print("Room state with state key \(update.key) update: \(update.value)")
 }
 
@@ -256,11 +256,11 @@ room.state("foo.test").on("update", target: self, callback: #selector(onUpdate))
 
 WebRTC is a technology that enables realtime peer-to-peer communication directly between browsers and other clients and services. It supports both audio & video calls as well as generic data transferring. If you want to know more WebRTC you can read [this](https://www.html5rocks.com/en/tutorials/webrtc/basics/) article, which covers the basics of WebRTC.
 
-All webrtc communication in C3Lib happens within a call, which are represented by the `C3Call` class. A call always takes place between two users within the context of a room. A user can have multiple calls active at the same time, and there can also be multiple simultaneous calls between different users in a single room.
+All webrtc communication in C3Lib happens within a call, which are represented by the `Call` class. A call always takes place between two users within the context of a room. A user can have multiple calls active at the same time, and there can also be multiple simultaneous calls between different users in a single room.
 
 ## Accessing the user's media devices
 
-The first step in setting up a call is to get access to the user's media devices, e.g. a built-in webcam. The are different ways to do this, but the most straightforward one is creating a `C3DeviceSource`. There are many different options that can be passed to a device source, but the default configuration is to ask for an audio and video stream.
+The first step in setting up a call is to get access to the user's media devices, e.g. a built-in webcam. The are different ways to do this, but the most straightforward one is creating a `DeviceSource`. There are many different options that can be passed to a device source, but the default configuration is to ask for an audio and video stream.
 
 The sink property of the device source can be used to render the media stream to a UIView instance. The following function will ask the user for permission to use the camera and microphone, and then render it to a self-view video elements. In this case the video element should have the muted attribute set, otherwise we would play back the local audio and create a feedback loop.
 
@@ -275,7 +275,7 @@ let selfView: UIView
 
 ...
 
-let localMedia = new C3DeviceSource()
+let localMedia = new DeviceSource()
 localMedia.connect(to: selfView)
 localMedia.once("error", target: self, callback: #selector(onError))
 ```
@@ -315,7 +315,7 @@ let remoteView: UIView
 
 ...
 
-@objc func onCall(_ call: C3Call) {
+@objc func onCall(_ call: Call) {
     // Before starting we can e.g. inspect call.room and call.peer
     call.start()
     call.setLocalSource(localMedia, as: "media")

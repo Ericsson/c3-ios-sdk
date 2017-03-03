@@ -15,8 +15,11 @@ end
 
 target 'C3Lib_Example' do
   shared_pods
-  pod 'IGIdenticon'
-  pod 'JSQMessagesViewController'
-  pod 'KeyboardObserver'
-  pod 'SDWebImage'
+  pod 'DZNEmptyDataSet', '~> 1.8.1'
+  pod 'IGIdenticon', '~> 0.4'
+  pod 'JSQMessagesViewController', '~> 7.3.4'
+  pod 'JTSImageViewController', '~> 1.5.1'
+  pod 'KeyboardObserver', '~> 1.0.1'
+  pod 'SDWebImage', '~> 4.0.0'
+  pod 'SVPullToRefresh', '~> 0.4.1'
 end

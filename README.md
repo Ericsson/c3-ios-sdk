@@ -29,16 +29,16 @@ In order to be able to use the C3Lib framework, you will need to have access to 
 
 C3Lib framework comes with an introductory document which guides you through the basic use cases. You will find it [here](Documentation/).
 
-The `C3Client` is the starting point for every application, and manages state and connection to a server.
+The `Client` is the starting point for every application, and manages state and connection to a server.
 
 ```swift
-let client = C3Client()
+let client = Client()
 ```
 
-A client is authenticated using a `C3AuthInfo` object, which can be acquired in different ways. The `C3Auth` class contains some static methods with common authentication methods. Let's start by logging on to a user that was previously registered using `C3Auth.register()`.
+A client is authenticated using a `AuthInfo` object, which can be acquired in different ways. The `Auth` class contains some static methods with common authentication methods. Let's start by logging on to a user that was previously registered using `Auth.register()`.
 
 ```swift
-C3Auth.login(as: "foo",
+Auth.login(as: "foo",
              password:  "password123",
              serverUrl: "https://example.com",
              success: { authInfo in

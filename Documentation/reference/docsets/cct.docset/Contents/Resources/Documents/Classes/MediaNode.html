@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MediaNode Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/MediaNode" class="dashAnchor"></a>
+    <a title="MediaNode Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">cct Docs</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fwww%2Eericsson%2Ecom%2Fdocsets%2Fcct%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">cct Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MediaNode Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AccountData.html">AccountData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AttachData.html">AttachData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AttachPoint.html">AttachPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AudioMeter.html">AudioMeter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Auth.html">Auth</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AuthInfo.html">AuthInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct19AuthenticationError">AuthenticationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct15BadRequestError">BadRequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3Error.html">C3Error</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Call.html">Call</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CallClosedInfo.html">CallClosedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Client.html">Client</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Conference.html">Conference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct13ConflictError">ConflictError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct21ConnectionFailedError">ConnectionFailedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct19ConnectionLostError">ConnectionLostError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DataShare.html">DataShare</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DataUpdate.html">DataUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DeviceSource.html">DeviceSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Event.html">Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventEmitter.html">EventEmitter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileRef.html">FileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileShare.html">FileShare</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileTransfer.html">FileTransfer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct17FileTransferError">FileTransferError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct16GuestAccessError">GuestAccessError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/IceServer.html">IceServer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ImageResource.html">ImageResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct11ImageUpload">ImageUpload</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct19InternalServerError">InternalServerError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct17InvalidAliasError">InvalidAliasError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct20InvalidUsernameError">InvalidUsernameError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaBroadcaster.html">MediaBroadcaster</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaFilter.html">MediaFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaNode.html">MediaNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaNodeInput.html">MediaNodeInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaNodeOutput.html">MediaNodeOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaSink.html">MediaSink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaSwitcher.html">MediaSwitcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaTee.html">MediaTee</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MuteFilter.html">MuteFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct15NotAllowedError">NotAllowedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct13NotFoundError">NotFoundError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct20OverconstrainedError">OverconstrainedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Passthrough.html">Passthrough</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PeerMediaPipe.html">PeerMediaPipe</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PowerLevelsEdit.html">PowerLevelsEdit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PowerLevelsReader.html">PowerLevelsReader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct14RateLimitError">RateLimitError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Room.html">Room</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomQuery.html">RoomQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomState.html">RoomState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RtcComponent.html">RtcComponent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RtcPeer.html">RtcPeer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StreamSink.html">StreamSink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct13TooLargeError">TooLargeError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct24TransferInterruptedError">TransferInterruptedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct12UnknownError">UnknownError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/User.html">User</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CallClosedReason.html">CallClosedReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CallClosedSource.html">CallClosedSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ClientConnectionState.html">ClientConnectionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ConnectionState.html">ConnectionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FileRefEndReason.html">FileRefEndReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/GuestAccessRule.html">GuestAccessRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HistoryVisibility.html">HistoryVisibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ImageResizeMethod.html">ImageResizeMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/JoinRule.html">JoinRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoomMembership.html">RoomMembership</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoomVisibility.html">RoomVisibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UserPresence.html">UserPresence</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MediaNode</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">MediaNode</span><span class="p">:</span> <span class="kt"><a href="../Classes/EventEmitter.html">EventEmitter</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>A base class that all pure media nodes inherit from.</p>
+
+<p>Classes inheriting from media node are plain nodes with input and output ports directly attached.</p>
+
+<p>A media node has zero or more input and output ports, which can be connected to other nodes. Media nodes are always
+connected from one output port to one input port, using the connect method of either the output port or the media
+node.</p>
+
+<p>When using the connect method of a media node, the output port to be used is resolved by recursively looking up the
+output property of the media node. The same method is used when a media node is used as the target for a connection,
+but in that case an input port is looked up via the input property.</p>
+
+<p>Because the input and output property lookups are recursive, it is easy to create simple container nodes that have a
+number of internal media nodes, and then expose input and output ports as properties.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct9MediaNode7connectFT2toPs9AnyObject__T_"></a>
+                    <a name="//apple_ref/swift/Method/connect(to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct9MediaNode7connectFT2toPs9AnyObject__T_">connect(to:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Connect the node to a target. Each output can be connected to multiple targets.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">connect</span><span class="p">(</span><span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>target</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The target input, node, or element.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct9MediaNode10disconnectFT4fromGSqPs9AnyObject___T_"></a>
+                    <a name="//apple_ref/swift/Method/disconnect(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct9MediaNode10disconnectFT4fromGSqPs9AnyObject___T_">disconnect(from:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Disconnect the node from a target.</p>
+
+<p>If no target is specified, all targets will be disconnected.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">disconnect</span><span class="p">(</span><span class="n">from</span> <span class="nv">target</span><span class="p">:</span> <span class="kt">AnyObject</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>target</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The target to disconnect from.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external">Ericsson AB</a>. All rights reserved. (Last updated: 2017-03-03)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

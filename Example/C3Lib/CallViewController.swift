@@ -1,132 +1,206 @@
-import C3Lib
+import cct
 import Foundation
 import UIKit
 
 class CallViewController: UIViewController {
-    
-    var call: C3Call?
-    var source: C3DeviceSource?
-    var dataShare: C3DataShare?
-    var fileShare: C3FileShare?
-    
-    @IBOutlet var localView: UIView?
-    @IBOutlet var remoteView: UIView?
-    
+
+    var source: DeviceSource?
+    var client: Client?
+    var call: Call?
+    var conference: Conference?
+    var switcher: MediaSwitcher?
+    var broadcaster: MediaBroadcaster?
+    var audioDetected = false
+
+    @IBOutlet var mainView: UIView?
+    @IBOutlet var cameraPositionButton: UIButton?
+    @IBOutlet var thumbnailViews: UIScrollView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        source = C3DeviceSource()
-        source?.connect(to: localView!)
-        
-        call?.setLocalSource(source!, as: "main")
-        
-        call?.remoteSource("main").connect(to: remoteView!)
-        
-        call?.on("closed", target: self, callback: #selector(onClosed(info:)))
-        
-//        dataShare = C3DataShare()
-//        call?.attach(dataShare!, as: "data")
-//        
-//        dataShare?.on("update", target: self, callback: #selector(onDataUpdate))
-//        
-//        fileShare = C3FileShare()
-//        fileShare?.on("update", target: self, callback: #selector(onFileUpdate(change:)))
-//        
-//        call?.attach(fileShare!, as: "files")
-    }
-    
-    @IBAction func pressedCameraSwitchButton(_ button: UIButton) {
-        guard let source = source else {
-            return
-        }
-        
-        if source.cameraPosition == .back {
-            source.cameraPosition = .front
-        } else if source.cameraPosition == .front {
-            source.cameraPosition = .back
-        }
-    }
-    
-    @IBAction func pressedHangupButton(_ button: UIButton) {
-        call?.hangup(success: { call in
-            print("Did hang up call \(call.id)")
-        }, failure: { error in
-            print("Did fail to hang up: \(error.localizedDescription)")
-        })
-    }
-    
-    @IBAction func pressedMuteButton(_ button: UIButton) {
-        guard let source = source else {
-            return
-        }
-        
-        if source.muteAudio {
-            source.muteAudio = false
-            button.setImage(#imageLiteral(resourceName: "MuteIcon"), for: .normal)
+
+        source = DeviceSource()
+
+        if source!.cameraPosition == .none {
+            cameraPositionButton?.isEnabled = false
         } else {
-            source.muteAudio = true
+            let view = createThumbnailView(for: client!.user!.id)
+            source?.connect(to: view)
+        }
+
+        if let call = call {
+            call.setLocalSource(source!, as: "main")
+            call.remoteSource("main").connect(to: mainView!)
+
+            call.on("closed", target: self, callback: #selector(onClosed))
+        } else if let conference = conference {
+            switcher = MediaSwitcher()
+
+            source?.connect(to: switcher!)
+            switcher?.connect(to: mainView!)
+            switcher?.on("activeSpeaker", target: self, callback: #selector(onActiveSpeaker))
+
+            conference.attach(switcher!, as: "switcher")
+
+            broadcaster = MediaBroadcaster()
+            source?.connect(to: broadcaster!)
+
+            broadcaster!.on("remoteSource", target: self, callback: #selector(onRemoteSource))
+            conference.attach(broadcaster!, as: "broadcaster")
+
+            switcher?.setActive()
+        }
+    }
+
+    @IBAction func pressedCameraSwitchButton(_ button: UIButton) {
+        if source!.cameraPosition == .back {
+            source!.cameraPosition = .front
+        } else if source!.cameraPosition == .front {
+            source!.cameraPosition = .back
+        }
+    }
+
+    @IBAction func pressedHangupButton(_ button: UIButton) {
+        if let call = call {
+            call.hangup(success: { call in
+                print("Did hang up call \(call.id)")
+            }, failure: { error in
+                print("Did fail to hang up: \(error.reason)")
+            })
+        } else if let conference = conference {
+            conference.close()
+
+            dismiss(animated: true) {
+                self.cleanup()
+            }
+        }
+    }
+
+    @IBAction func pressedMuteButton(_ button: UIButton) {
+        if source!.muteAudio {
+            source!.muteAudio = false
             button.setImage(#imageLiteral(resourceName: "UnmuteIcon"), for: .normal)
+        } else {
+            source!.muteAudio = true
+            button.setImage(#imageLiteral(resourceName: "MuteIcon"), for: .normal)
         }
     }
 }
 
 private extension CallViewController {
-    
-    @objc func onClosed(info: [String:Any]) {
-        dismiss(animated: true) {
-            self.call = nil
-            
-            self.dataShare?.off("update", target: self)
-            self.dataShare = nil
 
-            self.fileShare?.off("update", target: self)
-            self.fileShare = nil
+    @objc func onClosed(_ info: [String:Any]) {
+        dismiss(animated: true) {
+            self.cleanup()
         }
     }
-    
-    @objc func onDataUpdate(_ update: C3DataUpdate) {
-        guard let value = update.value else {
+
+    @objc func onRemoteSource(_ data: [String:Any]) {
+        guard let peerId = data["peerId"] as? String else {
             return
         }
-        
-        print("Did receive data for key \(update.key): \(value)")
-        
-        dataShare?.set("world", for: "hello")
-    }
-    
-    @objc func onFileUpdate(change: [String:Any]) {
-        print("Did receive file update")
-        
-        guard let file = change["value"] as? C3FileRef else {
-            return
+
+        if let source = data["source"] as? MediaTee {
+            print("[\(type(of: self))] Did receive remote source from \(peerId)")
+
+            let view = createThumbnailView(for: peerId)
+            source.connect(to: view)
+
+            if let peer = client?.user(withId: peerId) {
+                switcher?.setActive(peer)
+            }
+        } else {
+            print("[\(type(of: self))] Did lose remote source from \(peerId)")
+
+            thumbnailViews?.subviews.filter { $0.accessibilityValue == peerId }.forEach { $0.removeFromSuperview() }
+
+            let height = Int(thumbnailViews!.frame.size.height)
+            let width = 16 * height / 9
+            let space = 5
+
+            for i in 0 ... thumbnailViews!.subviews.count - 1 {
+                let view = thumbnailViews!.subviews[i]
+                view.frame = CGRect(
+                    x: CGFloat(i  * (width + space) + space),
+                    y: 0,
+                    width: view.frame.size.width,
+                    height: view.frame.size.height)
+            }
+
+            switcher?.setActive()
         }
-        
-        file.fetch(success: {
-            guard let data = $0.data else {
-                return
-            }
-            
-            guard let content = String(data: data, encoding: .utf8) else {
-                return
-            }
-            print("Did fetch file \($0.name): \(content)")
-        }, failure: {
-            print("Did fail to fetch file \(file.name): \($0.localizedDescription)")
-        })
     }
-    
-    @objc func onTransfer(transfer: C3FileTransfer) {
-        print("Did start transfer")
-        
-        transfer.on("progress", target: self, callback: #selector(onProgress(progress:)))
-        transfer.on("done", target: self, callback: #selector(onDone))
+
+    @objc func onActiveSpeaker(_ activeSpeaker: String) {
+        print("[\(type(of: self))] Did change active speaker to \(activeSpeaker)")
     }
-    
-    @objc func onProgress(progress: Float) {
-        print("Transfer did progress: \(progress)")
+
+    func createThumbnailView(for peerId: String) -> UIView {
+        print("[\(type(of: self))] Will create thumbnail view for \(peerId)")
+
+        let height = Int(thumbnailViews!.frame.size.height)
+        let width = 16 * height / 9
+        let space = 5
+
+        let view = UIView(frame: CGRect(
+            x: (thumbnailViews!.subviews.count - 1)  * (width + space) + space,
+            y: 0,
+            width: width,
+            height: height))
+        view.accessibilityValue = peerId
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onThumbnailTapped)))
+
+        thumbnailViews?.addSubview(view)
+        thumbnailViews?.contentSize = CGSize(
+            width: (thumbnailViews!.subviews.count - 1) * (width + space) + space,
+            height: height)
+
+        view.addConstraint(NSLayoutConstraint(
+            item: view,
+            attribute: .width,
+            relatedBy: .equal,
+            toItem: nil,
+            attribute: .notAnAttribute,
+            multiplier: 1.0,
+            constant: CGFloat(width)))
+        view.addConstraint(NSLayoutConstraint(
+            item: view,
+            attribute: .height,
+            relatedBy: .equal,
+            toItem: nil,
+            attribute: .notAnAttribute,
+            multiplier: 1.0,
+            constant: CGFloat(height)))
+
+        view.layer.cornerRadius = 5.0
+        view.layer.borderColor = UIColor.white.cgColor
+        view.layer.borderWidth = 1.0
+        view.clipsToBounds = true
+
+        return view
     }
-    
-    @objc func onDone() {
-        print("Transfer did finish")
+
+    @objc func onThumbnailTapped(_ gestureRecognizer: UIGestureRecognizer) {
+        if let peerId = gestureRecognizer.view?.accessibilityValue,
+            let user = client?.user(withId: peerId),
+            let switcher = switcher {
+            print("[\(type(of: self))] Will switch active user to \(peerId)")
+            switcher.setActive(user)
+        }
+    }
+
+    func cleanup() {
+        source?.close()
+        source = nil
+
+        broadcaster?.close()
+        broadcaster = nil
+
+        switcher?.close()
+        switcher = nil
+
+        client = nil
+        call = nil
+        conference = nil
     }
 }

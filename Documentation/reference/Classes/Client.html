@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Client Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/Client" class="dashAnchor"></a>
+    <a title="Client Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">cct Docs</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fwww%2Eericsson%2Ecom%2Fdocsets%2Fcct%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">cct Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Client Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AccountData.html">AccountData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AttachData.html">AttachData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AttachPoint.html">AttachPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AudioMeter.html">AudioMeter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Auth.html">Auth</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AuthInfo.html">AuthInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct19AuthenticationError">AuthenticationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct15BadRequestError">BadRequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3Error.html">C3Error</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Call.html">Call</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CallClosedInfo.html">CallClosedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Client.html">Client</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Conference.html">Conference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct13ConflictError">ConflictError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct21ConnectionFailedError">ConnectionFailedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct19ConnectionLostError">ConnectionLostError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DataShare.html">DataShare</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DataUpdate.html">DataUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DeviceSource.html">DeviceSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Event.html">Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventEmitter.html">EventEmitter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileRef.html">FileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileShare.html">FileShare</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileTransfer.html">FileTransfer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct17FileTransferError">FileTransferError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct16GuestAccessError">GuestAccessError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/IceServer.html">IceServer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ImageResource.html">ImageResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct11ImageUpload">ImageUpload</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct19InternalServerError">InternalServerError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct17InvalidAliasError">InvalidAliasError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct20InvalidUsernameError">InvalidUsernameError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaBroadcaster.html">MediaBroadcaster</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaFilter.html">MediaFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaNode.html">MediaNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaNodeInput.html">MediaNodeInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaNodeOutput.html">MediaNodeOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaSink.html">MediaSink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaSwitcher.html">MediaSwitcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaTee.html">MediaTee</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MuteFilter.html">MuteFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct15NotAllowedError">NotAllowedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct13NotFoundError">NotFoundError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct20OverconstrainedError">OverconstrainedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Passthrough.html">Passthrough</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PeerMediaPipe.html">PeerMediaPipe</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PowerLevelsEdit.html">PowerLevelsEdit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PowerLevelsReader.html">PowerLevelsReader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct14RateLimitError">RateLimitError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Room.html">Room</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomQuery.html">RoomQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomState.html">RoomState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RtcComponent.html">RtcComponent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RtcPeer.html">RtcPeer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StreamSink.html">StreamSink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct13TooLargeError">TooLargeError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct24TransferInterruptedError">TransferInterruptedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct12UnknownError">UnknownError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/User.html">User</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CallClosedReason.html">CallClosedReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CallClosedSource.html">CallClosedSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ClientConnectionState.html">ClientConnectionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ConnectionState.html">ConnectionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FileRefEndReason.html">FileRefEndReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/GuestAccessRule.html">GuestAccessRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HistoryVisibility.html">HistoryVisibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ImageResizeMethod.html">ImageResizeMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/JoinRule.html">JoinRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoomMembership.html">RoomMembership</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoomVisibility.html">RoomVisibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UserPresence.html">UserPresence</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Client</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">Client</span><span class="p">:</span> <span class="kt"><a href="../Classes/EventEmitter.html">EventEmitter</a></span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents a client.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+<p><a href='#events' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='events'>Events</h4></p>
+
+<ul>
+<li><code>event</code>:        Emitted when an event is received in any room. Receives <code><a href="../Classes/Event.html">Event</a></code> instance.</li>
+<li><code>event:&lt;type&gt;</code>: Same as <code>event</code>, but listens to a specific event type.</li>
+<li><code>call</code>:         Emitted when there is an incoming call to any room. Incoming calls are stopped and need to be
+              started with call&rsquo;s <code>start()</code> before a connection is set up. Receives <code><a href="../Classes/Call.html">Call</a></code> instance.</li>
+<li><code>invite</code>:       Emitted when a new room invite is received. The room will contain additional information, such as
+              <code>invitedBy</code>. Receives <code><a href="../Classes/Room.html">Room</a></code> instance.</li>
+<li><code>rooms</code>:        Emitted whenever the list of rooms changes.</li>
+<li><code>state</code>:        Emitted when the conneciton state of the client is changed.</li>
+</ul>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC3cct6Client4userGSqCS_4User_"></a>
+                    <a name="//apple_ref/swift/Property/user" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC3cct6Client4userGSqCS_4User_">user</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The authenticated user.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">user</span><span class="p">:</span> <span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC3cct6Client5roomsGSaCS_4Room_"></a>
+                    <a name="//apple_ref/swift/Property/rooms" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC3cct6Client5roomsGSaCS_4Room_">rooms</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>All rooms the authenticated user is a member of.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">rooms</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/Room.html">Room</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC3cct6Client8authInfoGSqCS_8AuthInfo_"></a>
+                    <a name="//apple_ref/swift/Property/authInfo" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC3cct6Client8authInfoGSqCS_8AuthInfo_">authInfo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The authentication information for the authenticated user.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">private(set)</span> <span class="k">var</span> <span class="nv">authInfo</span><span class="p">:</span> <span class="kt"><a href="../Classes/AuthInfo.html">AuthInfo</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC3cct6Client5stateOS_21ClientConnectionState"></a>
+                    <a name="//apple_ref/swift/Property/state" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC3cct6Client5stateOS_21ClientConnectionState">state</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The state of the client.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">fileprivate</span><span class="p">(</span><span class="k">set</span><span class="p">)</span> <span class="k">var</span> <span class="nv">state</span><span class="p">:</span> <span class="kt"><a href="../Enums/ClientConnectionState.html">ClientConnectionState</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC3cct6Client11accountDataGSqCS_11AccountData_"></a>
+                    <a name="//apple_ref/swift/Property/accountData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC3cct6Client11accountDataGSqCS_11AccountData_">accountData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Account data object that is used to access user scoped account data.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">accountData</span><span class="p">:</span> <span class="kt"><a href="../Classes/AccountData.html">AccountData</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6ClientcFT_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6ClientcFT_S0_">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an instance of client.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="k">override</span> <span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Initialized client instance.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6ClientcFT13iceServerUrlsGSaSS__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(iceServerUrls:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6ClientcFT13iceServerUrlsGSaSS__S0_">init(iceServerUrls:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an instance of client.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">iceServerUrls</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>iceServerUrls</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>One or more helper servers to use as default for all calls.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Initialized client instance.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6ClientcFT10iceServersGSaCS_9IceServer__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(iceServers:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6ClientcFT10iceServersGSaCS_9IceServer__S0_">init(iceServers:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates an instance of client.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">iceServers</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/IceServer.html">IceServer</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>iceServers</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>One or more helper servers to use as default for all calls.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Initialized client instance.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6Client4authFTCS_8AuthInfo7successGSqFS0_T__7failureGSqFCS_7C3ErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/auth(_:success:failure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6Client4authFTCS_8AuthInfo7successGSqFS0_T__7failureGSqFCS_7C3ErrorT___T_">auth(_:success:failure:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Authenticates the client using authentication information that has been obtained in some way, usually using
+<code><a href="../Classes/Auth.html">Auth</a></code>.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">auth</span><span class="p">(</span>
+        <span class="n">_</span> <span class="nv">authInfo</span><span class="p">:</span> <span class="kt"><a href="../Classes/AuthInfo.html">AuthInfo</a></span><span class="p">,</span>
+        <span class="nv">success</span><span class="p">:</span> <span class="kt">SuccessCallback</span><span class="o">&lt;</span><span class="kt">Client</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="nv">failure</span><span class="p">:</span> <span class="kt">FailureCallback</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon successful authentication. Receives authenticated client instance.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon failed authentication. Receives failure cause.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6Client4userFT6withIdSS_GSqCS_4User_"></a>
+                    <a name="//apple_ref/swift/Method/user(withId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6Client4userFT6withIdSS_GSqCS_4User_">user(withId:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a user by id.</p>
+
+<p>If the user information is not available locally, this method will return nil.</p>
+
+<p>This method can be used without being authenticated.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">user</span><span class="p">(</span><span class="n">withId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The id of the user to retrieve.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The user, or nil if the user information is not available locally of the user doesn’t exist.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6Client9fetchUserFT6withIdSS7successGSqFCS_4UserT__7failureGSqFCS_7C3ErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchUser(withId:success:failure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6Client9fetchUserFT6withIdSS7successGSqFCS_4UserT__7failureGSqFCS_7C3ErrorT___T_">fetchUser(withId:success:failure:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a user by id.</p>
+
+<p>This method will always result in a request to the server, regardless of what information is already available.
+The request fetches the current name and avatar of the user.</p>
+
+<p>If the user does not exist on ther server, the returned promise will be rejected.</p>
+
+<p>This method can be used without being authenticated.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">fetchUser</span><span class="p">(</span>
+        <span class="n">withId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">success</span><span class="p">:</span> <span class="kt">SuccessCallback</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/User.html">User</a></span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="nv">failure</span><span class="p">:</span> <span class="kt">FailureCallback</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The id of the user to fetch.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The user, or nil if the user doesn’t exist.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6Client10createRoomFT4nameGSqSS_5aliasGSqSS_5topicGSqSS_10visibilityOS_14RoomVisibility6inviteGSaCS_4User_7successGSqFCS_4RoomT__7failureGSqFCS_7C3ErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/createRoom(name:alias:topic:visibility:invite:success:failure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6Client10createRoomFT4nameGSqSS_5aliasGSqSS_5topicGSqSS_10visibilityOS_14RoomVisibility6inviteGSaCS_4User_7successGSqFCS_4RoomT__7failureGSqFCS_7C3ErrorT___T_">createRoom(name:alias:topic:visibility:invite:success:failure:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a new room.</p>
+
+<p><a href='#example' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='example'>Example</h4>
+<pre class="highlight plaintext"><code>client.createRoom(success: { room in
+    print(<q>Created room: \(room)</q>)
+})
+</code></pre>
+<a href='#example' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='example'>Example</h4>
+<pre class="highlight plaintext"><code>let bob: User = ...</p>
+
+<p>client.createRoom(
+    type: <q>meeting</q>,
+    name: <q>Meeting with Bob</q>,
+    topic: <q>Widget production schedule</q>,
+    invite: [bob],
+    success: { room in
+        print(<q>Created meeting with Bob: \(room)</q>)
+    }, failure: { error in
+        print(<q>Failed to create meeting with Bob: \(error)</q>)
+    }
+})</p>
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+</code></pre>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createRoom</span><span class="p">(</span>
+        <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="nv">alias</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="nv">topic</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="nv">visibility</span><span class="p">:</span> <span class="kt"><a href="../Enums/RoomVisibility.html">RoomVisibility</a></span> <span class="o">=</span> <span class="o">.</span><span class="kd">private</span><span class="p">,</span>
+        <span class="n">invite</span> <span class="nv">users</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="nv">success</span><span class="p">:</span> <span class="kt">SuccessCallback</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Room.html">Room</a></span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="nv">failure</span><span class="p">:</span> <span class="kt">FailureCallback</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The display name of the room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>alias</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A local alias for the room id.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>topic</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The topic to display for the room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>visibility</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Room visibility.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>invite</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Optional list of users to invite to the room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon successful creation. Receives new room instance.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon failed creation. Receives failure cause.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6Client15createRoomQueryFT11mapFunctionFCS_4RoomGSqPs9AnyObject___CS_9RoomQuery"></a>
+                    <a name="//apple_ref/swift/Method/createRoomQuery(mapFunction:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6Client15createRoomQueryFT11mapFunctionFCS_4RoomGSqPs9AnyObject___CS_9RoomQuery">createRoomQuery(mapFunction:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a room query.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">createRoomQuery</span><span class="p">(</span><span class="nv">mapFunction</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Classes/Room.html">Room</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">AnyObject</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/RoomQuery.html">RoomQuery</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>mapFunction</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The map function of the room query, see <code>RoomQuery</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A newly created room query.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6Client4roomFT6withIdSS_GSqCS_4Room_"></a>
+                    <a name="//apple_ref/swift/Method/room(withId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6Client4roomFT6withIdSS_GSqCS_4Room_">room(withId:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get a room by id.</p>
+
+<p>This method always returns a room, but the room might be private or nonexistent, in which case any attempt to
+join the room will fail.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">room</span><span class="p">(</span><span class="n">withId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes/Room.html">Room</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The id of the room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The room, or nil if the room doesn’t exist.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6Client9fetchRoomFT6withIdSS7successGSqFCS_4RoomT__7failureGSqFCS_7C3ErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchRoom(withId:success:failure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6Client9fetchRoomFT6withIdSS7successGSqFCS_4RoomT__7failureGSqFCS_7C3ErrorT___T_">fetchRoom(withId:success:failure:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Retreive a room by id, and fail if it doesn&rsquo;t exist.</p>
+
+<p>If one can be certain that the room id points to a valid room, it is usually better to use
+<code><a href="../Classes/Client.html#/s:FC3cct6Client4roomFT6withIdSS_GSqCS_4Room_">Client.room(withId:)</a></code> instead. This method should be used if the room id is received e.g. via user input, and
+it&rsquo;s required to check if the room exists before trying to join it.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">fetchRoom</span><span class="p">(</span>
+        <span class="n">withId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">success</span><span class="p">:</span> <span class="kt">SuccessCallback</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Room.html">Room</a></span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="nv">failure</span><span class="p">:</span> <span class="kt">FailureCallback</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The id of the room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon successful fetch. Receives room instance.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon failed fetch. Receives failure cause.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6Client9fetchRoomFT9withAliasSS7successGSqFCS_4RoomT__7failureGSqFCS_7C3ErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchRoom(withAlias:success:failure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6Client9fetchRoomFT9withAliasSS7successGSqFCS_4RoomT__7failureGSqFCS_7C3ErrorT___T_">fetchRoom(withAlias:success:failure:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Look up and retrieve a room by alias.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">fetchRoom</span><span class="p">(</span>
+        <span class="n">withAlias</span> <span class="nv">alias</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">success</span><span class="p">:</span> <span class="kt">SuccessCallback</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/Room.html">Room</a></span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="nv">failure</span><span class="p">:</span> <span class="kt">FailureCallback</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>alias</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>he alias of the room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon successful fetch. Receives room instance.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon failed fetch. Receives failure cause.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6Client16parseResourceUriFSSSS"></a>
+                    <a name="//apple_ref/swift/Method/parseResourceUri(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6Client16parseResourceUriFSSSS">parseResourceUri(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Parses a mxc resource URI.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">parseResourceUri</span><span class="p">(</span><span class="n">_</span> <span class="nv">uri</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>uri</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The mxc resource URI to parse.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Parsed URL string.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6Client9thumbnailFT2ofSS5widthSf6heightSf12resizeMethodOS_17ImageResizeMethod_GSqSS_"></a>
+                    <a name="//apple_ref/swift/Method/thumbnail(of:width:height:resizeMethod:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6Client9thumbnailFT2ofSS5widthSf6heightSf12resizeMethodOS_17ImageResizeMethod_GSqSS_">thumbnail(of:width:height:resizeMethod:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Generates a thumbnail uri for the image resource.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">thumbnail</span><span class="p">(</span>
+        <span class="n">of</span> <span class="nv">resourceUri</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">width</span><span class="p">:</span> <span class="kt">Float</span><span class="p">,</span>
+        <span class="nv">height</span><span class="p">:</span> <span class="kt">Float</span><span class="p">,</span>
+        <span class="nv">resizeMethod</span><span class="p">:</span> <span class="kt"><a href="../Enums/ImageResizeMethod.html">ImageResizeMethod</a></span> <span class="o">=</span> <span class="o">.</span><span class="n">scale</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resourceUri</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The resource uri to generate a thumbnail for.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>width</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request width of the thumbnail.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>height</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The request height of the thumbnail.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resizeMethod</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The method used for resizing the image.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Thumbnail url or nil if the client this image resource is associated with has been closed.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6Client9setAvatarFTGSqSS_7successGSqFS0_T__7failureGSqFCS_7C3ErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/setAvatar(_:success:failure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6Client9setAvatarFTGSqSS_7successGSqFS0_T__7failureGSqFCS_7C3ErrorT___T_">setAvatar(_:success:failure:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the avatar of the authenticated user.</p>
+
+<p>Typical usage is to first upload an image file using <code><a href="../Classes/Client.html#/s:FC3cct6Client11uploadMediaFTV10Foundation4Data6ofTypeSS7successGSqFCS_13ImageResourceT__7failureGSqFCS_7C3ErrorT___GSqCS_11ImageUpload_">Client.uploadMedia(_:ofType:success:failure:)</a></code>, and then
+setting it as the avatar.</p>
+
+<p>There is no guarantee that client.user.avatar will be up to date if and when the returned promise is resolved.
+UI updates to reflect the new avatar should instead be triggered by the <code>avatar</code> event of the user.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setAvatar</span><span class="p">(</span>
+        <span class="n">_</span> <span class="nv">avatar</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+        <span class="nv">success</span><span class="p">:</span> <span class="kt">SuccessCallback</span><span class="o">&lt;</span><span class="kt">Client</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="nv">failure</span><span class="p">:</span> <span class="kt">FailureCallback</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>avatar</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A new avatar url, or nil.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon successful set. Receives client instnace.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon failed set. Receives failure cause.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6Client7setNameFTSS7successGSqFS0_T__7failureGSqFCS_7C3ErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/setName(_:success:failure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6Client7setNameFTSS7successGSqFS0_T__7failureGSqFCS_7C3ErrorT___T_">setName(_:success:failure:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the name of the authenticated user.</p>
+
+<p>There is no guarantee that client.user.name will be up to date if and when the returned promise is resolved. UI
+updates to reflect the new name should instead be triggered by the <code>name</code> event of the user.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setName</span><span class="p">(</span>
+        <span class="n">_</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">success</span><span class="p">:</span> <span class="kt">SuccessCallback</span><span class="o">&lt;</span><span class="kt">Client</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="nv">failure</span><span class="p">:</span> <span class="kt">FailureCallback</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>name</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A new name, or nil.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon successful set. Receives client instnace.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon failed set. Receives failure cause.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6Client9setStatusFTOS_12UserPresence13statusMessageGSqSS_7successGSqFS0_T__7failureGSqFCS_7C3ErrorT___T_"></a>
+                    <a name="//apple_ref/swift/Method/setStatus(_:statusMessage:success:failure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6Client9setStatusFTOS_12UserPresence13statusMessageGSqSS_7successGSqFS0_T__7failureGSqFCS_7C3ErrorT___T_">setStatus(_:statusMessage:success:failure:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the status of the authenticated user.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setStatus</span><span class="p">(</span>
+        <span class="n">_</span> <span class="nv">status</span><span class="p">:</span> <span class="kt"><a href="../Enums/UserPresence.html">UserPresence</a></span><span class="p">,</span>
+        <span class="nv">statusMessage</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="nv">success</span><span class="p">:</span> <span class="kt">SuccessCallback</span><span class="o">&lt;</span><span class="kt">Client</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="nv">failure</span><span class="p">:</span> <span class="kt">FailureCallback</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>status</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The presence type to set.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>message</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A status message to display to other users.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon successful set. Receives client instnace.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon failed set. Receives failure cause.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6Client11uploadMediaFTV10Foundation4Data6ofTypeSS7successGSqFCS_13ImageResourceT__7failureGSqFCS_7C3ErrorT___GSqCS_11ImageUpload_"></a>
+                    <a name="//apple_ref/swift/Method/uploadMedia(_:ofType:success:failure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6Client11uploadMediaFTV10Foundation4Data6ofTypeSS7successGSqFCS_13ImageResourceT__7failureGSqFCS_7C3ErrorT___GSqCS_11ImageUpload_">uploadMedia(_:ofType:success:failure:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Uploads media data to the server.</p>
+
+<p>If a mime type is specified it will always be used. If not, it falls back to <code>application/octet-stream</code>.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">uploadMedia</span><span class="p">(</span>
+        <span class="n">_</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span>
+        <span class="n">ofType</span> <span class="nv">mimeType</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"application/octet-stream"</span><span class="p">,</span>
+        <span class="nv">success</span><span class="p">:</span> <span class="kt">SuccessCallback</span><span class="o">&lt;</span><span class="kt"><a href="../Classes/ImageResource.html">ImageResource</a></span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+        <span class="nv">failure</span><span class="p">:</span> <span class="kt">FailureCallback</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Classes.html#/s:C3cct11ImageUpload">ImageUpload</a></span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The data to upload.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>mimeType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Mime type of the data to upload.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>success</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon successful upload. Receives image resource representation of the uploaded media.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The callback to be executed upon failed upload. Receives failure cause.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Image media upload representation.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct6Client6logoutFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/logout()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct6Client6logoutFT_T_">logout()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Forgets the auth session and resets the client state.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">logout</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external">Ericsson AB</a>. All rights reserved. (Last updated: 2017-03-03)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

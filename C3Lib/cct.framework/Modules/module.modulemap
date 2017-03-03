@@ -1,0 +1,10 @@
+framework module cct {
+  umbrella header "cct-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module cct.Swift {
+    header "cct-Swift.h"
+}

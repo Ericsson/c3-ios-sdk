@@ -6,18 +6,54 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		3DBC0AA91DC096A300A28BEF /* Publish */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3DBC0AAC1DC096A300A28BEF /* Build configuration list for PBXAggregateTarget "Publish" */;
+			buildPhases = (
+				3DBC0AAD1DC096AF00A28BEF /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Publish;
+			productName = Publish;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		3D04232F1DC78FE4004E4A60 /* C3AuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04232E1DC78FE4004E4A60 /* C3AuthTests.swift */; };
+		3D0423311DC79042004E4A60 /* C3TestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0423301DC79042004E4A60 /* C3TestBase.swift */; };
+		3D0423341DC7A9D2004E4A60 /* C3AuthInfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0423321DC7A915004E4A60 /* C3AuthInfoTests.swift */; };
+		3D0423361DC7B159004E4A60 /* C3ClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0423351DC7B159004E4A60 /* C3ClientTests.swift */; };
 		3D268ABF1DA38EBC007805B7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D268ABE1DA38EBC007805B7 /* LoginViewController.swift */; };
 		3D2BF09C1DA3A53F00728890 /* RoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2BF09B1DA3A53F00728890 /* RoomsViewController.swift */; };
-		3D2BF09E1DA3AAFD00728890 /* MembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2BF09D1DA3AAFD00728890 /* MembersViewController.swift */; };
+		3D2BF09E1DA3AAFD00728890 /* RoomMembersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2BF09D1DA3AAFD00728890 /* RoomMembersViewController.swift */; };
 		3D2BF0A01DA3AE3600728890 /* CallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2BF09F1DA3AE3600728890 /* CallViewController.swift */; };
+		3D41F2E01DD07DC300AA8C67 /* C3CallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D41F2DF1DD07DC300AA8C67 /* C3CallTests.swift */; };
+		3D4C8F861DCCF69F0067A951 /* C3RoomTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D4C8F851DCCF69F0067A951 /* C3RoomTests.swift */; };
+		3D6493FB1DF706E80009AE28 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D6493FA1DF706E80009AE28 /* SettingsViewController.swift */; };
+		3DA9CC981DEC782A0064189E /* RoomDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9CC971DEC782A0064189E /* RoomDetailsViewController.swift */; };
+		3DA9CC9A1DEC79EA0064189E /* RoomDetailsItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9CC991DEC79EA0064189E /* RoomDetailsItemViewController.swift */; };
+		3DA9CC9C1DEC7A7C0064189E /* FilesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9CC9B1DEC7A7C0064189E /* FilesViewController.swift */; };
+		3DA9CCA01DED81D70064189E /* RoomSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9CC9F1DED81D70064189E /* RoomSettingsViewController.swift */; };
 		3DC6B89D1DC35627008381AB /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC6B89C1DC35627008381AB /* ChatViewController.swift */; };
-		3DE57A521DE34C1100D1C631 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE57A511DE34C1100D1C631 /* TableViewCell.swift */; };
+		3DE57A501DE349AB00D1C631 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE57A4F1DE349AB00D1C631 /* TableViewCell.swift */; };
+		3DFB97151DEC33BE00229643 /* AsyncPhotoMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB97141DEC33BE00229643 /* AsyncPhotoMediaItem.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		607FACE61AFB9204008FA782 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 607FACC81AFB9204008FA782 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 607FACCF1AFB9204008FA782;
+			remoteInfo = C3Lib;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		3D09B9CE1DA53DF100A2964B /* Embed App Extensions */ = {
@@ -34,18 +70,32 @@
 
 /* Begin PBXFileReference section */
 		3583A0EC822A8AB339A95694 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		3D04232E1DC78FE4004E4A60 /* C3AuthTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = C3AuthTests.swift; sourceTree = "<group>"; };
+		3D0423301DC79042004E4A60 /* C3TestBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = C3TestBase.swift; sourceTree = "<group>"; };
+		3D0423321DC7A915004E4A60 /* C3AuthInfoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = C3AuthInfoTests.swift; sourceTree = "<group>"; };
+		3D0423351DC7B159004E4A60 /* C3ClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = C3ClientTests.swift; sourceTree = "<group>"; };
 		3D268ABE1DA38EBC007805B7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3D2BF09B1DA3A53F00728890 /* RoomsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomsViewController.swift; sourceTree = "<group>"; };
-		3D2BF09D1DA3AAFD00728890 /* MembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersViewController.swift; sourceTree = "<group>"; };
+		3D2BF09D1DA3AAFD00728890 /* RoomMembersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomMembersViewController.swift; sourceTree = "<group>"; };
 		3D2BF09F1DA3AE3600728890 /* CallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallViewController.swift; sourceTree = "<group>"; };
+		3D41F2DF1DD07DC300AA8C67 /* C3CallTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = C3CallTests.swift; sourceTree = "<group>"; };
+		3D4C8F851DCCF69F0067A951 /* C3RoomTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = C3RoomTests.swift; sourceTree = "<group>"; };
+		3D6493FA1DF706E80009AE28 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		3DA9CC971DEC782A0064189E /* RoomDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDetailsViewController.swift; sourceTree = "<group>"; };
+		3DA9CC991DEC79EA0064189E /* RoomDetailsItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomDetailsItemViewController.swift; sourceTree = "<group>"; };
+		3DA9CC9B1DEC7A7C0064189E /* FilesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilesViewController.swift; sourceTree = "<group>"; };
+		3DA9CC9F1DED81D70064189E /* RoomSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomSettingsViewController.swift; sourceTree = "<group>"; };
 		3DC6B89C1DC35627008381AB /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		3DE57A511DE34C1100D1C631 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		3DE57A4F1DE349AB00D1C631 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		3DFB97141DEC33BE00229643 /* AsyncPhotoMediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncPhotoMediaItem.swift; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* C3Lib Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C3Lib Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		607FACDA1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		607FACDC1AFB9204008FA782 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		607FACDF1AFB9204008FA782 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		607FACE51AFB9204008FA782 /* C3Lib_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = C3Lib_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9BD6EE2983864F9641A963C /* C3Lib.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = C3Lib.podspec; path = ../C3Lib.podspec; sourceTree = "<group>"; };
 		F75DECB35C0AD3F02B13666C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,14 +108,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		607FACE21AFB9204008FA782 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DA9CC961DEC3DD50064189E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				607FACDC1AFB9204008FA782 /* Images.xcassets */,
+				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				607FACD91AFB9204008FA782 /* Main.storyboard */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		607FACC71AFB9204008FA782 = {
 			isa = PBXGroup;
 			children = (
 				607FACF51AFB993E008FA782 /* Metadata */,
 				607FACD21AFB9204008FA782 /* Example */,
+				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD01AFB9204008FA782 /* C3Lib Example.app */,
+				607FACE51AFB9204008FA782 /* C3Lib_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -82,15 +151,19 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				3DFB97141DEC33BE00229643 /* AsyncPhotoMediaItem.swift */,
 				3D2BF09F1DA3AE3600728890 /* CallViewController.swift */,
 				3DC6B89C1DC35627008381AB /* ChatViewController.swift */,
+				3DA9CC9B1DEC7A7C0064189E /* FilesViewController.swift */,
 				3D268ABE1DA38EBC007805B7 /* LoginViewController.swift */,
-				3D2BF09D1DA3AAFD00728890 /* MembersViewController.swift */,
+				3D2BF09D1DA3AAFD00728890 /* RoomMembersViewController.swift */,
+				3DA9CC9F1DED81D70064189E /* RoomSettingsViewController.swift */,
 				3D2BF09B1DA3A53F00728890 /* RoomsViewController.swift */,
-				3DE57A511DE34C1100D1C631 /* TableViewCell.swift */,
-				607FACD91AFB9204008FA782 /* Main.storyboard */,
-				607FACDC1AFB9204008FA782 /* Images.xcassets */,
-				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
+				3DA9CC971DEC782A0064189E /* RoomDetailsViewController.swift */,
+				3DA9CC991DEC79EA0064189E /* RoomDetailsItemViewController.swift */,
+				3D6493FA1DF706E80009AE28 /* SettingsViewController.swift */,
+				3DE57A4F1DE349AB00D1C631 /* TableViewCell.swift */,
+				3DA9CC961DEC3DD50064189E /* Resources */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = Example;
@@ -101,6 +174,28 @@
 			isa = PBXGroup;
 			children = (
 				607FACD41AFB9204008FA782 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		607FACE81AFB9204008FA782 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3D04232E1DC78FE4004E4A60 /* C3AuthTests.swift */,
+				3D0423321DC7A915004E4A60 /* C3AuthInfoTests.swift */,
+				3D41F2DF1DD07DC300AA8C67 /* C3CallTests.swift */,
+				3D0423351DC7B159004E4A60 /* C3ClientTests.swift */,
+				3D4C8F851DCCF69F0067A951 /* C3RoomTests.swift */,
+				3D0423301DC79042004E4A60 /* C3TestBase.swift */,
+				607FACE91AFB9204008FA782 /* Supporting Files */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		607FACE91AFB9204008FA782 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				607FACEA1AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -136,6 +231,24 @@
 			productReference = 607FACD01AFB9204008FA782 /* C3Lib Example.app */;
 			productType = "com.apple.product-type.application";
 		};
+		607FACE41AFB9204008FA782 /* C3Lib_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "C3Lib_Tests" */;
+			buildPhases = (
+				607FACE11AFB9204008FA782 /* Sources */,
+				607FACE21AFB9204008FA782 /* Frameworks */,
+				607FACE31AFB9204008FA782 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				607FACE71AFB9204008FA782 /* PBXTargetDependency */,
+			);
+			name = C3Lib_Tests;
+			productName = Tests;
+			productReference = 607FACE51AFB9204008FA782 /* C3Lib_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -146,14 +259,27 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					3DBC0AA91DC096A300A28BEF = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 242CR8SLZA;
+						ProvisioningStyle = Automatic;
+					};
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 242CR8SLZA;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 						};
+					};
+					607FACE41AFB9204008FA782 = {
+						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 8K2238AYPH;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
 				};
 			};
@@ -171,6 +297,8 @@
 			projectRoot = "";
 			targets = (
 				607FACCF1AFB9204008FA782 /* C3Lib_Example */,
+				607FACE41AFB9204008FA782 /* C3Lib_Tests */,
+				3DBC0AA91DC096A300A28BEF /* Publish */,
 			);
 		};
 /* End PBXProject section */
@@ -186,24 +314,75 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		607FACE31AFB9204008FA782 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3DBC0AAD1DC096AF00A28BEF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "BUILD_DIR=\"$(mktemp -d)\"\nFRAMEWORK_OUTPUT_DIR=\"$(cd ${PROJECT_DIR}/../; pwd)/Framework\"\nDOCUMENTATION_OUTPUT_DIR=\"$(cd ${PROJECT_DIR}/../; pwd)/Documentation/reference\"\nPACKAGE_OUTPUT__DIR=\"$(cd ${PROJECT_DIR}/../; pwd)/Package\"\nLIB_NAME=\"C3Lib\"\nFRAMEWORK_NAME=\"cct\"\n\nfunction buildLibrary {\n    local COMMAND=\"xcodebuild -derivedDataPath ${BUILD_DIR}/${1} -configuration Release -workspace ${PROJECT_DIR}/${LIB_NAME}.xcworkspace -scheme ${LIB_NAME} -arch ${1} -sdk ${2}${SDK_VERSION}\"\n    local FOLDER=\"$(${COMMAND} -showBuildSettings | grep '[^_]BUILT_PRODUCTS_DIR' | awk '{print $3}')\"\n    local NAME=\"$(${COMMAND} -showBuildSettings | grep FULL_PRODUCT_NAME | awk '{print $3}')\"\n    ${COMMAND}\n    cp -rf \"${FOLDER}/${NAME}\" \"${BUILD_DIR}/${1}/${NAME}\"\n}\n\nfunction buildFramework {\n    buildLibrary \"armv7\"  \"iphoneos\"\n    buildLibrary \"arm64\"  \"iphoneos\"\n    buildLibrary \"i386\"   \"iphonesimulator\"\n    buildLibrary \"x86_64\" \"iphonesimulator\"\n    \n    rm -rf \"${FRAMEWORK_OUTPUT_DIR}\"\n    mkdir -p \"${FRAMEWORK_OUTPUT_DIR}\"\n    cp -rf \"${BUILD_DIR}/i386/${FRAMEWORK_NAME}.framework\" \"${FRAMEWORK_OUTPUT_DIR}/${LIB_NAME}.framework\"\n    rm -rf \"${FRAMEWORK_OUTPUT_DIR}/${LIB_NAME}.framework/${LIB_NAME}\"\n    \n    lipo \\\n    -create \\\n    \"${BUILD_DIR}/armv7/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \\\n    \"${BUILD_DIR}/arm64/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \\\n    \"${BUILD_DIR}/i386/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \\\n    \"${BUILD_DIR}/x86_64/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \\\n    -output \\\n    \"${FRAMEWORK_OUTPUT_DIR}/${LIB_NAME}.framework/${FRAMEWORK_NAME}\"\n    \n    cp -rf \\\n    ${BUILD_DIR}/x86_64/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/* \\\n    ${FRAMEWORK_OUTPUT_DIR}/${LIB_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\n    cp -rf \\\n    ${BUILD_DIR}/armv7/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/* \\\n    ${FRAMEWORK_OUTPUT_DIR}/${LIB_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\n    cp -rf \\\n    ${BUILD_DIR}/arm64/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/* \\\n    ${FRAMEWORK_OUTPUT_DIR}/${LIB_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\n    \n    rm -rf \"${BUILD_DIR}\"\n}\n\nfunction buildDocumentation {\n    local FRAMEWORK_VERSION=$(/usr/libexec/PlistBuddy ${FRAMEWORK_OUTPUT_DIR}/${LIB_NAME}.framework/Info.plist -c 'Print CFBundleShortVersionString')\n    \n    jazzy \\\n    --clean \\\n    --hide-documentation-coverage \\\n    --skip-undocumented \\\n    --author \"Ericsson AB\" \\\n    --module-version \"${FRAMEWORK_VERSION}\" \\\n    --xcodebuild-arguments -workspace,\"${PROJECT_DIR}/${LIB_NAME}.xcworkspace\",-scheme,\"${LIB_NAME}\" \\\n    --module \"${FRAMEWORK_NAME}\" \\\n    --root-url \"https://www.ericsson.com\" \\\n    --output \"${DOCUMENTATION_OUTPUT_DIR}\"\n    rm -rf \"${DOCUMENTATION_OUTPUT_DIR}/undocumented.json\"\n}\n                                                                                          \nfunction buildPackage() {\n    local PACKAGE_DIR=\"${BUILD_DIR}/package\"\n    local FRAMEWORK_VERSION=$(/usr/libexec/PlistBuddy ${FRAMEWORK_OUTPUT_DIR}/${LIB_NAME}.framework/Info.plist -c 'Print CFBundleShortVersionString')\n                                                                                          \n    rm -rf \"${PACKAGE_OUTPUT_DIR}\"\n    mkdir -p \"${PACKAGE_OUTPUT_DIR}\"\n                                                                                          \n    mkdir -p \"${PACKAGE_DIR}\"\n    cp -rf \"${FRAMEWORK_OUTPUT_DIR}/${LIB_NAME}.framework\" \"${PACKAGE_DIR}/${LIB_NAME}.framework\"\n    cp -rf \"${DOCUMENTATION_OUTPUT_DIR}\" \"${PACKAGE_DIR}/Documentation\"\n    cp \"$(cd ${PROJECT_DIR}/../; pwd)/LICENSE\" \"${PACKAGE_DIR}/LICENSE\"\n    cd \"${PACKAGE_DIR}\"\n    zip -9 -r \"${PACKAGE_OUTPUT_DIR}/${LIB_NAME}_${FRAMEWORK_VERSION}.zip\" *\n}\n\nbuildFramework\nbuildDocumentation\nbuildPackage";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		607FACCC1AFB9204008FA782 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DA9CC9A1DEC79EA0064189E /* RoomDetailsItemViewController.swift in Sources */,
 				3D2BF0A01DA3AE3600728890 /* CallViewController.swift in Sources */,
 				3D268ABF1DA38EBC007805B7 /* LoginViewController.swift in Sources */,
-				3D2BF09E1DA3AAFD00728890 /* MembersViewController.swift in Sources */,
+				3D2BF09E1DA3AAFD00728890 /* RoomMembersViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 				3DC6B89D1DC35627008381AB /* ChatViewController.swift in Sources */,
-				3DE57A521DE34C1100D1C631 /* TableViewCell.swift in Sources */,
+				3DE57A501DE349AB00D1C631 /* TableViewCell.swift in Sources */,
+				3DFB97151DEC33BE00229643 /* AsyncPhotoMediaItem.swift in Sources */,
+				3DA9CCA01DED81D70064189E /* RoomSettingsViewController.swift in Sources */,
+				3DA9CC9C1DEC7A7C0064189E /* FilesViewController.swift in Sources */,
+				3D6493FB1DF706E80009AE28 /* SettingsViewController.swift in Sources */,
 				3D2BF09C1DA3A53F00728890 /* RoomsViewController.swift in Sources */,
+				3DA9CC981DEC782A0064189E /* RoomDetailsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607FACE11AFB9204008FA782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D0423341DC7A9D2004E4A60 /* C3AuthInfoTests.swift in Sources */,
+				3D0423361DC7B159004E4A60 /* C3ClientTests.swift in Sources */,
+				3D04232F1DC78FE4004E4A60 /* C3AuthTests.swift in Sources */,
+				3D4C8F861DCCF69F0067A951 /* C3RoomTests.swift in Sources */,
+				3D0423311DC79042004E4A60 /* C3TestBase.swift in Sources */,
+				3D41F2E01DD07DC300AA8C67 /* C3CallTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		607FACE71AFB9204008FA782 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 607FACCF1AFB9204008FA782 /* C3Lib_Example */;
+			targetProxy = 607FACE61AFB9204008FA782 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {
@@ -225,6 +404,22 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3DBC0AAA1DC096A300A28BEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 242CR8SLZA;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3DBC0AAB1DC096A300A28BEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = 242CR8SLZA;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		607FACED1AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -317,7 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 242CR8SLZA;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = C3Lib/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -335,7 +530,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 242CR8SLZA;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = C3Lib/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -347,9 +542,56 @@
 			};
 			name = Release;
 		};
+		607FACF31AFB9204008FA782 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8K2238AYPH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		607FACF41AFB9204008FA782 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 8K2238AYPH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3DBC0AAC1DC096A300A28BEF /* Build configuration list for PBXAggregateTarget "Publish" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DBC0AAA1DC096A300A28BEF /* Debug */,
+				3DBC0AAB1DC096A300A28BEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "C3Lib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -364,6 +606,15 @@
 			buildConfigurations = (
 				607FACF01AFB9204008FA782 /* Debug */,
 				607FACF11AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "C3Lib_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				607FACF31AFB9204008FA782 /* Debug */,
+				607FACF41AFB9204008FA782 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

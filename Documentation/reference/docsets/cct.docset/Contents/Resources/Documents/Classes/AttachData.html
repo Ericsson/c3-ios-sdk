@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AttachData Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/AttachData" class="dashAnchor"></a>
+    <a title="AttachData Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">cct Docs</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fwww%2Eericsson%2Ecom%2Fdocsets%2Fcct%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">cct Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AttachData Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AccountData.html">AccountData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AttachData.html">AttachData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AttachPoint.html">AttachPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AudioMeter.html">AudioMeter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Auth.html">Auth</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AuthInfo.html">AuthInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct19AuthenticationError">AuthenticationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct15BadRequestError">BadRequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3Error.html">C3Error</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Call.html">Call</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CallClosedInfo.html">CallClosedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Client.html">Client</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Conference.html">Conference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct13ConflictError">ConflictError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct21ConnectionFailedError">ConnectionFailedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct19ConnectionLostError">ConnectionLostError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DataShare.html">DataShare</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DataUpdate.html">DataUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DeviceSource.html">DeviceSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Event.html">Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventEmitter.html">EventEmitter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileRef.html">FileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileShare.html">FileShare</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileTransfer.html">FileTransfer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct17FileTransferError">FileTransferError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct16GuestAccessError">GuestAccessError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/IceServer.html">IceServer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ImageResource.html">ImageResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct11ImageUpload">ImageUpload</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct19InternalServerError">InternalServerError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct17InvalidAliasError">InvalidAliasError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct20InvalidUsernameError">InvalidUsernameError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaBroadcaster.html">MediaBroadcaster</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaFilter.html">MediaFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaNode.html">MediaNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaNodeInput.html">MediaNodeInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaNodeOutput.html">MediaNodeOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaSink.html">MediaSink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaSwitcher.html">MediaSwitcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaTee.html">MediaTee</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MuteFilter.html">MuteFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct15NotAllowedError">NotAllowedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct13NotFoundError">NotFoundError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct20OverconstrainedError">OverconstrainedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Passthrough.html">Passthrough</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PeerMediaPipe.html">PeerMediaPipe</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PowerLevelsEdit.html">PowerLevelsEdit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PowerLevelsReader.html">PowerLevelsReader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct14RateLimitError">RateLimitError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Room.html">Room</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomQuery.html">RoomQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomState.html">RoomState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RtcComponent.html">RtcComponent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RtcPeer.html">RtcPeer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StreamSink.html">StreamSink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct13TooLargeError">TooLargeError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct24TransferInterruptedError">TransferInterruptedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct12UnknownError">UnknownError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/User.html">User</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CallClosedReason.html">CallClosedReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CallClosedSource.html">CallClosedSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ClientConnectionState.html">ClientConnectionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ConnectionState.html">ConnectionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FileRefEndReason.html">FileRefEndReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/GuestAccessRule.html">GuestAccessRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HistoryVisibility.html">HistoryVisibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ImageResizeMethod.html">ImageResizeMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/JoinRule.html">JoinRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoomMembership.html">RoomMembership</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoomVisibility.html">RoomVisibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UserPresence.html">UserPresence</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AttachData</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">@objc</span> <span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">AttachData</span><span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                </div>
+              </div>
+            <p>A class which provides a way to read and modify a set of data that is synchronized between all the peers of a
+component.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC3cct10AttachData6ownersGVs10DictionarySSSS_"></a>
+                    <a name="//apple_ref/swift/Property/owners" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC3cct10AttachData6ownersGVs10DictionarySSSS_">owners</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A collection of all owner ids for the data in this map. If an owner id exists for a given key a entry must exist
+in the map as well, although the opposite is not always true.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">fileprivate</span><span class="p">(</span><span class="k">set</span><span class="p">)</span> <span class="k">var</span> <span class="nv">owners</span> <span class="o">=</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC3cct10AttachData4sizeSi"></a>
+                    <a name="//apple_ref/swift/Property/size" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC3cct10AttachData4sizeSi">size</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of entries in the map.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC3cct10AttachData4keysGSaSS_"></a>
+                    <a name="//apple_ref/swift/Property/keys" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC3cct10AttachData4keysGSaSS_">keys</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>All the keys in the map.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">keys</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC3cct10AttachData6valuesGSaP__"></a>
+                    <a name="//apple_ref/swift/Property/values" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC3cct10AttachData6valuesGSaP__">values</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>All the values in the map.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">values</span><span class="p">:</span> <span class="p">[</span><span class="kt">Any</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC3cct10AttachData7entriesGVs18EnumeratedSequenceGVs10DictionarySSP___"></a>
+                    <a name="//apple_ref/swift/Property/entries" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC3cct10AttachData7entriesGVs18EnumeratedSequenceGVs10DictionarySSP___">entries</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A sequence of all the values in the map.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">entries</span><span class="p">:</span> <span class="kt">EnumeratedSequence</span><span class="o">&lt;</span><span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">Any</span><span class="p">]</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct10AttachData5clearFT7ownerIdGSqSS__T_"></a>
+                    <a name="//apple_ref/swift/Method/clear(ownerId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct10AttachData5clearFT7ownerIdGSqSS__T_">clear(ownerId:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clears all the data in the map.</p>
+
+<p>Clearing the map locally will not trigger <code><a href="../Classes/RtcComponent.html#/s:FC3cct12RtcComponent18receivedDataUpdateFCS_10DataUpdateT_">RtcComponent.receivedDataUpdate(_:)</a></code> call, that only happens for
+remote updates.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">clear</span><span class="p">(</span><span class="nv">ownerId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>ownerId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The owner id to use when clearing the map.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct10AttachData6deleteFTSS7ownerIdGSqSS__T_"></a>
+                    <a name="//apple_ref/swift/Method/delete(_:ownerId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct10AttachData6deleteFTSS7ownerIdGSqSS__T_">delete(_:ownerId:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes an existing value of the corresponding key.</p>
+
+<p>Deleting a local value will not trigger <code><a href="../Classes/RtcComponent.html#/s:FC3cct12RtcComponent18receivedDataUpdateFCS_10DataUpdateT_">RtcComponent.receivedDataUpdate(_:)</a></code> call, that only happens for remote
+updates.</p>
+
+<p><li><p>ownerId:       The owner id to use when deleting the value.</p></li>
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p></p>
+
+<p></div></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">delete</span><span class="p">(</span>
+        <span class="n">_</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">ownerId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key to delete the value for.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct10AttachData3getFSSGSqP__"></a>
+                    <a name="//apple_ref/swift/Method/get(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct10AttachData3getFSSGSqP__">get(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the value for the given key.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">get</span><span class="p">(</span><span class="n">_</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key to look for.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The value for the given key or nil if the key does not exist.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct10AttachData3hasFSSSb"></a>
+                    <a name="//apple_ref/swift/Method/has(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct10AttachData3hasFSSSb">has(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns true if there is an entry for the given key.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">has</span><span class="p">(</span><span class="n">_</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key to look for.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>True if there is an entry for the given key.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct10AttachData3setFTP_3forSS7ownerIdGSqSS__T_"></a>
+                    <a name="//apple_ref/swift/Method/set(_:for:ownerId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct10AttachData3setFTP_3forSS7ownerIdGSqSS__T_">set(_:for:ownerId:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets set value for the given key, along with an ownership id.</p>
+
+<p>Setting the ownership allows data to be transparently overridden by users that are joining or rejoining the data
+synchronization network. Usually the ownerId will be set to the id of the user, but it can sometimes be useful
+to use other values, such as the role of the user, e.g. <code>&quot;moderator&quot;</code>.</p>
+
+<p>Since values can be updated while a call is not connected, the values that are set when disconnected may be
+updated once you are connected with the rest of the users. When relaying some kind of state to other peers this
+can cause problems, as the updates that you sent out before a reconnect will cause an update to your local
+values. By tagging data with an owner id, it is possible to rejoin a data synchronization group and
+transparently update your exsting values with the new state, without causing a local update to trigger.</p>
+
+<p>Setting a local value will not trigger <code><a href="../Classes/RtcComponent.html#/s:FC3cct12RtcComponent18receivedDataUpdateFCS_10DataUpdateT_">RtcComponent.receivedDataUpdate(_:)</a></code> call, that only happens for remote
+updates.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span>
+        <span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Any</span><span class="p">,</span>
+        <span class="k">for</span> <span class="nv">key</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+        <span class="nv">ownerId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value to set.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key of the value.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>ownerId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The owner id to use when setting the value.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external">Ericsson AB</a>. All rights reserved. (Last updated: 2017-03-03)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>PowerLevelsEdit Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/PowerLevelsEdit" class="dashAnchor"></a>
+    <a title="PowerLevelsEdit Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">cct Docs</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fwww%2Eericsson%2Ecom%2Fdocsets%2Fcct%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">cct Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        PowerLevelsEdit Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AccountData.html">AccountData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AttachData.html">AttachData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AttachPoint.html">AttachPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AudioMeter.html">AudioMeter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Auth.html">Auth</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AuthInfo.html">AuthInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct19AuthenticationError">AuthenticationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct15BadRequestError">BadRequestError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/C3Error.html">C3Error</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Call.html">Call</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CallClosedInfo.html">CallClosedInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Client.html">Client</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Conference.html">Conference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct13ConflictError">ConflictError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct21ConnectionFailedError">ConnectionFailedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct19ConnectionLostError">ConnectionLostError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DataShare.html">DataShare</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DataUpdate.html">DataUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DeviceSource.html">DeviceSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Event.html">Event</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/EventEmitter.html">EventEmitter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileRef.html">FileRef</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileShare.html">FileShare</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FileTransfer.html">FileTransfer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct17FileTransferError">FileTransferError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct16GuestAccessError">GuestAccessError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/IceServer.html">IceServer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ImageResource.html">ImageResource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct11ImageUpload">ImageUpload</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct19InternalServerError">InternalServerError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct17InvalidAliasError">InvalidAliasError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct20InvalidUsernameError">InvalidUsernameError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaBroadcaster.html">MediaBroadcaster</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaFilter.html">MediaFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaNode.html">MediaNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaNodeInput.html">MediaNodeInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaNodeOutput.html">MediaNodeOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaSink.html">MediaSink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaSwitcher.html">MediaSwitcher</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MediaTee.html">MediaTee</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MuteFilter.html">MuteFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct15NotAllowedError">NotAllowedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct13NotFoundError">NotFoundError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct20OverconstrainedError">OverconstrainedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Passthrough.html">Passthrough</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PeerMediaPipe.html">PeerMediaPipe</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PowerLevelsEdit.html">PowerLevelsEdit</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/PowerLevelsReader.html">PowerLevelsReader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct14RateLimitError">RateLimitError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Room.html">Room</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomQuery.html">RoomQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RoomState.html">RoomState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RtcComponent.html">RtcComponent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/RtcPeer.html">RtcPeer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/StreamSink.html">StreamSink</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct13TooLargeError">TooLargeError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct24TransferInterruptedError">TransferInterruptedError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/s:C3cct12UnknownError">UnknownError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/User.html">User</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/CallClosedReason.html">CallClosedReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/CallClosedSource.html">CallClosedSource</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ClientConnectionState.html">ClientConnectionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ConnectionState.html">ConnectionState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/FileRefEndReason.html">FileRefEndReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/GuestAccessRule.html">GuestAccessRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HistoryVisibility.html">HistoryVisibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/ImageResizeMethod.html">ImageResizeMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/JoinRule.html">JoinRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoomMembership.html">RoomMembership</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/RoomVisibility.html">RoomVisibility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UserPresence.html">UserPresence</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>PowerLevelsEdit</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="kd">class</span> <span class="kt">PowerLevelsEdit</span><span class="p">:</span> <span class="kt">PowerLevelsContainer</span></code></pre>
+
+                </div>
+              </div>
+            <p>A class which provides a fluent API for modifying a power levels object. It cannot be instantiated directly and can
+only be created through the static factory methods as well as <code><a href="../Classes/Room.html#/s:FC3cct4Room15editPowerLevelsFT_GSqCS_15PowerLevelsEdit_">Room.editPowerLevels()</a></code>.</p>
+
+<p>Many methods are verbs, but they simply set the power level required to execute the matching action, with the
+exception of <code><a href="../Classes/PowerLevelsEdit.html#/s:vC3cct15PowerLevelsEdit6commitGSqFTGSqFT_T__GSqFCS_7C3ErrorT___T__">PowerLevelsEdit.commit</a></code>.</p>
+
+<p>No actual action is taken until the <code><a href="../Classes/PowerLevelsEdit.html#/s:vC3cct15PowerLevelsEdit6commitGSqFTGSqFT_T__GSqFCS_7C3ErrorT___T__">PowerLevelsEdit.commit</a></code> method is called. The commit method is only available
+if the instance was obtained from a <code><a href="../Classes/Room.html#/s:FC3cct4Room15editPowerLevelsFT_GSqCS_15PowerLevelsEdit_">Room.editPowerLevels()</a></code> call. It is also possible to create an instance with
+one of the static factory methods and then pass the instance to <code><a href="../Classes/Room.html#/s:FC3cct4Room14setPowerLevelsFTCS_20PowerLevelsContainer7successGSqFS0_T__7failureGSqFCS_7C3ErrorT___T_">Room.setPowerLevels(_:success:failure:)</a></code>.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+<p><a href='#example' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='example'>Example</h4>
+<pre class="highlight plaintext"><code>room.editPowerLevels()
+    .kick(has: 60)
+    .addState(has: 0)
+    .user(promotedUser, has: 60)
+    .event(<q>my.customer.event</q>, has: 20)
+    .commit({
+        print(&quot;Power levels updated!)
+})</p>
+
+<p>room.setPowerLevels(
+    PowerLevelsEdit.fromDefault(client.user!),
+    success: { room in
+        print(<q>Power levels reset</q>)
+})
+</code></pre></p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC3cct15PowerLevelsEdit6commitGSqFTGSqFT_T__GSqFCS_7C3ErrorT___T__"></a>
+                    <a name="//apple_ref/swift/Property/commit" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC3cct15PowerLevelsEdit6commitGSqFTGSqFT_T__GSqFCS_7C3ErrorT___T__">commit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Commits the current state of the power levels edit by updating the power levels of the room to the current
+values. This method is only present if the instance was obtained via <code><a href="../Classes/Room.html#/s:FC3cct4Room15editPowerLevelsFT_GSqCS_15PowerLevelsEdit_">Room.editPowerLevels()</a></code>.</p>
+
+<p><a href='#note' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h4 id='note'>Note</h4></p>
+
+<p>Power levels can no longer be edited after successful commit. In order to perform further changes,
+<code><a href="../Classes/Room.html#/s:FC3cct4Room15editPowerLevelsFT_GSqCS_15PowerLevelsEdit_">Room.editPowerLevels()</a></code> has to be called again.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    1.0.0
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">internal(set)</span> <span class="k">var</span> <span class="nv">commit</span><span class="p">:</span> <span class="p">((</span><span class="kt">SuccessCallback</span><span class="o">&lt;</span><span class="kt">Void</span><span class="o">&gt;</span><span class="p">?,</span> <span class="kt">FailureCallback</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC3cct15PowerLevelsEdit11fromDefaultFT3forGSqCS_4User__S0_"></a>
+                    <a name="//apple_ref/swift/Method/fromDefault(for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC3cct15PowerLevelsEdit11fromDefaultFT3forGSqCS_4User__S0_">fromDefault(for:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new <code>PowerLevelsEdit</code> object with the default power levels.</p>
+
+<p>The creator of the room can optionally be specified, in which case the creators power level will be set to the
+default power level of the creator.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">fromDefault</span><span class="p">(</span><span class="k">for</span> <span class="nv">creator</span><span class="p">:</span> <span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PowerLevelsEdit</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>creator</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An optional creator of the room.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>New instance of <code>PowerLevelsEdit</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC3cct15PowerLevelsEdit8fromZeroFT_S0_"></a>
+                    <a name="//apple_ref/swift/Method/fromZero()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC3cct15PowerLevelsEdit8fromZeroFT_S0_">fromZero()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new <code>PowerLevelsEdit</code> object with all power levels set to 0.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kd">func</span> <span class="nf">fromZero</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">PowerLevelsEdit</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>New instance of <code>PowerLevelsEdit</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct15PowerLevelsEdit8addStateFT3hasSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/addState(has:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct15PowerLevelsEdit8addStateFT3hasSi_S0_">addState(has:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the power level required to add a new state to the room.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">addState</span><span class="p">(</span><span class="n">has</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PowerLevelsEdit</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>level</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new power level requirement.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Current instance of <code>PowerLevelsEdit</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct15PowerLevelsEdit5eventFT4withSS3hasSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/event(with:has:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct15PowerLevelsEdit5eventFT4withSS3hasSi_S0_">event(with:has:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the power level required to send an event of a specific type or set a state of the same type.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">event</span><span class="p">(</span><span class="n">with</span> <span class="nv">eventType</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">has</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PowerLevelsEdit</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>eventType</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The type of the event.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>level</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new power level requirement.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Current instance of <code>PowerLevelsEdit</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct15PowerLevelsEdit12eventDefaultFT2isSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/eventDefault(is:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct15PowerLevelsEdit12eventDefaultFT2isSi_S0_">eventDefault(is:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the default power level for all event types in the room. If a specific power level hasn&rsquo;t been set for an
+event type this value will be used.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">eventDefault</span><span class="p">(</span><span class="k">is</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PowerLevelsEdit</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>level</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new power level requirement.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Current instance of <code>PowerLevelsEdit</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct15PowerLevelsEdit6inviteFT3hasSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/invite(has:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct15PowerLevelsEdit6inviteFT3hasSi_S0_">invite(has:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the power level required to invite a user to the room.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">invite</span><span class="p">(</span><span class="n">has</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PowerLevelsEdit</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>level</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new power level requirement.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Current instance of <code>PowerLevelsEdit</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct15PowerLevelsEdit4kickFT3hasSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/kick(has:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct15PowerLevelsEdit4kickFT3hasSi_S0_">kick(has:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the power level required to kick a user from the room.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">kick</span><span class="p">(</span><span class="n">has</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PowerLevelsEdit</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>level</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new power level requirement.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Current instance of <code>PowerLevelsEdit</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct15PowerLevelsEdit6redactFT3hasSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/redact(has:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct15PowerLevelsEdit6redactFT3hasSi_S0_">redact(has:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the power level required to redact and event in the room.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">redact</span><span class="p">(</span><span class="n">has</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PowerLevelsEdit</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>level</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new power level requirement.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Current instance of <code>PowerLevelsEdit</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct15PowerLevelsEdit7setNameFT3hasSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/setName(has:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct15PowerLevelsEdit7setNameFT3hasSi_S0_">setName(has:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the power level required to change the name of a room.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setName</span><span class="p">(</span><span class="n">has</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PowerLevelsEdit</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>level</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new power level requirement.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Current instance of <code>PowerLevelsEdit</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct15PowerLevelsEdit14setPowerLevelsFT3hasSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/setPowerLevels(has:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct15PowerLevelsEdit14setPowerLevelsFT3hasSi_S0_">setPowerLevels(has:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the power level required to change the power levels of a room.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setPowerLevels</span><span class="p">(</span><span class="n">has</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PowerLevelsEdit</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>level</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new power level requirement.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Current instance of <code>PowerLevelsEdit</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct15PowerLevelsEdit8setTopicFT3hasSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/setTopic(has:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct15PowerLevelsEdit8setTopicFT3hasSi_S0_">setTopic(has:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the power level required to change the topic of a room.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setTopic</span><span class="p">(</span><span class="n">has</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PowerLevelsEdit</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>level</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new power level requirement.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Current instance of <code>PowerLevelsEdit</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct15PowerLevelsEdit7setTypeFT3hasSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/setType(has:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct15PowerLevelsEdit7setTypeFT3hasSi_S0_">setType(has:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the power level required to change the type of a room.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">setType</span><span class="p">(</span><span class="n">has</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PowerLevelsEdit</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>level</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new power level requirement.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Current instance of <code>PowerLevelsEdit</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct15PowerLevelsEdit4userFTCS_4User3hasSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/user(_:has:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct15PowerLevelsEdit4userFTCS_4User3hasSi_S0_">user(_:has:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the power level of a user.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">user</span><span class="p">(</span><span class="n">_</span> <span class="nv">user</span><span class="p">:</span> <span class="kt"><a href="../Classes/User.html">User</a></span><span class="p">,</span> <span class="n">has</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PowerLevelsEdit</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>user</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The user instance.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>level</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new power level requirement.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Current instance of <code>PowerLevelsEdit</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC3cct15PowerLevelsEdit11userDefaultFT2isSi_S0_"></a>
+                    <a name="//apple_ref/swift/Method/userDefault(is:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC3cct15PowerLevelsEdit11userDefaultFT2isSi_S0_">userDefault(is:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the default power level for users in the room. If a specific power level hasn&rsquo;t been set for a user this
+value will be used.</p>
+
+<div class="aside aside-version">
+    <p class="aside-title">Version</p>
+    <p>1.0.0</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">userDefault</span><span class="p">(</span><span class="k">is</span> <span class="nv">level</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">PowerLevelsEdit</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>level</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The new power level requirement.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Current instance of <code>PowerLevelsEdit</code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external">Ericsson AB</a>. All rights reserved. (Last updated: 2017-03-03)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

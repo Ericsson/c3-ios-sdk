@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'C3Lib'
-  s.version          = '0.0.4'
+  s.version          = '0.0.5'
   s.summary          = 'Ericsson Contextual Communication Cloud SDK'
 
   s.description      = <<-DESC
@@ -23,7 +23,8 @@ iOS SDK for building Ericsson Contextual Communication Cloud apps.
   s.ios.deployment_target = '8.0'
   s.requires_arc = true
 
-  s.vendored_frameworks = 'C3Lib/C3Lib.framework'
+  s.vendored_frameworks = 'C3Lib/cct.framework'
+  s.module_name = 'cct'
   
   s.dependency 'CryptoSwift', '~> 0.6.6'
   s.dependency 'MatrixSDK', '~> 0.7.1'
