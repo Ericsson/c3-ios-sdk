@@ -1,7 +1,9 @@
 # Ericsson Contextual Communication Cloud iOS SDK
-[![Version](https://img.shields.io/cocoapods/v/C3Lib.svg?style=flat)](http://cocoapods.org/pods/C3Lib)
-[![License](https://img.shields.io/cocoapods/l/C3Lib.svg?style=flat)](http://cocoapods.org/pods/C3Lib)
-[![Platform](https://img.shields.io/cocoapods/p/C3Lib.svg?style=flat)](http://cocoapods.org/pods/C3Lib)
+[![Version](https://img.shields.io/cocoapods/v/C3Lib.svg?style=flat)](https://cocoapods.org/pods/C3Lib)
+[![License](https://img.shields.io/cocoapods/l/C3Lib.svg?style=flat)](https://cocoapods.org/pods/C3Lib)
+[![Platform](https://img.shields.io/cocoapods/p/C3Lib.svg?style=flat)](https://cocoapods.org/pods/C3Lib)
+[![Downloads](https://img.shields.io/cocoapods/dt/C3Lib.svg?style=flat)](https://cocoapods.org/pods/C3Lib)
+[![Apps](https://img.shields.io/cocoapods/at/C3Lib.svg?style=flat)](https://cocoapods.org/pods/C3Lib)
 
 If you have questions about Ericsson Contextual Communication Cloud, feel free to reach out at https://discuss.c3.ericsson.net/
 
