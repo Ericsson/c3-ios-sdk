@@ -33,3 +33,5 @@ Carthage
 Pods/
 Podfile.lock
 _Pods.xcodeproj
+
+*.xcworkspace

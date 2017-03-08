@@ -548,6 +548,13 @@ SWIFT_CLASS("_TtC3cct11MediaFilter")
   \endcode.
   version:
   1.0.0
+  <h4>Events</h4>
+  \code
+  filtered
+  \endcode: Emitted when the filtered audio level has changed.
+  \code
+  raw
+  \endcode: Emitted when the raw audio level has changed.
   <h4>Example</h4>
   Example of using the \code
   AudioMeter
@@ -1597,6 +1604,13 @@ SWIFT_CLASS("_TtC3cct19ConnectionLostError")
 @end
 
 
+/**
+  An error that is represents a signaling failure. This error almost always indicates that there is an incompatability
+  between the endpoints that are being connected, or that the particular way that the connection is being set up is
+  not supported.
+  version:
+  1.0.0
+*/
 SWIFT_CLASS("_TtC3cct24ConnectionSignalingError")
 @interface ConnectionSignalingError : C3Error
 @end
