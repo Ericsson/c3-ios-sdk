@@ -69,4 +69,4 @@ Ericsson AB
 
 ## License
 
-C3Lib is available under the BSD-2 license. See the LICENSE file for more info.
+The C3Lib example is available under the BSD-2 license. See the LICENSE file for more info.
