@@ -26,7 +26,7 @@ class FilesViewController: RoomDetailsItemViewController {
 
         files = room?.events.filter {
             $0.type == "m.room.message" && $0.content["msgtype"] as? String == "m.image"
-            }.reversed() ?? []
+        }.reversed() ?? []
     }
 }
 

@@ -1,3 +1,5 @@
+platform :ios, '10.0'
+
 use_frameworks!
 
 post_install do |installer|
@@ -9,17 +11,15 @@ post_install do |installer|
   end
 end
 
-def shared_pods
-  pod 'C3Lib', :path => '../'
-end
-
 target 'C3Lib_Example' do
-  shared_pods
+  pod 'C3Lib', :path => '../'
   pod 'DZNEmptyDataSet', '~> 1.8.1'
+  pod 'FontAwesome.swift', '~> 1.2.0'
   pod 'IGIdenticon', '~> 0.4'
-  pod 'JSQMessagesViewController', '~> 7.3.4'
+  pod 'JSQMessagesViewController', '~> 7.3.5'
   pod 'JTSImageViewController', '~> 1.5.1'
-  pod 'KeyboardObserver', '~> 1.0.1'
-  pod 'SDWebImage', '~> 4.0.0'
+  pod 'KeyboardObserver', '~> 2.0.0'
+  pod 'SDWebImage', '~> 4.1.2'
+  pod 'SkyFloatingLabelTextField', '~> 3.2.1'
   pod 'SVPullToRefresh', '~> 0.4.1'
 end

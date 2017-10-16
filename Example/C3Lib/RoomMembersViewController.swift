@@ -64,7 +64,7 @@ class RoomMembersViewController: RoomDetailsItemViewController {
 
             self.client?.fetchUser(withId: id, success: { user in
                 self.room?.invite(user, success: { _ in
-                    user.on("presence", target: self, callback: #selector(self.updateMembers))
+                    user.once("presence", target: self, callback: #selector(self.updateMembers))
                 }, failure: { error in
                     controller = UIAlertController(title: "Error", message: error.reason, preferredStyle: .alert)
                     controller.view.tintColor = UIColor.ericssonBlue
@@ -190,7 +190,7 @@ extension RoomMembersViewController {
                 return
             }
 
-            guard let conference = room?.startConference() else {
+            guard let conference = room?.startConference(switcherMode: .automatic) else {
                 return
             }
 

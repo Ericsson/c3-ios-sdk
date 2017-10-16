@@ -25,6 +25,10 @@ class ChatViewController: JSQMessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .never
+        }
+
         guard let room = room else {
             return
         }
@@ -253,7 +257,7 @@ class ChatViewController: JSQMessagesViewController {
     }
 
     private func loadMoreEvents(scrollToBottom: Bool) {
-        self.room?.load(count: 10, chunkSize: 10, filterFunction: { $0.type == "m.room.message" }, success: { events in
+        self.room?.load(count: 10, chunkSize: 1000, filterFunction: { $0.type == "m.room.message" }, success: { events in
             DispatchQueue.global(qos: .default).async {
                 print("Did receive \(events.count) events")
 

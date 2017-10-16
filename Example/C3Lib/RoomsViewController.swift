@@ -25,8 +25,6 @@ class RoomsViewController: UITableViewController {
         client?.on("leave", target: self, callback: #selector(reloadRooms))
         client?.on("rooms", target: self, callback: #selector(reloadRooms))
 
-        client?.on("conference", target: self, callback: #selector(onConference))
-
         reloadRooms()
     }
 
@@ -128,16 +126,37 @@ class RoomsViewController: UITableViewController {
                 return
             }
 
-            self.client?.createRoom(name: name, success: { room in
+            self.client?.createRoom(name: name, alias: name, visibility: .public, success: { room in
                 room.on("avatar", target: self, callback: #selector(self.reloadRooms))
                 room.on("name", target: self, callback: #selector(self.reloadRooms))
                 room.on("members", target: self, callback: #selector(self.reloadRooms))
                 self.tableView.reloadData()
             }, failure: { error in
-                controller = UIAlertController(title: "Error", message: error.reason, preferredStyle: .alert)
-                controller.view.tintColor = UIColor.ericssonBlue
-                controller.addAction(UIAlertAction(title: "Dismiss", style: .default))
-                self.present(controller, animated: true)
+                if let _ = error as? ConflictError {
+                    self.client?.fetchRoom(withAlias: name, success: { room in
+                        room.join(success: { room in
+                            room.on("avatar", target: self, callback: #selector(self.reloadRooms))
+                            room.on("name", target: self, callback: #selector(self.reloadRooms))
+                            room.on("members", target: self, callback: #selector(self.reloadRooms))
+                            self.tableView.reloadData()
+                        }, failure: { error in
+                            controller = UIAlertController(title: "Error", message: error.reason, preferredStyle: .alert)
+                            controller.view.tintColor = UIColor.ericssonBlue
+                            controller.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                            self.present(controller, animated: true)
+                        })
+                    }, failure: { error in
+                        controller = UIAlertController(title: "Error", message: error.reason, preferredStyle: .alert)
+                        controller.view.tintColor = UIColor.ericssonBlue
+                        controller.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                        self.present(controller, animated: true)
+                    })
+                } else {
+                    controller = UIAlertController(title: "Error", message: error.reason, preferredStyle: .alert)
+                    controller.view.tintColor = UIColor.ericssonBlue
+                    controller.addAction(UIAlertAction(title: "Dismiss", style: .default))
+                    self.present(controller, animated: true)
+                }
             })
         })
 
@@ -148,43 +167,42 @@ class RoomsViewController: UITableViewController {
 
     @objc private func onUserName(_ name: String) {
         print("Did reveive username change to \(name)")
+        
         navigationItem.title = name
     }
 
     @objc private func onCall(_ call: Call) {
-        print("Did receive call from \(call.peer?.name)")
-
+        print("Did receive call from \(call.peer?.name ?? "nil")")
+        
         let controller = UIAlertController(
             title: "Incoming call",
             message: "You have received an incoming call from \(call.peer!.name)",
             preferredStyle: .alert)
         controller.view.tintColor = UIColor.ericssonBlue
-
+        
         controller.addAction(UIAlertAction(title: "Answer", style: .default) { _ in
             call.start()
             self.performSegue(withIdentifier: "answerCall", sender: call)
         })
-
+        
         controller.addAction(UIAlertAction(title: "Reject", style: .destructive) { _ in
             call.hangup()
         })
-
+        
         present(controller, animated: true)
     }
 
-    @objc func onConference(_ conference: Conference) {
-        print("Did receive conference")
-    }
-
     @objc private func onInvite(_ room: Room) {
-        print("Did receive invite to room \(label(for: room)) (\(room.membership.rawValue))")
-
-        room.join(success: { _ in
-            print("Did join room \(self.label(for: room)) (\(room.membership.rawValue))")
-            self.tableView.reloadData()
-        }, failure: {
-            print("Did fail to join room \(self.label(for: room)): \($0.reason)")
-        })
+        DispatchQueue.main.async {
+            print("Did receive invite to room \(self.label(for: room)) (\(room.membership.rawValue))")
+            
+            room.join(success: { _ in
+                print("Did join room \(self.label(for: room)) (\(room.membership.rawValue))")
+                self.tableView.reloadData()
+            }, failure: {
+                print("Did fail to join room \(self.label(for: room)): \($0.reason)")
+            })
+        }
     }
 
     @objc private func reloadRooms() {
@@ -201,8 +219,10 @@ class RoomsViewController: UITableViewController {
             $0.on("name", target: self, callback: #selector(reloadRooms))
             $0.on("members", target: self, callback: #selector(reloadRooms))
         }
-
-        tableView.reloadData()
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 
     fileprivate func label(for room: Room) -> String {

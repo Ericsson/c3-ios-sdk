@@ -11,6 +11,10 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .never
+        }
+
         tableView.backgroundView = nil
         tableView.backgroundColor = UIColor.white
 
@@ -193,7 +197,7 @@ private extension SettingsViewController {
 
     func handlePassword() {
         var controller = UIAlertController(
-            title: "Change passwowrd",
+            title: "Change password",
             message: "What should be the new password?",
             preferredStyle: .alert)
         controller.view.tintColor = UIColor.ericssonBlue

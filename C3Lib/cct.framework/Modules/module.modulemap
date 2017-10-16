@@ -7,4 +7,5 @@ framework module cct {
 
 module cct.Swift {
     header "cct-Swift.h"
+    requires objc
 }

@@ -1,33 +1,59 @@
 import cct
+import FontAwesome_swift
 import Foundation
 import KeyboardObserver
 import UIKit
+import SkyFloatingLabelTextField
+
+class TextField: UITextField {
+
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        return UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(0, 15, 0, 15))
+    }
+
+    override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        return UIEdgeInsetsInsetRect(bounds, UIEdgeInsetsMake(0, 15, 0, 15))
+    }
+}
 
 class LoginViewController: UIViewController {
 
     @IBOutlet var imageView: UIImageView?
 
-    @IBOutlet var container: UIView?
-
-    @IBOutlet var usernameField: UITextField?
-    @IBOutlet var passwordField: UITextField?
-    @IBOutlet var serverField: UITextField?
+    @IBOutlet var usernameField: SkyFloatingLabelTextFieldWithIcon?
+    @IBOutlet var passwordField: SkyFloatingLabelTextFieldWithIcon?
+    @IBOutlet var serverField: SkyFloatingLabelTextFieldWithIcon?
 
     @IBOutlet var loginButton: UIButton?
     @IBOutlet var registerButton: UIButton?
 
     @IBOutlet var constraint: NSLayoutConstraint?
 
-    private let keyboard = KeyboardObserver()
-    private var client: Client?
+    fileprivate let keyboard = KeyboardObserver()
+    fileprivate var client: Client?
     private var isRegistering = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        usernameField?.iconFont = UIFont.fontAwesome(ofSize: 15)
+        usernameField?.iconText = String.fontAwesomeIcon(name: .user)
+
+        passwordField?.iconFont = UIFont.fontAwesome(ofSize: 15)
+        passwordField?.iconText = String.fontAwesomeIcon(name: .lock)
+
+        serverField?.iconFont = UIFont.fontAwesome(ofSize: 15)
+        serverField?.iconText = String.fontAwesomeIcon(name: .globe)
+        
+        client = cct.Client(iceServers: [
+            IceServer(
+                url: "turn:turn.demo.c3.ericsson.net:443?transport=tcp",
+                username: "c3-turn",
+                password: "see-three")
+        ])
+
         if let json = UserDefaults.standard.dictionary(forKey: "authInfo") {
             if let authInfo = AuthInfo.fromRaw(json) {
-                client = Client()
                 client?.auth(authInfo, success: { client in
                     print("Did restore session")
                     self.performSegue(withIdentifier: "showRooms", sender: client)
@@ -46,23 +72,17 @@ class LoginViewController: UIViewController {
                 return
             }
 
-            let height = UIScreen.main.bounds.height - event.keyboardFrameEnd.origin.y
-
-            self.constraint?.constant = height
-
-            if event.type == .willShow {
-                let remaining = self.view.frame.size.height - self.container!.frame.size.height - height
-                if remaining < self.imageView!.frame.size.height {
-                    self.imageView?.layer.opacity = 0.0
-                }
-            } else {
-                self.imageView?.layer.opacity = 1.0
-            }
+            self.constraint?.constant = UIScreen.main.bounds.height - event.keyboardFrameEnd.origin.y
+            self.view.setNeedsUpdateConstraints()
 
             UIView.animate(withDuration: event.duration) {
-                self.view.layoutSubviews()
+                self.view.layoutIfNeeded()
             }
         }
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -70,15 +90,13 @@ class LoginViewController: UIViewController {
 
         navigationController?.isNavigationBarHidden = true
 
-        keyboard.enabled = true
-
-        client = nil
+        keyboard.isEnabled = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        keyboard.enabled = false
+        keyboard.isEnabled = false
 
         navigationController?.isNavigationBarHidden = false
     }
@@ -192,8 +210,26 @@ class LoginViewController: UIViewController {
             registerButton?.isEnabled = !isRegistering && (serverField?.text?.characters.count ?? 0) != 0
         }
     }
+}
 
-    fileprivate func login() {
+extension LoginViewController: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == usernameField {
+            passwordField?.becomeFirstResponder()
+        } else if textField == passwordField {
+            serverField?.becomeFirstResponder()
+        } else {
+            login()
+        }
+
+        return true
+    }
+}
+
+private extension LoginViewController {
+
+    func login() {
         loginButton?.isEnabled = false
 
         Auth.login(
@@ -203,8 +239,6 @@ class LoginViewController: UIViewController {
             success: { authInfo in
                 UserDefaults.standard.setValue(authInfo.toRaw(), forKey: "authInfo")
                 UserDefaults.standard.synchronize()
-
-                self.client = Client()
 
                 self.client?.auth(authInfo, success: { client in
                     self.loginButton?.isEnabled = true
@@ -238,28 +272,11 @@ class LoginViewController: UIViewController {
         })
     }
 
-    private func hideKeyboard() {
+    func hideKeyboard() {
         usernameField?.resignFirstResponder()
         passwordField?.resignFirstResponder()
         serverField?.resignFirstResponder()
 
         keyboard.state = .hidden
-    }
-}
-
-// MARK: UITextFieldDelegate
-
-extension LoginViewController: UITextFieldDelegate {
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == usernameField {
-            passwordField?.becomeFirstResponder()
-        } else if textField == passwordField {
-            serverField?.becomeFirstResponder()
-        } else {
-            login()
-        }
-
-        return true
     }
 }
