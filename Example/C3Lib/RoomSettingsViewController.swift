@@ -32,7 +32,7 @@ class RoomSettingsViewController: RoomDetailsItemViewController {
     }
 
     @objc func reloadSettings() {
-        print("Will reload settings")
+        log.verbose("Reloading settings")
         tableView.reloadData()
     }
 
@@ -165,11 +165,28 @@ class RoomSettingsViewController: RoomDetailsItemViewController {
     }
 
     func handleFormError(_ error: C3Error) {
-        print("Did encounter error: \(error.reason)")
+        log.error("Encountered error: \(error.reason)")
         let controller = UIAlertController(title: "Error", message: error.reason, preferredStyle: .alert)
         controller.view.tintColor = UIColor.ericssonBlue
         controller.addAction(UIAlertAction(title: "Dismiss", style: .default))
         self.present(controller, animated: true)
+    }
+    
+    func handleLeaveRoom() {
+        let controller = UIAlertController(
+            title: "Leave room",
+            message: "Are you sure you want to leave room \(room!.label)?",
+            preferredStyle: .alert)
+        controller.view.tintColor = UIColor.ericssonBlue
+        
+        controller.addAction(UIAlertAction(title: "Leave", style: .default) { _ in
+            self.room?.leave(success: { _ in
+                self.navigationController?.popToHomeView(animated: true)
+            }, failure: self.handleFormError)
+        })
+        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(controller, animated: true)
     }
 }
 
@@ -178,11 +195,15 @@ class RoomSettingsViewController: RoomDetailsItemViewController {
 extension RoomSettingsViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 1 : 5
+        switch section {
+        case 0: return 1
+        case 1: return 5
+        default: return 1
+        }
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -196,11 +217,11 @@ extension RoomSettingsViewController {
             cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath)
             cell.textLabel?.text = "Room ID"
             cell.detailTextLabel?.text = room?.id
-        } else {
+        } else if indexPath.section == 1 {
             if indexPath.row == 0 {
                 cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath)
                 cell.textLabel?.text = "Room Name"
-                cell.detailTextLabel?.text = room?.name
+                cell.detailTextLabel?.text = room?.label
             } else if indexPath.row == 1 {
                 cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath)
                 cell.textLabel?.text = "Room Photo"
@@ -229,6 +250,9 @@ extension RoomSettingsViewController {
                 cell.textLabel?.text = "History Visibility"
                 cell.detailTextLabel?.text = room?.historyVisibility.name
             }
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: "ButtonCell", for: indexPath)
+            cell.textLabel?.text = "Leave room"
         }
 
         return cell
@@ -258,6 +282,8 @@ extension RoomSettingsViewController {
             } else if indexPath.row == 4 {
                 handleHistoryVisibility()
             }
+        } else {
+            handleLeaveRoom()
         }
     }
 }
@@ -277,7 +303,7 @@ extension RoomSettingsViewController: UIImagePickerControllerDelegate, UINavigat
 
         let _ = client?.uploadMedia(data, ofType: "image/png", success: { resource in
             self.room?.setAvatar(resource.resourceUri, success: { _ in
-                print("Did update room avatar")
+                log.verbose("Updated room avatar")
             }, failure: self.handleFormError)
         }, failure: handleFormError)
     }

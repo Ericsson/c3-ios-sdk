@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'C3Lib'
-  s.version          = '0.0.7'
+  s.version          = '0.0.8'
   s.summary          = 'Ericsson Contextual Communication Cloud SDK'
 
   s.description      = <<-DESC

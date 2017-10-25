@@ -182,7 +182,7 @@ private extension CallViewController {
     }
 
     func createThumbnailView(for peerId: String) -> ThumbnailView {
-        print("[\(type(of: self))] Will create thumbnail view for \(peerId)")
+        log.verbose("Will create thumbnail view for \(peerId)")
 
         let height = Int(thumbnailViews!.frame.size.height)
         let width = 16 * height / 9

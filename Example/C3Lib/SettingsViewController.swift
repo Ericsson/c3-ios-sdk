@@ -32,7 +32,7 @@ class SettingsViewController: UITableViewController {
     }
 
     @objc func reloadSettings() {
-        print("Will reload settings")
+        log.verbose("Reloading settings")
         tableView.reloadData()
     }
 
@@ -132,7 +132,7 @@ extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationC
 
         let _ = client?.uploadMedia(data, ofType: "image/png", success: { resource in
             self.client?.setAvatar(resource.resourceUri, success: { _ in
-                print("Did update avatar")
+                log.verbose("Updated avatar")
             }, failure: self.handleFormError)
         }, failure: handleFormError)
     }
@@ -249,7 +249,7 @@ private extension SettingsViewController {
                 for: self.client!.authInfo!,
                 oldPassword: oldPassword,
                 newPassword: newPassword, success: { _ in
-                    print("Did change password")
+                    log.verbose("Changed password")
             }, failure: self.handleFormError)
         })
 
@@ -259,7 +259,7 @@ private extension SettingsViewController {
     }
 
     func handleFormError(_ error: C3Error) {
-        print("Did encounter error: \(error.reason)")
+        log.error("Encountered error: \(error.reason)")
         let controller = UIAlertController(title: "Error", message: error.reason, preferredStyle: .alert)
         controller.view.tintColor = UIColor.ericssonBlue
         controller.addAction(UIAlertAction(title: "Dismiss", style: .default))

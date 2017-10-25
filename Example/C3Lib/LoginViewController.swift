@@ -3,6 +3,7 @@ import FontAwesome_swift
 import Foundation
 import KeyboardObserver
 import UIKit
+import PopupKit
 import SkyFloatingLabelTextField
 
 class TextField: UITextField {
@@ -45,6 +46,8 @@ class LoginViewController: UIViewController {
         serverField?.iconFont = UIFont.fontAwesome(ofSize: 15)
         serverField?.iconText = String.fontAwesomeIcon(name: .globe)
         
+        cct.log.logLevel = .warning
+        
         client = cct.Client(iceServers: [
             IceServer(
                 url: "turn:turn.demo.c3.ericsson.net:443?transport=tcp",
@@ -55,16 +58,16 @@ class LoginViewController: UIViewController {
         if let json = UserDefaults.standard.dictionary(forKey: "authInfo") {
             if let authInfo = AuthInfo.fromRaw(json) {
                 client?.auth(authInfo, success: { client in
-                    print("Did restore session")
+                    log.info("Restored session")
                     self.performSegue(withIdentifier: "showRooms", sender: client)
                 }, failure: { error in
-                    print("Did fail to restore session: \(error.reason)")
+                    log.error("Failed to restore session: \(error.reason)")
                 })
             } else {
-                print("Did fail to restore session")
+                log.error("Failed to restore session")
             }
         } else {
-            print("Did not find stored session")
+            log.info("No stored session found")
         }
 
         keyboard.observe { event in

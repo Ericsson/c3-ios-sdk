@@ -4,6 +4,22 @@ import IGIdenticon
 import SDWebImage
 import UIKit
 
+extension UINavigationController {
+    
+    func popToHomeView(animated: Bool = true) {
+        if let controller = viewControllers.filter({ $0.isKind(of: RoomsViewController.self) }).first {
+            popToViewController(controller, animated: animated)
+        }
+    }
+}
+
+extension Room {
+    
+    var label: String {
+        return name ?? alias ?? id
+    }
+}
+
 class RoomsViewController: UITableViewController {
 
     var client: Client?
@@ -166,13 +182,13 @@ class RoomsViewController: UITableViewController {
     }
 
     @objc private func onUserName(_ name: String) {
-        print("Did reveive username change to \(name)")
+        log.debug("Received username change to \(name)")
         
         navigationItem.title = name
     }
 
     @objc private func onCall(_ call: Call) {
-        print("Did receive call from \(call.peer?.name ?? "nil")")
+        log.debug("Received call from \(call.peer?.name ?? "nil")")
         
         let controller = UIAlertController(
             title: "Incoming call",
@@ -194,13 +210,13 @@ class RoomsViewController: UITableViewController {
 
     @objc private func onInvite(_ room: Room) {
         DispatchQueue.main.async {
-            print("Did receive invite to room \(self.label(for: room)) (\(room.membership.rawValue))")
+            log.debug("Received invite to room \(room.label) (\(room.membership.rawValue))")
             
             room.join(success: { _ in
-                print("Did join room \(self.label(for: room)) (\(room.membership.rawValue))")
+                log.verbose("Did join room \(room.label) (\(room.membership.rawValue))")
                 self.tableView.reloadData()
             }, failure: {
-                print("Did fail to join room \(self.label(for: room)): \($0.reason)")
+                log.error("Failed to join room \(room.label): \($0.reason)")
             })
         }
     }
@@ -212,7 +228,7 @@ class RoomsViewController: UITableViewController {
             $0.off("members", target: self)
         }
 
-        rooms = client?.rooms.sorted { label(for: $0.0).compare(label(for: $0.1)) == .orderedAscending }
+        rooms = client?.rooms.sorted { $0.0.label.compare($0.1.label) == .orderedAscending }
 
         rooms?.forEach {
             $0.on("avatar", target: self, callback: #selector(reloadRooms))
@@ -223,10 +239,6 @@ class RoomsViewController: UITableViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-    }
-
-    fileprivate func label(for room: Room) -> String {
-        return room.name ?? room.alias ?? room.id
     }
 }
 
@@ -246,7 +258,7 @@ extension RoomsViewController {
 
         let count = room.members.count
 
-        cell.textLabel?.text = label(for: room)
+        cell.textLabel?.text = room.label
         cell.detailTextLabel?.text = "\(room.members.count) member\(count == 1 ? "" : "s")"
         cell.imageView?.backgroundColor = UIColor(red: 0.84, green: 0.84, blue: 0.84, alpha: 1.0)
         cell.imageView?.layer.cornerRadius = 45.0

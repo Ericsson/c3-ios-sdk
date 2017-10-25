@@ -55,12 +55,12 @@ class ChatViewController: JSQMessagesViewController {
         collectionView.addSubview(refreshControl)
 
         if room.events.count == 0 && !room.allEventsLoaded {
-            print("Will load remote events")
+            log.verbose("Loading remote events")
 
             loadMoreEvents(scrollToBottom: true)
         } else {
             DispatchQueue.global(qos: .background).async {
-                print("Will read \(room.events.count) local events")
+                log.verbose("Reading \(room.events.count) local events")
 
                 self.messages = room.events.flatMap(self.jsqMessageFromC3Event).reversed()
 
@@ -180,7 +180,7 @@ class ChatViewController: JSQMessagesViewController {
                                senderDisplayName: String!,
                                date: Date!) {
         room?.send(Message(text), success: { _ in
-            print("Did send message")
+            log.verbose("Sending message")
 
             self.messages.append(
                 JSQMessage(
@@ -191,7 +191,7 @@ class ChatViewController: JSQMessagesViewController {
                     text: text))
             self.finishSendingMessage()
         }, failure: {
-            print("Did fail to send message: \($0.reason)")
+            log.error("Failed to send message: \($0.reason)")
         })
     }
 
@@ -213,9 +213,9 @@ class ChatViewController: JSQMessagesViewController {
 
     @objc func updateTitle() {
         if let topic = room?.topic, topic.characters.count > 0 {
-            title = "\(topic) (\(room!.name ?? room!.alias ?? room!.id))"
+            title = "\(topic) (\(room!.label))"
         } else {
-            title = "\(room!.name ?? room!.alias ?? room!.id)"
+            title = room!.label
         }
     }
 
@@ -236,22 +236,22 @@ class ChatViewController: JSQMessagesViewController {
         if let typing = room?.typing {
             if let _ = typing.index(of: client!.user!) {
                 if typing.count == 1 {
-                    print("Our own user is typing, hiding typing indicator")
+                    log.verbose("Our own user is typing, hiding typing indicator")
                     showTypingIndicator = false
                 } else {
-                    print("Someone else is typing together with out own user")
+                    log.verbose("Someone else is typing together with out own user")
                     showTypingIndicator = true
                 }
             } else
                 if typing.count == 0 {
-                    print("Nobody is typing, hiding typing indicator")
+                    log.verbose("Nobody is typing, hiding typing indicator")
                     showTypingIndicator = false
                 } else {
-                    print("Someone else is typing, showing typing indicator")
+                    log.verbose("Someone else is typing, showing typing indicator")
                     showTypingIndicator = true
             }
         } else {
-            print("Nobody is typing, hiding typing indicator")
+            log.verbose("Nobody is typing, hiding typing indicator")
             showTypingIndicator = false
         }
     }
@@ -259,7 +259,7 @@ class ChatViewController: JSQMessagesViewController {
     private func loadMoreEvents(scrollToBottom: Bool) {
         self.room?.load(count: 10, chunkSize: 1000, filterFunction: { $0.type == "m.room.message" }, success: { events in
             DispatchQueue.global(qos: .default).async {
-                print("Did receive \(events.count) events")
+                log.verbose("Received \(events.count) events")
 
                 self.messages.insert(contentsOf: events.flatMap(self.jsqMessageFromC3Event).reversed(), at: 0)
 
@@ -279,7 +279,7 @@ class ChatViewController: JSQMessagesViewController {
                 }
             }
         }, failure: { error in
-            print("Did fail to load events: \(error.reason)")
+            log.error("Failed to load events: \(error.reason)")
         })
     }
 
@@ -335,11 +335,11 @@ class ChatViewController: JSQMessagesViewController {
 
         let typing = textView.text.characters.count > 0
 
-        print("Will update typing notification to \(typing)")
+        log.verbose("Updating typing notification to \(typing)")
         room?.setTyping(typing, success: { _ in
-            print("Did update typing notification")
+            log.verbose("Updated typing notification")
         }, failure: { error in
-            print("Did fail to update typing notification: \(error.reason)")
+            log.error("Failed to update typing notification: \(error.reason)")
         })
     }
 }
@@ -393,9 +393,9 @@ extension ChatViewController: UIImagePickerControllerDelegate, UINavigationContr
             self.room?.send(
                 ["msgtype": "m.image", "url": resource.resourceUri, "body": resource.resourceUri],
                 success: { _ in
-                    print("Did send image")
+                    log.verbose("Sent image")
             }, failure: {
-                print("Did fail to send message: \($0.reason)")
+                log.error("Failed to send message: \($0.reason)")
             })
         }, failure: { error in
             let controller = UIAlertController(
